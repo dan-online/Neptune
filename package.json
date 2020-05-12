@@ -1,0 +1,20 @@
+{
+  "name": "discord-template",
+  "version": "1.0.0",
+  "description": "a discord bot template",
+  "main": "index.js",
+  "scripts": {
+    "start": "DEBUG=`node -e \"console.log(require('./package.json').name + '*')\"` node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "DanCodes <dan@dancodes.online>",
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "discord.js": "^12.2.0",
+    "dotenv": "^8.2.0",
+    "enmap": "^5.2.4",
+    "file-system": "^2.2.2",
+    "node-fetch": "^2.6.0"
+  }
+}
