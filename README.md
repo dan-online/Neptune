@@ -3,8 +3,8 @@
 > A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
 
 [![Discordjs Version][discordjs-image]][discordjs-url]
-[![Discord-bot languages]][https://img.shields.io/github/languages/count/dan-online/discord-bot]
-[![Discord-bot version]][https://img.shields.io/github/package-json/v/dan-online/discord-bot]
+![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
+![Discord-bot version](https://img.shields.io/github/package-json/v/dan-online/discord-bot)
 
 ## Installation
 
