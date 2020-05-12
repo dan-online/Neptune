@@ -8,6 +8,34 @@
 
 ## Installation
 
+#### .env
+
+```env
+TOKEN=DISCORD_BOT_TOKEN
+```
+
+#### Config
+
+```js
+module.exports = {
+  prefix: "t!", // bot prefix
+  owner: "312551747027468290" // your id
+  emojis: { // emojis for success and errors
+    err: {
+      full: ":red_circle:",
+      id: ":red_circle:",
+    },
+    success: {
+      id: ":white_check_mark:",
+      full: ":white_check_mark:",
+    },
+  },
+  persistent: false, // persistent database or
+};
+```
+
+#### Install
+
 ```sh
 $ yarn
 $ npm
