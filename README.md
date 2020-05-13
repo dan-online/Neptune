@@ -30,7 +30,7 @@ module.exports = {
       full: ":white_check_mark:",
     },
   },
-  persistent: false, // persistent database or
+  persistent: false // persistent database or in memory database
 };
 ```
 
