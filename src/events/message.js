@@ -1,4 +1,5 @@
 const { commands, events, database } = require("../bot");
+const { testBlock, parseCommand } = require("../utils/utils");
 function loadCommands() {
   fs.readdir(path.resolve(__dirname, "..", "commands"), function (err, cmds) {
     cmds.forEach((c) => {
@@ -14,54 +15,12 @@ module.exports = {
   name: "message",
   loadCommands,
   event(client, message) {
-    if (message.author.bot || message.author.id == client.user.id) return;
-    if (
-      message.mentions.members.first() &&
-      message.mentions.members.first().id == client.user.id
-    ) {
-      return message.reply(
-        "Hi there! To view my commands run ``" + process.conf.prefix + "help``"
-      );
-    }
-    if (
-      !message.content
-        .toLowerCase()
-        .split(" ")
-        .join("")
-        .startsWith(process.conf.prefix)
-    ) {
-      return;
-    }
-    let command = message.content
-      .toLowerCase()
-      .split(process.conf.prefix)[1]
-      .split(" ")[0];
-    if (!command) {
-      return message
-        .reply(
-          "Hi there! To view my commands run ``" +
-            process.conf.prefix +
-            "help``"
-        )
-        .catch(() => {});
-    }
-    command = command.toLowerCase();
-    let cmd;
-    try {
-      cmd = commands.get(command);
-    } catch {}
-    if (!cmd) {
-      return message.reply(
-        "``" +
-          command +
-          "`` was not found! Try running " +
-          process.conf.prefix +
-          "help to find a command!"
-      );
-    }
-    const args = message.content.split(" ").slice(1);
-    if (cmd.permissions) {
-      let noPerms = cmd.permissions.find((perm) => {
+    const returnTest = testBlock(client, message);
+    if (!returnTest) return;
+    const { file, args } = parseCommand(message, commands);
+    if (!file) return;
+    if (file.permissions) {
+      let noPerms = file.permissions.find((perm) => {
         if (perm == "owner" && message.author.id == process.conf.owner) {
           return;
         }
@@ -76,7 +35,7 @@ module.exports = {
       if (noPerms) {
         return message.channel.send(
           "Uh oh! You don't have the permission to run this command, permissions needed: " +
-            cmd.permissions.join(" and ")
+            file.permissions.join(" and ")
         );
       }
     }
@@ -84,7 +43,7 @@ module.exports = {
       if (err.name == "Error") {
         return message.channel.send(
           "Uh oh! You did something incorrectly! Try running like this: ``" +
-            cmd.use +
+            file.use +
             "``\n\nProblem: **" +
             err.message +
             "**"
@@ -98,7 +57,7 @@ module.exports = {
       );
     }
     try {
-      cmd
+      file
         .run(client, message, args, { commands, events, database })
         .catch((err) => {
           catchErr(err);

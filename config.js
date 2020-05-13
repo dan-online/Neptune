@@ -3,11 +3,11 @@ module.exports = {
   owner: "312551747027468290", // your discord id
   emojis: {
     err: {
-      full: ":red_circle:",
+      full: "🔴",
       id: ":red_circle:",
     },
     success: {
-      id: ":white_check_mark:",
+      id: "✅",
       full: ":white_check_mark:",
     },
   },
