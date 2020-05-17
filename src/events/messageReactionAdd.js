@@ -3,6 +3,8 @@ module.exports = {
   plugins: ["reactionRoles"],
   event(client, { reactionRoles }, reaction, user) {
     const message = reaction.message;
-    if (!reactionRoles.get(message.id)) return;
+    if (reactionRoles.get(message.id)) {
+      reactionRoles.addUser(user);
+    }
   },
 };

@@ -5,6 +5,10 @@ module.exports = class ReactionRoles {
     return this;
   }
   get(id) {
-    return this.db.get(id);
+    this.doc = this.db.get(id);
+    return this.doc;
+  }
+  addUser(user) {
+    console.log(user.member.id);
   }
 };
