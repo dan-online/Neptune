@@ -1,4 +1,7 @@
 
+
+- [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
+
 # 2020-05-13
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
