@@ -9,7 +9,22 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
   events.forEach((event) => {
     const e = require(path.resolve(__dirname, "events", event));
     cache.events.set(e.name, e);
+    const plugins = [];
+    if (e.plugins) {
+      e.plugins.forEach((plugin) => {
+        if (process.conf[plugin] && process.conf[plugin].enabled) {
+          let pluginF = require(path.resolve(
+            __dirname,
+            "plugins",
+            plugin + ".js"
+          ));
+          plugins.push(new pluginF(process.conf[plugin]));
+        }
+      });
+    }
     client.on(e.name, (...extra) => {
+      if (plugins.length > 0)
+        return cache.events.get(e.name).event(client, plugins, ...extra);
       cache.events.get(e.name).event(client, ...extra);
     });
   });
@@ -41,3 +56,4 @@ process.on("unhandledRejection", function (err, promis) {
 client.login(process.env.TOKEN);
 
 module.exports = cache;
+module.exports.client = client;

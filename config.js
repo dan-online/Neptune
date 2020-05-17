@@ -12,4 +12,7 @@ module.exports = {
     },
   },
   persistent: false,
+  reactionRoles: {
+    enabled: true,
+  },
 };
