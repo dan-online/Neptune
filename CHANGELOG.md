@@ -1,5 +1,7 @@
 
 
+- [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
+
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
