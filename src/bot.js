@@ -9,8 +9,9 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
   events.forEach((event) => {
     const e = require(path.resolve(__dirname, "events", event));
     cache.events.set(e.name, e);
-    const plugins = [];
+    const plugins = {};
     if (e.plugins) {
+      plugins.enabled = true;
       e.plugins.forEach((plugin) => {
         if (process.conf[plugin] && process.conf[plugin].enabled) {
           let pluginF = require(path.resolve(
@@ -18,12 +19,12 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
             "plugins",
             plugin + ".js"
           ));
-          plugins.push(new pluginF(process.conf[plugin]));
+          plugins[plugin] = new pluginF(process.conf[plugin]);
         }
       });
     }
     client.on(e.name, (...extra) => {
-      if (plugins.length > 0)
+      if (plugins.enabled)
         return cache.events.get(e.name).event(client, plugins, ...extra);
       cache.events.get(e.name).event(client, ...extra);
     });

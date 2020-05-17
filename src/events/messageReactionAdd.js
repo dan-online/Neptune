@@ -1,7 +1,8 @@
 module.exports = {
   name: "messageReactionAdd",
   plugins: ["reactionRoles"],
-  event(client, plugins, message) {
-    console.log(plugins);
+  event(client, { reactionRoles }, reaction, user) {
+    const message = reaction.message;
+    if (!reactionRoles.get(message.id)) return;
   },
 };
