@@ -1,5 +1,7 @@
 
 
+- [[d2da7fd](https://github.com/dan-online/Discord-Bot/commit/d2da7fd6c249fa4e6ecc7f4eed916e2961a36999)] - conf - ([Dan](Dan))
+
 - [[81af451](https://github.com/dan-online/Discord-Bot/commit/81af4516461c3abfbb105aa52a44c20fec2fb72a)] - uneeded method - ([Dan](Dan))
 
 - [[9922be1](https://github.com/dan-online/Discord-Bot/commit/9922be145a7b94251d0d87acaba080b982950ea0)] - Merge branch 'master' of https://github.com/dan-online/Discord-Bot - ([Dan](Dan))
