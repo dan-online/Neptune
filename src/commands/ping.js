@@ -1,3 +1,9 @@
+module.exports = {
+  aliases: ["ping", "pong", "p"],
+  use: process.conf.prefix + "ping",
+  desc: "Check the speed of the bot",
+};
+
 module.exports.run = async (client, message) => {
   message.channel.send("PONG").then((m) => {
     m.edit(
@@ -11,6 +17,3 @@ module.exports.run = async (client, message) => {
     );
   });
 };
-module.exports.aliases = ["ping", "pong", "p"];
-module.exports.use = process.conf.prefix + "ping";
-module.exports.desc = "Check the speed of the bot";
