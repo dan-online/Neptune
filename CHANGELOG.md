@@ -1,5 +1,31 @@
 
 
+- [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
+
+- [[9989b5a](https://github.com/dan-online/Discord-Bot/commit/9989b5af98c123d2ff07ed587993686053737b79)] - refactoring and auto role in src/events/guildMemberAdd.js - ([Dan](Dan))
+
+- [[07b7061](https://github.com/dan-online/Discord-Bot/commit/07b7061b620cfe63a30dc285951f9be8c52e5b49)] - refactoring and auto role in src/commands/settings.js - ([Dan](Dan))
+
+- [[a5a6230](https://github.com/dan-online/Discord-Bot/commit/a5a6230a8111809ad510559e7336e27697a20d6b)] - refactoring and auto role in src/commands/autorole.js - ([Dan](Dan))
+
+- [[b878558](https://github.com/dan-online/Discord-Bot/commit/b878558d192f425c001d9a6b01afb68269cc5d41)] - refactoring and auto role in src/plugins/reactionRoles.js - ([Dan](Dan))
+
+- [[755addc](https://github.com/dan-online/Discord-Bot/commit/755addc20836685d4e66af3e6c33ab17f376ca52)] - refactoring and auto role in src/events/message.js - ([Dan](Dan))
+
+- [[8862cfe](https://github.com/dan-online/Discord-Bot/commit/8862cfe425ff210604bd495564c7f294d2e745c3)] - refactoring and auto role in src/commands/reload.js - ([Dan](Dan))
+
+- [[66d1c32](https://github.com/dan-online/Discord-Bot/commit/66d1c32876b6782cc4704566eda998fd9abb51b5)] - refactoring and auto role in src/commands/reaction.js - ([Dan](Dan))
+
+- [[4b48dc7](https://github.com/dan-online/Discord-Bot/commit/4b48dc71e573fb2b4837b269771b6cbf7d52386b)] - refactoring and auto role in src/commands/ram.js - ([Dan](Dan))
+
+- [[45d3f9c](https://github.com/dan-online/Discord-Bot/commit/45d3f9cbba2a051f93e8f6661efdd201c5a456bc)] - refactoring and auto role in src/commands/ping.js - ([Dan](Dan))
+
+- [[84e38f3](https://github.com/dan-online/Discord-Bot/commit/84e38f3a11b132dc3e5c020ea689176da64c5d89)] - refactoring and auto role in src/commands/help.js - ([Dan](Dan))
+
+- [[0137d91](https://github.com/dan-online/Discord-Bot/commit/0137d91fdfa126eeb2f7f2b2804bbdead13af7a2)] - refactoring and auto role in src/commands/eval.js - ([Dan](Dan))
+
+- [[b9da5d9](https://github.com/dan-online/Discord-Bot/commit/b9da5d9d61b6f625954e7c7d76faf05af58e4cb0)] - refactoring and auto role in config.js - ([Dan](Dan))
+
 - [[d2da7fd](https://github.com/dan-online/Discord-Bot/commit/d2da7fd6c249fa4e6ecc7f4eed916e2961a36999)] - conf - ([Dan](Dan))
 
 - [[81af451](https://github.com/dan-online/Discord-Bot/commit/81af4516461c3abfbb105aa52a44c20fec2fb72a)] - uneeded method - ([Dan](Dan))
