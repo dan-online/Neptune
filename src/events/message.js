@@ -5,6 +5,7 @@ function loadCommands(client) {
   const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));
   cmds.forEach((c) => {
     const cMod = require(path.resolve(__dirname, "..", "commands", c));
+    if (cMod.disabled) return;
     const plugins = {};
     if (cMod.plugins) {
       let stop = false;
