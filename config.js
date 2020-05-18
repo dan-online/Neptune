@@ -13,7 +13,8 @@ module.exports = {
     },
   },
   persistent: true,
-  reactionRoles: {
+  settings: {
     enabled: true,
+    autoRole: true,
   },
 };
