@@ -1,4 +1,10 @@
 const util = require("util");
+module.exports = {
+  permissions: ["owner"],
+  aliases: ["eval", "ev"],
+  use: process.conf.prefix + "eval [code]",
+  desc: "Evaluate javascript code",
+};
 module.exports.run = async (client, message, args, extras) => {
   const toEval = args.join(" ");
   try {
@@ -12,7 +18,3 @@ module.exports.run = async (client, message, args, extras) => {
     message.react(process.conf.emojis.err.id);
   }
 };
-module.exports.permissions = ["owner"];
-module.exports.aliases = ["eval", "ev"];
-module.exports.use = process.conf.prefix + "eval [code]";
-module.exports.desc = "Evaluate javascript code";
