@@ -1,4 +1,13 @@
 const { ask } = require("../utils/utils");
+
+module.exports = {
+  plugins: ["reactionRoles"],
+  permissions: ["ADMINISTRATOR"],
+  aliases: ["reaction", "reactionroles", "rr"],
+  use: process.conf.prefix + "reaction",
+  desc: "Setup a reaction roles message",
+};
+
 module.exports.run = async (client, message, args, { plugins }) => {
   const doc = { id: uuid.v4(), roles: [], user: message.author.id };
   const questions = [
@@ -121,8 +130,3 @@ module.exports.run = async (client, message, args, { plugins }) => {
       });
   }
 };
-module.exports.plugins = ["reactionRoles"];
-module.exports.permissions = ["ADMINISTRATOR"];
-module.exports.aliases = ["reaction", "reactionroles", "rr"];
-module.exports.use = process.conf.prefix + "reaction";
-module.exports.desc = "Setup a reaction roles message";
