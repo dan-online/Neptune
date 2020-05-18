@@ -1,6 +1,6 @@
 const { ask } = require("../utils/utils");
-module.exports.run = async (client, message) => {
-  const doc = { id: uuid.v4() };
+module.exports.run = async (client, message, args, { plugins }) => {
+  const doc = { id: uuid.v4(), roles: [], user: message.author.id };
   const questions = [
     {
       q: "✍️ What title would you like?",
@@ -56,8 +56,72 @@ module.exports.run = async (client, message) => {
       })(0);
     }
   );
-  function roles() {}
+  function roles() {
+    message.channel.send(
+      "Great let's setup the roles! ``cancel`` will still cancel this setup"
+    );
+    askRole();
+    function askRole() {
+      ask(
+        message,
+        "🏓 Mention a role to continue or say ``done`` to finish!",
+        function (err, role) {
+          if (err)
+            return message.channel.send(
+              "We encountered an error: " + err.message
+            );
+          if (role.content == "cancel") {
+            return message.channel.send("Setup canceled!");
+          }
+          if (role.content == "done") {
+            return finish();
+          }
+          const roleToAdd = role.mentions.roles.first();
+          if (!roleToAdd) {
+            message.channel.send("Invalid role mention, try again");
+            return askRole();
+          }
+          ask(message, "🙊 What emoji would you like for this role?", function (
+            err,
+            emoji
+          ) {
+            if (err)
+              return message.channel.send(
+                "We encountered an error: " + err.message
+              );
+            if (role.content == "cancel") {
+              return message.channel.send("Setup canceled!");
+            }
+            emoji
+              .react(emoji.content)
+              .catch((err) => {
+                message.channel.send("This emoji is invalid, try again");
+                return askRole();
+              })
+              .then(() => {
+                doc.roles.push({ emoji: emoji.content, role: roleToAdd });
+                message.channel.send("React role successfully added");
+                return askRole();
+              });
+          });
+        }
+      );
+    }
+  }
+  function finish() {
+    if (doc.roles.length == 0)
+      return message.channel.send("No roles were assigned! Try again");
+    message.channel
+      .send("Reaction roles setup has completed, please wait..")
+      .then((m) => {
+        const { reactionRoles } = plugins;
+        reactionRoles.add(client, message.author, doc, function () {
+          return m.edit();
+        });
+      });
+  }
 };
+module.exports.plugins = ["reactionRoles"];
 module.exports.permissions = ["ADMINISTRATOR"];
 module.exports.aliases = ["reaction", "reactionroles", "rr"];
 module.exports.use = process.conf.prefix + "reaction";

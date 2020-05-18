@@ -5,6 +5,12 @@ const cache = {
   database: new Enmap(process.conf.persistent ? { name: "database" } : null),
 };
 
+if (process.conf.reactionRoles && process.conf.reactionRoles.enabled) {
+  cache.reactions = new Enmap(
+    process.conf.persistent ? { name: "reactions" } : null
+  );
+}
+
 fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
   events.forEach((event) => {
     const e = require(path.resolve(__dirname, "events", event));
@@ -19,7 +25,7 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
             "plugins",
             plugin + ".js"
           ));
-          plugins[plugin] = new pluginF(process.conf[plugin]);
+          plugins[plugin] = new pluginF(process.conf[plugin], client);
         }
       });
     }

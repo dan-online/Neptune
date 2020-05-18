@@ -10,6 +10,7 @@
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
   "dependencies": {
+    "better-sqlite-pool": "^0.3.0",
     "debug": "^4.1.1",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",

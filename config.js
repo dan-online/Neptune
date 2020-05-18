@@ -1,6 +1,7 @@
 module.exports = {
   prefix: "t!",
   owner: "312551747027468290", // your discord id
+  color: "#00ffe1",
   emojis: {
     err: {
       id: "🔴",
@@ -11,7 +12,7 @@ module.exports = {
       full: ":white_check_mark:",
     },
   },
-  persistent: false,
+  persistent: true,
   reactionRoles: {
     enabled: true,
   },

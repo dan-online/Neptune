@@ -1,20 +1,38 @@
 const { commands, events, database } = require("../bot");
 const { testBlock, parseCommand } = require("../utils/utils");
-function loadCommands() {
-  fs.readdir(path.resolve(__dirname, "..", "commands"), function (err, cmds) {
-    cmds.forEach((c) => {
-      const cMod = require(path.resolve(__dirname, "..", "commands", c));
-      cMod.aliases.forEach((x) => {
-        commands.set(x, cMod);
+var loaded = false;
+function loadCommands(client) {
+  const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));
+  cmds.forEach((c) => {
+    const cMod = require(path.resolve(__dirname, "..", "commands", c));
+    const plugins = {};
+    if (cMod.plugins) {
+      cMod.plugins.forEach((plugin) => {
+        if (process.conf[plugin] && process.conf[plugin].enabled) {
+          let pluginF = require(path.resolve(
+            __dirname,
+            "..",
+            "plugins",
+            plugin + ".js"
+          ));
+          plugins[plugin] = new pluginF(process.conf[plugin], client);
+        }
       });
+    }
+    cMod.plugins = plugins;
+    cMod.aliases.forEach((x) => {
+      commands.set(x, cMod);
     });
   });
 }
-loadCommands();
 module.exports = {
   name: "message",
   loadCommands,
   event(client, message) {
+    if (!loaded) {
+      loadCommands(client);
+      loaded = true;
+    }
     const returnTest = testBlock(client, message);
     if (!returnTest) return;
     const { file, args } = parseCommand(message, commands);
@@ -58,7 +76,12 @@ module.exports = {
     }
     try {
       file
-        .run(client, message, args, { commands, events, database })
+        .run(client, message, args, {
+          commands,
+          events,
+          database,
+          plugins: file.plugins,
+        })
         .catch((err) => {
           catchErr(err);
         });
