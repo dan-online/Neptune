@@ -1,5 +1,7 @@
 
 
+- [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
+
 - [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
 
 - [[9989b5a](https://github.com/dan-online/Discord-Bot/commit/9989b5af98c123d2ff07ed587993686053737b79)] - refactoring and auto role in src/events/guildMemberAdd.js - ([Dan](Dan))
