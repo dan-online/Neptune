@@ -1,3 +1,10 @@
+module.exports = {
+  permissions: ["owner"],
+  aliases: ["reload", "rel"],
+  use: process.conf.prefix + "reload [cmd/evnt]",
+  desc: "Reload a command",
+};
+
 module.exports.run = async (client, message, args, { commands, events }) => {
   const cmdToReload = args[0] ? args[0].toLowerCase() : false;
   if (!cmdToReload) throw Error("No command/event given!");
@@ -18,7 +25,3 @@ module.exports.run = async (client, message, args, { commands, events }) => {
   }
   message.react(process.conf.emojis.success.id);
 };
-module.exports.permissions = ["owner"];
-module.exports.aliases = ["reload", "rel"];
-module.exports.use = process.conf.prefix + "reload [cmd/evnt]";
-module.exports.desc = "Reload a command";
