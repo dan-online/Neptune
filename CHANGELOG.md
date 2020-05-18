@@ -1,4 +1,8 @@
 
+# 2020-05-18
+- [[9922be1](https://github.com/dan-online/Discord-Bot/commit/9922be145a7b94251d0d87acaba080b982950ea0)] - Merge branch 'master' of https://github.com/dan-online/Discord-Bot - ([Dan](Dan))
+
+- [[5898f7a](https://github.com/dan-online/Discord-Bot/commit/5898f7ade352c1e7fabecbc8d85ab57ffaa2eaac)] - working reaction roles - ([Dan](Dan))
 
 - [[fbb394d](https://github.com/dan-online/Discord-Bot/commit/fbb394d8da1af1bc619789debc015bbe267d3ea9)] - nvm 12 for better-sqlite3 - ([Dan](Dan))
 
@@ -6,19 +10,19 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-
+# 2020-05-17
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
 
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-
+# 2020-05-13
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-
+# 2020-05-12
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
