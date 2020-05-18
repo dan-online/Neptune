@@ -19,8 +19,9 @@ TOKEN=DISCORD_BOT_TOKEN
 ```js
 module.exports = {
   prefix: "t!", // bot prefix
-  owner: "312551747027468290" // your id
-  emojis: { // emojis for success and errors
+  owner: "312551747027468290", // your id
+  emojis: {
+    // emojis for success and errors
     err: {
       full: ":red_circle:",
       id: ":red_circle:",
@@ -30,7 +31,7 @@ module.exports = {
       full: ":white_check_mark:",
     },
   },
-  persistent: false // persistent database or in memory database
+  persistent: false, // persistent database or in memory database
 };
 ```
 
