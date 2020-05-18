@@ -1,12 +1,6 @@
 const db = require("../bot").reactions;
 module.exports = class ReactionRoles {
   constructor(config) {
-    this.lastUpdated = [];
-    this.interval = setInterval(() => {
-      this.lastUpdated = this.lastUpdated.filter(
-        (x) => new Date() - x.date < 10000
-      );
-    });
     this.config = config || {};
     return this;
   }
