@@ -32,18 +32,46 @@ module.exports = class ReactionRoles {
     this.doc = db.get(id);
     return this.doc;
   }
-  addUser(user, embed, reaction) {
+  addUser(user, embed, reaction, guild) {
     if (!this.doc.count.find((x) => x == user.id)) this.doc.count.push(user.id);
     else return;
-    embed.edit(this.embed());
-    this.save();
+    const roleObj = this.doc.roles.find((x) => x.emoji == reaction.emoji.name);
+    guild.roles
+      .fetch(roleObj.role.id)
+      .then((role) => {
+        if (!role) return;
+        if (role.members.find((m) => m.id == user.id)) return;
+        guild.members
+          .fetch(user.id)
+          .then((m) => {
+            m.roles.add(role);
+            embed.edit(this.embed());
+            this.save();
+          })
+          .catch(() => {});
+      })
+      .catch(() => {});
   }
-  removeUser(user, embed, reaction) {
+  removeUser(user, embed, reaction, guild) {
     if (this.doc.count.find((x) => x == user.id))
       this.doc.count = this.doc.count.filter((x) => x != user.id);
     else return;
-    embed.edit(this.embed());
-    this.save();
+    const roleObj = this.doc.roles.find((x) => x.emoji == reaction.emoji.name);
+    guild.roles
+      .fetch(roleObj.role.id)
+      .then((role) => {
+        if (!role) return;
+        if (!role.members.find((m) => m.id == user.id)) return;
+        guild.members
+          .fetch(user.id)
+          .then((m) => {
+            m.roles.remove(role);
+            embed.edit(this.embed());
+            this.save();
+          })
+          .catch(() => {});
+      })
+      .catch(() => {});
   }
   save() {
     return db.set(this.doc.embed, this.doc);
