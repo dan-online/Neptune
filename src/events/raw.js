@@ -1,6 +1,6 @@
 module.exports = {
   name: "raw",
-  event(client, packet) {
+  event(client, plugins, packet) {
     if (!["MESSAGE_REACTION_ADD", "MESSAGE_REACTION_REMOVE"].includes(packet.t))
       return;
     const channel = client.channels.resolve(packet.d.channel_id);

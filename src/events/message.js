@@ -7,6 +7,7 @@ function loadCommands(client) {
     const cMod = require(path.resolve(__dirname, "..", "commands", c));
     const plugins = {};
     if (cMod.plugins) {
+      let stop = false;
       cMod.plugins.forEach((plugin) => {
         if (process.conf[plugin] && process.conf[plugin].enabled) {
           let pluginF = require(path.resolve(
@@ -16,8 +17,11 @@ function loadCommands(client) {
             plugin + ".js"
           ));
           plugins[plugin] = new pluginF(process.conf[plugin], client);
+        } else {
+          stop = true;
         }
       });
+      if (stop) return;
     }
     cMod.plugins = plugins;
     cMod.aliases.forEach((x) => {
@@ -28,7 +32,7 @@ function loadCommands(client) {
 module.exports = {
   name: "message",
   loadCommands,
-  event(client, message) {
+  event(client, plugins, message) {
     if (!loaded) {
       loadCommands(client);
       loaded = true;
