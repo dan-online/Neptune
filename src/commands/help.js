@@ -1,3 +1,9 @@
+module.exports = {
+  aliases: ["h", "help", "commands"],
+  use: process.conf.prefix + "help",
+  desc: "View this help block",
+};
+
 module.exports.run = async (client, message, args, { commands }) => {
   commands = Array.from(commands)
     .filter((x) => x[0] == x[1].use.split(" ")[0].split(process.conf.prefix)[1])
@@ -31,6 +37,3 @@ ${commands
 `;
   message.channel.send(final);
 };
-module.exports.aliases = ["h", "help", "commands"];
-module.exports.use = process.conf.prefix + "help";
-module.exports.desc = "View this help block";
