@@ -8,26 +8,8 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
   events.forEach((event) => {
     const e = require(path.resolve(__dirname, "events", event));
     cache.events.set(e.name, e);
-    const plugins = {};
-    let stop;
-    if (e.plugins) {
-      e.plugins.forEach((plugin) => {
-        if (!process.conf[plugin] || !process.conf[plugin].enabled) {
-          stop = true;
-        }
-        let pluginF = require(path.resolve(
-          __dirname,
-          "plugins",
-          plugin + ".js"
-        ));
-        plugins[plugin] = new pluginF(process.conf[plugin], client);
-      });
-    }
-    if (stop) {
-      return;
-    }
     client.on(e.name, (...extra) => {
-      return cache.events.get(e.name).event(client, plugins, ...extra);
+      return cache.events.get(e.name).event(client, ...extra);
     });
   });
 });
