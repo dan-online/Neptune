@@ -14,8 +14,8 @@ module.exports = {
   },
   persistent: true,
   settings: {
-    enabled: true,
-    autoRole: true,
+    enabled: false,
+    autoRole: false,
   },
   tickets: {
     enabled: true,
