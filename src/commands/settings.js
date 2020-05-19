@@ -1,13 +1,12 @@
 module.exports = {
   aliases: ["settings", "s"],
-  plugins: ["settings"],
   use: process.conf.prefix + "settings",
   desc: "View guild specific settings",
   disabled: !(process.conf.settings && process.conf.settings.enabled),
 };
 
-module.exports.run = async (client, message, args, { plugins }) => {
-  const { settings } = plugins;
+module.exports.run = async (client, message, args) => {
+  const { settings } = Plugins;
   const set = settings.getGuild(message.guild);
   const keys = Object.entries(process.conf.settings)
     .filter((x) => x[1] == true && x[0] != "enabled")
