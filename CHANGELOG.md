@@ -1,5 +1,7 @@
 
 
+- [[1788db7](https://github.com/dan-online/Discord-Bot/commit/1788db709191f7871b0dc546cb8e8eae8613a039)] - try an catch - ([Dan](Dan))
+
 - [[248eb0d](https://github.com/dan-online/Discord-Bot/commit/248eb0d76448c5d357762ec26c76277bf56adfa7)] - renaming - ([Dan](Dan))
 
 - [[c416e93](https://github.com/dan-online/Discord-Bot/commit/c416e93c375ae6937ef73d9f6412e3945b7090b5)] - ticket system enchanced - ([Dan](Dan))
