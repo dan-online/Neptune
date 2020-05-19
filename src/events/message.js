@@ -65,11 +65,12 @@ module.exports = {
     function catchErr(err) {
       if (err.name == "Error") {
         return message.channel.send(
-          "Uh oh! You did something incorrectly! Try running like this: ``" +
-            file.use +
-            "``\n\nProblem: **" +
+          "Uh oh! You did something incorrectly!\nProblem: *" +
             err.message +
-            "**"
+            "*\n" +
+            "Try running like this: ``" +
+            file.use +
+            "``"
         );
       }
       log("errr")(err);

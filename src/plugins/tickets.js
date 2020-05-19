@@ -1,6 +1,10 @@
 module.exports = class Tickets extends Enmap {
   constructor(config) {
-    super(process.conf.persistent ? { name: "tickets" } : null);
+    super(
+      process.conf.persistent
+        ? { name: "tickets", polling: true, pollingInterval: 200 }
+        : null
+    );
     this.config = config;
     return this;
   }
@@ -25,7 +29,13 @@ module.exports = class Tickets extends Enmap {
         channel.updateOverwrite(channel.guild.roles.everyone, {
           VIEW_CHANNEL: false,
         });
-        this.tickets.push({ number: ticketNumber, reason, date: new Date() });
+        this.tickets.push({
+          number: ticketNumber,
+          reason,
+          date: new Date(),
+          channel: channel.id,
+          user: user.id,
+        });
         this.set(guild.id, this.tickets);
         channel.send(
           new Discord.MessageEmbed()
