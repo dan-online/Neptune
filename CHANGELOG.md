@@ -1,5 +1,7 @@
 
 
+- [[08174a2](https://github.com/dan-online/Discord-Bot/commit/08174a2e5932a4f2aa50fae301b4d3fffed9219c)] - remove console, working tickets - ([Dan](Dan))
+
 - [[4d280aa](https://github.com/dan-online/Discord-Bot/commit/4d280aa862e8017bfccb0ecb76a149649a268816)] - fix fetch issue - ([Dan](Dan))
 
 - [[b393cdc](https://github.com/dan-online/Discord-Bot/commit/b393cdc8b12109826d87a1a58300341d02ea77ef)] - WIP ticket system, it works, mostly - ([Dan](Dan))
