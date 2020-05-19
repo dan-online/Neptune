@@ -1,26 +1,26 @@
-const db = require("../bot").database;
-module.exports = class settings {
+module.exports = class settings extends Enmap {
   constructor(config) {
+    super(process.conf.persistent ? { name: "database" } : null);
     this.config = config || {};
     return this;
   }
-  set(key, value, name, guild) {
-    this.getGuild(guild);
+  setVal(key, value, name, guild) {
+    this.fetchGuild(guild);
     this.doc[key] = { name, value };
     this.save();
     return this.doc[key];
   }
-  get(guild) {
-    this.getGuild(guild);
+  getGuild(guild) {
+    this.fetchGuild(guild);
     return this.doc;
   }
-  getGuild(guild) {
+  fetchGuild(guild) {
     if (!guild) return this.guild;
     this.guild = guild;
-    this.doc = db.get(guild.id) || {};
+    this.doc = this.get(guild.id) || {};
     return this.guild;
   }
   save() {
-    db.set(this.guild.id, this.doc);
+    this.set(this.guild.id, this.doc);
   }
 };
