@@ -8,7 +8,7 @@ module.exports = {
 
 module.exports.run = async (client, message, args, { plugins }) => {
   const { settings } = plugins;
-  const set = settings.get(message.guild);
+  const set = settings.getGuild(message.guild);
   const keys = Object.entries(process.conf.settings)
     .filter((x) => x[1] == true && x[0] != "enabled")
     .map((x) => x[0]);
