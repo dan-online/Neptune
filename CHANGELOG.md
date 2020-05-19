@@ -1,8 +1,22 @@
 
-# 2020-05-19
+
+- [[6b5dcc0](https://github.com/dan-online/Discord-Bot/commit/6b5dcc0f4514ff67dfb214aaa2b0b73ba428a6c9)] - extending enmap changes in src/events/autoRole.js - ([Dan](Dan))
+
+- [[1603425](https://github.com/dan-online/Discord-Bot/commit/1603425af05799c81ad5b6cfa1bb819a598eb669)] - extending enmap changes in src/plugins/settings.js - ([Dan](Dan))
+
+- [[9e32131](https://github.com/dan-online/Discord-Bot/commit/9e321316da0dbd37ed005a307c3564927ffd7f04)] - extending enmap changes in src/events/guildMemberAdd.js - ([Dan](Dan))
+
+- [[4f2dddc](https://github.com/dan-online/Discord-Bot/commit/4f2dddcc43bf9529cfeba6148c10335c3f420b5f)] - extending enmap changes in src/commands/settings.js - ([Dan](Dan))
+
+- [[283602d](https://github.com/dan-online/Discord-Bot/commit/283602d1b1eceeb5686f2a28a0035c639bd8d5f9)] - extending enmap changes in src/commands/autorole.js - ([Dan](Dan))
+
+- [[5e5d75b](https://github.com/dan-online/Discord-Bot/commit/5e5d75be7df8c8d4fdfdb6fb49800fbd87ec65fc)] - extending enmap changes in src/bot.js - ([Dan](Dan))
+
+- [[5d910dd](https://github.com/dan-online/Discord-Bot/commit/5d910dd2464a724e48984a242d705d8b75d2b518)] - extending enmap changes in config.js - ([Dan](Dan))
+
 - [[a7f2f60](https://github.com/dan-online/Discord-Bot/commit/a7f2f60166798cb61acf61aa09ae6739be95faaf)] - extending enmap for fun - ([Dan](Dan))
 
-# 2020-05-18
+
 - [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
 
 - [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
@@ -45,19 +59,19 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-# 2020-05-17
+
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
 
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-# 2020-05-13
+
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-# 2020-05-12
+
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
