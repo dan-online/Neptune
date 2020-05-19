@@ -1,6 +1,6 @@
 module.exports = {
   name: "rateLimit",
-  event(client, plugins, info) {
+  event(client, info) {
     log("lmit")(
       "ratelimited for " +
         info.limit +
