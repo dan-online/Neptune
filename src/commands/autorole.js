@@ -13,7 +13,7 @@ module.exports.run = async (client, message, args, { plugins }) => {
   if (!role) {
     throw new Error("No role mentioned");
   }
-  settings.set("autoRole", role.id, role.name, message.guild);
+  settings.setVal("autoRole", role.id, role.name, message.guild);
   message.channel.send(
     process.conf.emojis.success.full + " Autorole set to **" + role.name + "**"
   );
