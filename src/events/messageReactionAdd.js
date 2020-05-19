@@ -6,7 +6,7 @@ module.exports = {
 
     const message = reaction.message;
     const guild = reaction.message.guild;
-    if (reactionRoles.get(message.id)) {
+    if (reactionRoles.getID(message.id)) {
       reactionRoles.addUser(user, message, reaction, guild);
     }
   },

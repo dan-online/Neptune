@@ -7,7 +7,7 @@ function loadCommands(client) {
     const cMod = require(path.resolve(__dirname, "..", "commands", c));
     if (cMod.disabled) return;
     const plugins = {};
-    if (cMod.plugins) {
+    if (cMod.plugins && cMod.plugins.forEach) {
       let stop = false;
       cMod.plugins.forEach((plugin) => {
         if (process.conf[plugin] && process.conf[plugin].enabled) {

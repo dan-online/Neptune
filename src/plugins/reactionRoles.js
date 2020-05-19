@@ -1,6 +1,6 @@
-const db = require("../bot").reactions;
-module.exports = class ReactionRoles {
+module.exports = class ReactionRoles extends Enmap {
   constructor(config) {
+    super(process.conf.persistent ? { name: "reactions" } : null);
     this.config = config || {};
     return this;
   }
@@ -16,13 +16,13 @@ module.exports = class ReactionRoles {
         e.id = String(e.id);
         doc.embed = e.id;
         this.doc = doc;
-        db.set(e.id, doc);
+        this.set(e.id, doc);
       });
     });
     return this.doc;
   }
-  get(id) {
-    this.doc = db.get(id);
+  getID(id) {
+    this.doc = this.get(id);
     return this.doc;
   }
   addUser(user, embed, reaction, guild) {
@@ -58,7 +58,7 @@ module.exports = class ReactionRoles {
       .catch(console.error);
   }
   save() {
-    return db.set(this.doc.embed, this.doc);
+    return this.set(this.doc.embed, this.doc);
   }
   embed() {
     return new Discord.MessageEmbed()

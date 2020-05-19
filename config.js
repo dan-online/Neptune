@@ -17,4 +17,10 @@ module.exports = {
     enabled: true,
     autoRole: true,
   },
+  tickets: {
+    enabled: true,
+  },
+  reactionRoles: {
+    enabled: true,
+  },
 };
