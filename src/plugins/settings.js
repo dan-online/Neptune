@@ -1,10 +1,6 @@
 module.exports = class settings extends Enmap {
   constructor(config) {
-    super(
-      process.conf.persistent
-        ? { name: "database", polling: true, pollingInterval: 200 }
-        : null
-    );
+    super(process.conf.persistent ? { name: "database" } : null);
     this.config = config || {};
     return this;
   }
