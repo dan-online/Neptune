@@ -7,7 +7,7 @@ module.exports = {
 
 module.exports.run = async (client, message, args) => {
   const { tickets } = Plugins;
-  const guildTickets = tickets.fetch(message.guild.id) || [];
+  var guildTickets = tickets.fetch(message.guild.id) || [];
   const openTicket = guildTickets.find(
     (x) => x.user === message.author.id && x.status.open == true
   );
@@ -57,15 +57,19 @@ module.exports.run = async (client, message, args) => {
       }
       break;
     case "list":
+      if (args[1] == "open")
+        guildTickets = guildTickets.filter((x) => x.status.open);
       guildTickets
         .reduce((prev, curr) => {
-          if (!prev[0]) {
-            return (prev = [[curr]]);
+          if (!prev || !prev[0]) {
+            return [[curr]];
           }
-          if (prev[prev.length - 1].length > 3) {
+          if (prev[prev.length - 1].length > 2) {
             prev.push([curr]);
+            return prev;
           } else {
             prev[prev.length - 1].push(curr);
+            return prev;
           }
         }, [])
         .forEach((tick) => {

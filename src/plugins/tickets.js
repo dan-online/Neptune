@@ -53,7 +53,9 @@ module.exports = class Tickets extends Enmap {
       open: false,
       mod: user.id,
     };
-    guild.channels.cache.get(doc[index].channel).delete();
+    try {
+      guild.channels.cache.get(doc[index].channel).delete();
+    } catch {}
     this.set(guild.id, doc);
   }
 };
