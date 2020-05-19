@@ -1,7 +1,8 @@
 module.exports = {
   name: "messageReactionRemove",
-  plugins: ["reactionRoles"],
-  event(client, { reactionRoles }, reaction, user) {
+  event(client, reaction, user) {
+    const { reactionRoles } = Plugins;
+    if (!reactionRoles) return;
     if (user.id == client.user.id) return;
 
     const message = reaction.message;
