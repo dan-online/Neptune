@@ -1,5 +1,37 @@
 
-# 2020-05-19
+
+- [[6458441](https://github.com/dan-online/Discord-Bot/commit/6458441819dbd1e520f3533dd62ed863da60e113)] - global plugins fix in src/plugins/index.js - ([Dan](Dan))
+
+- [[51edd92](https://github.com/dan-online/Discord-Bot/commit/51edd928238cd755298d3d84e77cfb29a10d71e3)] - global plugins fix in src/modules/Plugins.js - ([Dan](Dan))
+
+- [[bb6c1d9](https://github.com/dan-online/Discord-Bot/commit/bb6c1d9297050fe511c9fd23b340bd8e2483d270)] - global plugins fix in src/plugins/tickets.js - ([Dan](Dan))
+
+- [[434b83a](https://github.com/dan-online/Discord-Bot/commit/434b83a58ac75a7f01edb7bab91de2d62d1faf37)] - global plugins fix in src/plugins/settings.js - ([Dan](Dan))
+
+- [[64fbe76](https://github.com/dan-online/Discord-Bot/commit/64fbe76a66d66e376302dee10e046147e02bd90a)] - global plugins fix in src/plugins/reactionRoles.js - ([Dan](Dan))
+
+- [[23943de](https://github.com/dan-online/Discord-Bot/commit/23943de06a16564bb36ad5f21efbfcd6f836726d)] - global plugins fix in src/events/raw.js - ([Dan](Dan))
+
+- [[0b0c369](https://github.com/dan-online/Discord-Bot/commit/0b0c369d478e5b5b3f7155fe38f9e9036409e4d9)] - global plugins fix in src/events/rateLimit.js - ([Dan](Dan))
+
+- [[e764201](https://github.com/dan-online/Discord-Bot/commit/e76420149c7a8f19bb551a1342174d883181cafe)] - global plugins fix in src/events/messageReactionRemove.js - ([Dan](Dan))
+
+- [[2cfc867](https://github.com/dan-online/Discord-Bot/commit/2cfc86740baea0ec85981374ad92c9a08f3c3da8)] - global plugins fix in src/events/messageReactionAdd.js - ([Dan](Dan))
+
+- [[2a50496](https://github.com/dan-online/Discord-Bot/commit/2a504964b6162a9fd6aaa78c1c5fb93936fc7e12)] - global plugins fix in src/events/message.js - ([Dan](Dan))
+
+- [[e4d941b](https://github.com/dan-online/Discord-Bot/commit/e4d941bb8af6e3d766d36e530797fe56b3c8de38)] - global plugins fix in src/events/autoRole.js - ([Dan](Dan))
+
+- [[5b23a21](https://github.com/dan-online/Discord-Bot/commit/5b23a2105efbfd281827d43199a7428a25c016ce)] - global plugins fix in src/commands/ticket.js - ([Dan](Dan))
+
+- [[0cfbfda](https://github.com/dan-online/Discord-Bot/commit/0cfbfdabd40cb54168db8f4c547d6d2fe0acda4e)] - global plugins fix in src/commands/settings.js - ([Dan](Dan))
+
+- [[b8d47a0](https://github.com/dan-online/Discord-Bot/commit/b8d47a076f2b97b7564275baf2b488b045a1733c)] - global plugins fix in src/commands/reaction.js - ([Dan](Dan))
+
+- [[1ca0b88](https://github.com/dan-online/Discord-Bot/commit/1ca0b8835a295851882e28f83ffefa76e6a1f592)] - global plugins fix in src/commands/autorole.js - ([Dan](Dan))
+
+- [[abd07ff](https://github.com/dan-online/Discord-Bot/commit/abd07ffb91e739474d7ef20c262577aa474628e1)] - global plugins fix in src/bot.js - ([Dan](Dan))
+
 - [[81f7a73](https://github.com/dan-online/Discord-Bot/commit/81f7a73a9212c24882c8ee5a6c6bde19b5b24e8a)] - multiple connections - ([Dan](Dan))
 
 - [[08174a2](https://github.com/dan-online/Discord-Bot/commit/08174a2e5932a4f2aa50fae301b4d3fffed9219c)] - remove console, working tickets - ([Dan](Dan))
@@ -24,7 +56,7 @@
 
 - [[a7f2f60](https://github.com/dan-online/Discord-Bot/commit/a7f2f60166798cb61acf61aa09ae6739be95faaf)] - extending enmap for fun - ([Dan](Dan))
 
-# 2020-05-18
+
 - [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
 
 - [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
@@ -67,19 +99,19 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-# 2020-05-17
+
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
 
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-# 2020-05-13
+
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-# 2020-05-12
+
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
