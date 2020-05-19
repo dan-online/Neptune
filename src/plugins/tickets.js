@@ -1,6 +1,3 @@
-const { use } = require("../commands/autorole");
-const ticket = require("../commands/ticket");
-
 module.exports = class Tickets extends Enmap {
   constructor(config) {
     super(process.conf.persistent ? { name: "tickets" } : null);
@@ -8,7 +5,8 @@ module.exports = class Tickets extends Enmap {
     return this;
   }
   open(user, guild, reason) {
-    this.tickets = this.get(guild.id) || [];
+    this.tickets = this.fetch(guild.id) || [];
+    console.log(this.tickets.length);
     this.guild = guild;
     let ticketNumber = this.tickets.length + 1;
     guild.channels
@@ -28,8 +26,9 @@ module.exports = class Tickets extends Enmap {
           VIEW_CHANNEL: false,
         });
         this.tickets.push({ number: ticketNumber, reason, date: new Date() });
-        console.log(this.tickets);
-        this.save();
+        console.log(this.tickets.length);
+        console.log();
+        this.set(guild.id, this.tickets);
         channel.send(
           new Discord.MessageEmbed()
             .setTitle("Ticket #" + ticketNumber)
@@ -41,9 +40,5 @@ module.exports = class Tickets extends Enmap {
         );
       });
     return ticketNumber;
-  }
-  save() {
-    console.log(this.tickets, this.guild.id);
-    this.set(this.guild.id, this.tickets);
   }
 };

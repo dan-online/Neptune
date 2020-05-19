@@ -22,7 +22,7 @@ module.exports = class ReactionRoles extends Enmap {
     return this.doc;
   }
   getID(id) {
-    this.doc = this.get(id);
+    this.doc = this.fetch(id);
     return this.doc;
   }
   addUser(user, embed, reaction, guild) {

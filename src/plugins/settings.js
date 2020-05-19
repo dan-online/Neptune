@@ -17,7 +17,7 @@ module.exports = class settings extends Enmap {
   fetchGuild(guild) {
     if (!guild) return this.guild;
     this.guild = guild;
-    this.doc = this.get(guild.id) || {};
+    this.doc = this.fetch(guild.id) || {};
     return this.guild;
   }
   save() {
