@@ -1,14 +1,14 @@
 const { ask } = require("../utils/utils");
 
 module.exports = {
-  plugins: ["reactionRoles"],
   permissions: ["ADMINISTRATOR"],
   aliases: ["reaction", "reactionroles", "rr"],
   use: process.conf.prefix + "reaction",
   desc: "Setup a reaction roles message",
 };
 
-module.exports.run = async (client, message, args, { plugins }) => {
+module.exports.run = async (client, message, args) => {
+  const { reactionRoles } = Plugins;
   const doc = { id: uuid.v4(), roles: [], user: message.author.id };
   const questions = [
     {
@@ -123,7 +123,6 @@ module.exports.run = async (client, message, args, { plugins }) => {
     message.channel
       .send("Reaction roles setup has completed, please wait..")
       .then((m) => {
-        const { reactionRoles } = plugins;
         reactionRoles.add(client, message.author, doc, function () {
           return m.edit();
         });
