@@ -26,8 +26,6 @@ module.exports = class Tickets extends Enmap {
           VIEW_CHANNEL: false,
         });
         this.tickets.push({ number: ticketNumber, reason, date: new Date() });
-        console.log(this.tickets.length);
-        console.log();
         this.set(guild.id, this.tickets);
         channel.send(
           new Discord.MessageEmbed()
