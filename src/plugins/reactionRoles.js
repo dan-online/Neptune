@@ -1,10 +1,6 @@
 module.exports = class ReactionRoles extends Enmap {
   constructor(config) {
-    super(
-      process.conf.persistent
-        ? { name: "reactions", polling: true, pollingInterval: 200 }
-        : null
-    );
+    super(process.conf.persistent ? { name: "reactions" } : null);
     this.config = config || {};
     return this;
   }
