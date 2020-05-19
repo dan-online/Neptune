@@ -1,14 +1,13 @@
 module.exports = {
   disabled: !(process.conf.settings && process.conf.settings.autoRole),
-  plugins: ["settings"],
   permissions: ["ADMINISTRATOR"],
   aliases: ["autorole", "ar"],
   use: process.conf.prefix + "autorole <@role>",
   desc: "Setup an autorole",
 };
 
-module.exports.run = async (client, message, args, { plugins }) => {
-  const { settings } = plugins;
+module.exports.run = async (client, message, args) => {
+  const { settings } = Plugins;
   const role = message.mentions.roles.first();
   if (!role) {
     throw new Error("No role mentioned");
