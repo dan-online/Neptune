@@ -2,6 +2,7 @@ module.exports = {
   aliases: ["ticket", "t"],
   use: process.conf.prefix + "ticket <command> <reason/option>",
   desc: "Open a ticket for support",
+  disabled: !(process.conf.tickets && process.conf.tickets.enabled),
 };
 
 module.exports.run = async (client, message, args) => {
@@ -56,7 +57,41 @@ module.exports.run = async (client, message, args) => {
       }
       break;
     case "list":
-      const embed = new Discord.MessageEmbed();
+      guildTickets
+        .reduce((prev, curr) => {
+          if (!prev[0]) {
+            return (prev = [[curr]]);
+          }
+          if (prev[prev.length - 1].length > 3) {
+            prev.push([curr]);
+          } else {
+            prev[prev.length - 1].push(curr);
+          }
+        }, [])
+        .forEach((tick) => {
+          const embed = new Discord.MessageEmbed();
+          embed.setColor(process.conf.color);
+          tick.forEach((ticket, index) => {
+            client.users.fetch(ticket.status.mod).then((mod) => {
+              client.users.fetch(ticket.user).then((user) => {
+                embed.addField(
+                  "Ticket " + ticket.number,
+                  `Status: ${ticket.status.open ? "opened" : "closed"} ${
+                    mod.id != user.id ? mod.tag : ""
+                  }\nCreated: ${new Date(
+                    ticket.date
+                  ).toLocaleString()}\nUser: ${user.tag}\nReason: ${
+                    ticket.reason
+                  }`,
+                  true
+                );
+                if (index == tick.length - 1) {
+                  message.channel.send(embed);
+                }
+              });
+            });
+          });
+        });
       break;
     default:
       throw new Error(args[0] ? "Invalid command" : "No command provided");

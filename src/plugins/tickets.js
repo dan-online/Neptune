@@ -47,7 +47,8 @@ module.exports = class Tickets extends Enmap {
   close(user, guild, id) {
     let doc = this.get(guild.id);
     let index = doc.findIndex((x) => x.number == id);
-    if (!index || index < 0) throw new Error("Ticket to close was not found");
+    if ((!index || index < 0) && index !== 0)
+      throw new Error("Ticket to close was not found");
     doc[index].status = {
       open: false,
       mod: user.id,

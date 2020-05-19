@@ -14,7 +14,7 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
   });
 });
 
-process.on("unhandledRejection", function (err, promis) {
+process.on("unhandledRejection", function (err) {
   if (err.name == "DiscordAPIError") {
     if (err.path && err.path.split("/channels/").length > 1) {
       let channel = client.channels.cache.get(
