@@ -1,17 +1,11 @@
 module.exports = class Tickets extends Enmap {
   constructor(config) {
-    super(
-      process.conf.persistent
-        ? { name: "tickets", polling: true, pollingInterval: 200 }
-        : null
-    );
+    super(process.conf.persistent ? { name: "tickets" } : null);
     this.config = config;
     return this;
   }
   open(user, guild, reason) {
     this.tickets = this.fetch(guild.id) || [];
-    console.log(this.tickets.length);
-    this.guild = guild;
     let ticketNumber = this.tickets.length + 1;
     guild.channels
       .create(ticketNumber, {
@@ -35,6 +29,7 @@ module.exports = class Tickets extends Enmap {
           date: new Date(),
           channel: channel.id,
           user: user.id,
+          status: { open: true, mod: user.id }, // 0 open 1 closed
         });
         this.set(guild.id, this.tickets);
         channel.send(
@@ -48,5 +43,16 @@ module.exports = class Tickets extends Enmap {
         );
       });
     return ticketNumber;
+  }
+  close(user, guild, id) {
+    let doc = this.get(guild.id);
+    let index = doc.findIndex((x) => x.number == id);
+    if (!index || index < 0) throw new Error("Ticket to close was not found");
+    doc[index].status = {
+      open: false,
+      mod: user.id,
+    };
+    guild.channels.cache.get(doc[index].channel).delete();
+    this.set(guild.id, doc);
   }
 };
