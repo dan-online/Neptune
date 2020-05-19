@@ -1,5 +1,7 @@
 
 
+- [[c416e93](https://github.com/dan-online/Discord-Bot/commit/c416e93c375ae6937ef73d9f6412e3945b7090b5)] - ticket system enchanced - ([Dan](Dan))
+
 - [[6458441](https://github.com/dan-online/Discord-Bot/commit/6458441819dbd1e520f3533dd62ed863da60e113)] - global plugins fix in src/plugins/index.js - ([Dan](Dan))
 
 - [[51edd92](https://github.com/dan-online/Discord-Bot/commit/51edd928238cd755298d3d84e77cfb29a10d71e3)] - global plugins fix in src/modules/Plugins.js - ([Dan](Dan))
