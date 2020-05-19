@@ -2,7 +2,6 @@ const client = new Discord.Client();
 const cache = {
   events: new Enmap(),
   commands: new Enmap(),
-  database: new Enmap(process.conf.persistent ? { name: "database" } : null),
 };
 
 fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
