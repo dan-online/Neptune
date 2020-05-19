@@ -1,7 +1,9 @@
+const Plugins = require("../modules/Plugins");
+
 module.exports = {
   name: "guildMemberAdd",
-  plugins: ["settings"],
-  event(client, { settings }, member) {
+  event(client, member) {
+    if (!Plugins.settings) return;
     const guildSettings = settings.getGuild(member.guild);
     if (guildSettings.autoRole) {
       member.guild.roles
