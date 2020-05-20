@@ -1,5 +1,7 @@
 
 
+- [[661080f](https://github.com/dan-online/Discord-Bot/commit/661080f627cc84974d77c8f6500582d8be128f35)] - multiple events - ([Dan](Dan))
+
 - [[3185703](https://github.com/dan-online/Discord-Bot/commit/31857032ba8c6b1782b5c893550d3e4ff11e7067)] - multiple owners - ([Dan](Dan))
 
 - [[542f4a4](https://github.com/dan-online/Discord-Bot/commit/542f4a47c600779e6ff5422ec219d64df3e14d52)] - spam prevention - ([Dan](Dan))
