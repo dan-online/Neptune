@@ -10,7 +10,7 @@
 
 The master branch is unstable and should be used with caution. 
 
-To use stable releases go to [releases](../releases)
+To use stable releases go to [releases](../../releases)
 
 ## Installation
 
