@@ -4,7 +4,8 @@ module.exports = {
   permissions: ["ADMINISTRATOR"],
   aliases: ["reaction", "reactionroles", "rr"],
   use: process.conf.prefix + "reaction",
-  desc: "Setup a reaction roles message",
+  desc: "Setup a reaction roles",
+  disabled: !(process.conf.autoRole && process.conf.autoRole.enabled),
 };
 
 module.exports.run = async (client, message, args) => {

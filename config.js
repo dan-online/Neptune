@@ -13,14 +13,14 @@ module.exports = {
     },
   },
   persistent: true,
-  settings: {
-    enabled: false,
-    autoRole: false,
-  },
-  tickets: {
-    enabled: true,
-  },
-  reactionRoles: {
-    enabled: true,
-  },
+  // settings: {
+  //   enabled: false,
+  //   autoRole: false,
+  // },
+  // tickets: {
+  //   enabled: true,
+  // },
+  // reactionRoles: {
+  //   enabled: true,
+  // },
 };
