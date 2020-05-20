@@ -1,4 +1,4 @@
-module.exports = class settings extends Enmap {
+module.exports = class Settings extends Enmap {
   constructor(config) {
     super(process.conf.persistent ? { name: "database" } : null);
     this.config = config || {};

@@ -13,6 +13,9 @@ module.exports = {
     },
   },
   persistent: true,
+  economy: {
+    enabled: true,
+  },
   // settings: {
   //   enabled: false,
   //   autoRole: false,
