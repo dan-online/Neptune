@@ -4,12 +4,23 @@ const cache = {
   commands: new Enmap(),
 };
 
-fs.readdir(path.resolve(__dirname, "events"), function (err, events) {
+fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
+  let events = [];
+  evnts.forEach((e) => {
+    const file = require(path.resolve(__dirname, "events", e));
+    let ind = events.findIndex((x) => x.name == file.name);
+    if (ind < 0) {
+      events.push({ name: file.name, callers: [file] });
+    } else {
+      events[ind].callers.push(file);
+    }
+  });
   events.forEach((event) => {
-    const e = require(path.resolve(__dirname, "events", event));
-    cache.events.set(e.name, e);
-    client.on(e.name, (...extra) => {
-      return cache.events.get(e.name).event(client, ...extra);
+    cache.events.set(event.name, event.callers);
+    client.on(event.name, (...extra) => {
+      return cache.events
+        .get(event.name)
+        .forEach((e) => e.event(client, ...extra));
     });
   });
 });
