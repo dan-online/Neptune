@@ -8,9 +8,14 @@
 
 ## Downloads
 
-The master branch is unstable and should be used with caution. 
+The master branch is unstable and should be used with caution.
 
 To use stable releases go to [releases](../../releases)
+
+## To-do
+
+- Economy / points system plugin
+- Webhook plugin
 
 ## Installation
 
