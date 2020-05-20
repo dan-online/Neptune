@@ -1,7 +1,15 @@
 // wow this gonna be a big file
+function addSuffix(n) {
+  var s = ["th", "st", "nd", "rd"],
+    v = n % 100;
+  return n + (s[(v - 20) % 10] || s[v] || s[0]);
+}
 
 module.exports = class Economy extends Enmap {
   constructor(config) {
+    if (!process.conf.economy.currency) {
+      process.conf.economy.currency = " coins";
+    }
     super(process.conf.persistent ? { name: "economy" } : null);
     this.config = config || {};
     return this;
@@ -48,5 +56,15 @@ module.exports = class Economy extends Enmap {
     this.doc.balance += amount;
     this.saveUser();
     return this.doc.balance;
+  }
+  transfer(amount, user, target) {
+    if (!user instanceof Economy || !target instanceof Economy)
+      throw new Error("Not instances of economy!");
+  }
+  position(formatted) {
+    let sorted = this.balances.sort((a, b) => a.balance - b.balance);
+    let place =
+      sorted.findIndex((user) => user.member.id == this.member.id) + 1;
+    return formatted ? addSuffix(place) : place;
   }
 };

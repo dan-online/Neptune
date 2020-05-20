@@ -7,6 +7,9 @@ function loadCommands(client) {
     const cMod = require(path.resolve(__dirname, "..", "commands", c));
     if (cMod.disabled) return;
     cMod.aliases.forEach((x) => {
+      if (commands.get(x)) {
+        log.warn("overwriting existing alias: " + x);
+      }
       commands.set(x, cMod);
     });
   });
