@@ -6,6 +6,12 @@
 ![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
 ![Discord-bot version](https://img.shields.io/github/package-json/v/dan-online/discord-bot)
 
+## Downloads
+
+The master branch is unstable and should be used with caution. 
+
+To use stable releases go to [releases](releases)
+
 ## Installation
 
 #### .env
