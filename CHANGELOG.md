@@ -1,5 +1,7 @@
 
 
+- [[9a82bf1](https://github.com/dan-online/Discord-Bot/commit/9a82bf119390aca3cf3e0f07e8438ee206599541)] - fix owner eval - ([Dan](Dan))
+
 - [[87f5b4e](https://github.com/dan-online/Discord-Bot/commit/87f5b4eb8aa4e5ac6385010f787fa6952fe5ca1f)] - Update README.md - ([DanCodes](DanCodes))
 
 - [[e137903](https://github.com/dan-online/Discord-Bot/commit/e137903aba674c56003b258c472dc798d150b018)] - Update README.md - ([DanCodes](DanCodes))
