@@ -25,13 +25,16 @@ module.exports = {
     if (!file) return;
     if (file.permissions) {
       let noPerms = file.permissions.find((perm) => {
-        if (
-          perm == "owner" &&
-          (typeof process.conf.owner == "string"
-            ? message.author.id == process.conf.owner
-            : process.conf.owner.find((o) => o == message.author.id))
-        ) {
-          return;
+        if (perm == "owner") {
+          if (
+            typeof process.conf.owner == "string"
+              ? message.author.id == process.conf.owner
+              : process.conf.owner.find((o) => o == message.author.id)
+          ) {
+            return false;
+          } else {
+            return true;
+          }
         }
         let f;
         try {
