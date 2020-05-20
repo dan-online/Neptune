@@ -16,6 +16,7 @@ To use stable releases go to [releases](../../releases)
 
 - Economy / points system plugin
 - Webhook plugin
+- API plugin
 
 ## Installation
 
