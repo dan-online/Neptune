@@ -1,4 +1,4 @@
-# Discordjs Template
+# DanBot
 
 > A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
 
