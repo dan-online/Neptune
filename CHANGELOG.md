@@ -1,5 +1,7 @@
 
 # 2020-05-20
+- [[4aa9fc8](https://github.com/dan-online/Discord-Bot/commit/4aa9fc87eac2289569e718d26539593d0de1d35e)] - economy balance command - ([Dan](Dan))
+
 - [[e858c3e](https://github.com/dan-online/Discord-Bot/commit/e858c3e81970d0deaec313f61ae52495fff64e27)] - economy start - ([Dan](Dan))
 
 - [[acd3360](https://github.com/dan-online/Discord-Bot/commit/acd3360b73ac0346222b3fbd1c5ad8ea45f02e0e)] - rebrand - ([Dan](Dan))
