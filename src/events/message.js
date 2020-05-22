@@ -3,8 +3,12 @@ const { testBlock, parseCommand } = require("../utils/utils");
 var loaded = false;
 function loadCommands(client) {
   const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));
-  cmds.forEach((c) => {
-    const cMod = require(path.resolve(__dirname, "..", "commands", c));
+  cmds.forEach(function command(c) {
+    let place = path.resolve(__dirname, "..", "commands", c);
+    if (fs.statSync(place).isDirectory()) {
+      return fs.readdirSync(place).forEach((newC) => command(c + "/" + newC));
+    }
+    const cMod = require(place);
     if (cMod.disabled) return;
     cMod.aliases.forEach((x) => {
       if (commands.get(x)) {
