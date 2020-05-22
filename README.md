@@ -18,6 +18,7 @@ To use stable releases go to [releases](../../releases)
 - Webhook plugin
 - API plugin
 - Updater plugin/system
+- Points system
 
 ## Installation
 
