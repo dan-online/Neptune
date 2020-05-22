@@ -1,7 +1,12 @@
 module.exports = {
   aliases: ["transfer", "t"],
-  use: process.conf.prefix + "ticket <command> <reason/option>",
-  desc: "Open a ticket for support",
+  use: process.conf.prefix + "transfer <balance> <target>",
+  desc:
+    "Transfer " +
+    (process.conf.economy && process.conf.economy.currency
+      ? process.conf.economy.currency
+      : "coins") +
+    " to another person",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
 };
 

@@ -32,7 +32,13 @@ ${commands
   )
   .join("\n\n")}
   
-= Created by ${client.users.cache.get(process.conf.owner).tag} = 
+= Created by ${
+    typeof process.conf.owner == "string"
+      ? client.users.cache.get(process.conf.owner).tag
+      : process.conf.owner
+          .map((o) => client.users.cache.get(o).tag)
+          .join(" and ")
+  } = 
 \`\`\`
 `;
   message.channel.send(final);

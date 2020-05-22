@@ -72,7 +72,7 @@ module.exports = class Economy extends Enmap {
     return { user, target };
   }
   position(formatted) {
-    let sorted = this.balances.sort((a, b) => a.balance - b.balance);
+    let sorted = this.balances.sort((b, a) => a.balance - b.balance);
     let place =
       sorted.findIndex((user) => user.member.id == this.member.id) + 1;
     return formatted ? addSuffix(place) : place;

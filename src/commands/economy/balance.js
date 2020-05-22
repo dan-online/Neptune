@@ -6,13 +6,12 @@ module.exports = {
 };
 const { parse } = require("../../utils/utils");
 module.exports.run = async (client, message, args) => {
-  const user =
-    parse.user(client, message, args) ||
-    Plugins.economy.init(message.author, message.guild);
+  const target = parse.user(client, message, args) || message.author;
+  const user = Plugins.economy.init(target, message.guild);
   const embed = new Discord.MessageEmbed()
     .setColor(process.conf.color)
-    .setThumbnail(message.author.avatarURL())
-    .setTitle("Balance of " + message.author.tag)
+    .setThumbnail(target.avatarURL())
+    .setTitle("Balance of " + target.tag)
     .addField("Account", user.balance() + process.conf.economy.currency, true)
     .addField("Position", user.position(true), true);
   return message.channel.send(embed);

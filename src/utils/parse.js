@@ -1,18 +1,18 @@
-module.exports = function (client, message, args) {
-  let finalUser;
-
-  if (message.mentions.members.first()) {
-    finalUser = message.mentions.members.first();
-  } else if (args.length > 1) {
-    let id = args.find((x) => client.users.cache.get(x));
-    let username = args.find((x) =>
-      client.users.cache.find((d) => d.username == x)
-    );
-    let member = message.guild
-      ? args.find((x) => message.guild.members.find((d) => d.displayName == x))
-      : false;
-    finalUser = id || username || member;
+module.exports.user = function (client, message, args) {
+  let mention = message.mentions.members.first();
+  if (mention) {
+    return client.users.cache.get(mention.id);
   }
-
-  return finalUser;
+  if (args.length > 0) {
+    let id = client.users.cache.find((user) => args.find((x) => user.id == x));
+    let username = client.users.cache.find(
+      (user) => user.username == args.join(" ")
+    );
+    let get = message.guild.members.cache.find(
+      (user) => user.displayName == args.join(" ")
+    );
+    let member = get ? client.users.cache.get(get.id) : false;
+    return id || username || member;
+  }
+  return;
 };
