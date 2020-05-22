@@ -1,5 +1,13 @@
 
 
+- [[70a9bea](https://github.com/dan-online/Discord-Bot/commit/70a9bea3e88c106eb9011c049d1b97d878473405)] - parsing user - ([Dan](Dan))
+
+- [[1fbeadb](https://github.com/dan-online/Discord-Bot/commit/1fbeadb815ce5818603e6182270635b437fa78fa)] - moved src/utils/parse.js to folder - ([Dan](Dan))
+
+- [[1a56c56](https://github.com/dan-online/Discord-Bot/commit/1a56c56838118db7a3edeea8a87c81076992dacc)] - moved src/commands/economy/transfer.js to folder - ([Dan](Dan))
+
+- [[06ffba5](https://github.com/dan-online/Discord-Bot/commit/06ffba5886baaace1d59aecc11c10f54bc123408)] - moved src/commands/economy/balance.js to folder - ([Dan](Dan))
+
 - [[c6f814b](https://github.com/dan-online/Discord-Bot/commit/c6f814b8a6cc34e8454cc0f9627430f398009f18)] - moved src/commands/tickets/ticket.js to folder - ([Dan](Dan))
 
 - [[f43045d](https://github.com/dan-online/Discord-Bot/commit/f43045de68c2457d00f99e8b449581e8b3de985d)] - moved src/commands/settings/settings.js to folder - ([Dan](Dan))
