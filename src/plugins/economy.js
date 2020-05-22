@@ -57,9 +57,19 @@ module.exports = class Economy extends Enmap {
     this.saveUser();
     return this.doc.balance;
   }
+  remove(amount) {
+    if (this.doc.balance - amount < 0)
+      throw new Error("This user does not have enough!");
+    this.doc.balance -= amount;
+    this.saveUser();
+    return this.doc.balance;
+  }
   transfer(amount, user, target) {
     if (!user instanceof Economy || !target instanceof Economy)
       throw new Error("Not instances of economy!");
+    user.remove(amount);
+    target.add(amount);
+    return { user, target };
   }
   position(formatted) {
     let sorted = this.balances.sort((a, b) => a.balance - b.balance);
