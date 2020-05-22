@@ -1,10 +1,52 @@
 
-# 2020-05-22
+
+- [[c6f814b](https://github.com/dan-online/Discord-Bot/commit/c6f814b8a6cc34e8454cc0f9627430f398009f18)] - moved src/commands/tickets/ticket.js to folder - ([Dan](Dan))
+
+- [[f43045d](https://github.com/dan-online/Discord-Bot/commit/f43045de68c2457d00f99e8b449581e8b3de985d)] - moved src/commands/settings/settings.js to folder - ([Dan](Dan))
+
+- [[a3354f0](https://github.com/dan-online/Discord-Bot/commit/a3354f04b60cbb041339ad7ea295eaed2d1cde01)] - moved src/commands/settings/autorole.js to folder - ([Dan](Dan))
+
+- [[6286dd5](https://github.com/dan-online/Discord-Bot/commit/6286dd5e6aad0cb7c2017d7db0d2e79e8bd28580)] - moved src/commands/reactionRoles/reaction.js to folder - ([Dan](Dan))
+
+- [[95d2cfe](https://github.com/dan-online/Discord-Bot/commit/95d2cfe6a6c8ac6d8f4a5ed7286861ef164c46dc)] - moved src/commands/economy/balance.js to folder - ([Dan](Dan))
+
+- [[7c784a0](https://github.com/dan-online/Discord-Bot/commit/7c784a05de8bb05f37b2cafaafcc3447a615782d)] - moved src/commands/core/reload.js to folder - ([Dan](Dan))
+
+- [[075218d](https://github.com/dan-online/Discord-Bot/commit/075218dc68c1fb03c10dde973caf4694f194ffb8)] - moved src/commands/core/ram.js to folder - ([Dan](Dan))
+
+- [[2c597ba](https://github.com/dan-online/Discord-Bot/commit/2c597bab141711fc4da3938464dd33c4ca2bb447)] - moved src/commands/core/ping.js to folder - ([Dan](Dan))
+
+- [[86899a3](https://github.com/dan-online/Discord-Bot/commit/86899a3e3e7dba01447249126f4cf0cc508008a5)] - moved src/commands/core/help.js to folder - ([Dan](Dan))
+
+- [[79b6b97](https://github.com/dan-online/Discord-Bot/commit/79b6b977230900755a4b24aabc95f520dc902147)] - moved src/commands/core/eval.js to folder - ([Dan](Dan))
+
+- [[b8cdd10](https://github.com/dan-online/Discord-Bot/commit/b8cdd10b3e932eb8b43610881a3a3ed82e4c6f4a)] - moved src/events/message.js to folder - ([Dan](Dan))
+
+- [[913d7b9](https://github.com/dan-online/Discord-Bot/commit/913d7b992437b7c11584b281e7347ceff1f065eb)] - moved src/commands/ticket.js to folder - ([Dan](Dan))
+
+- [[27da2a9](https://github.com/dan-online/Discord-Bot/commit/27da2a91a7f7b99bc22d27e6c184c8258fa04be1)] - moved src/commands/settings.js to folder - ([Dan](Dan))
+
+- [[2096d32](https://github.com/dan-online/Discord-Bot/commit/2096d32f350484089af333ed9510042dae225c16)] - moved src/commands/reload.js to folder - ([Dan](Dan))
+
+- [[b87b180](https://github.com/dan-online/Discord-Bot/commit/b87b18079a1cc7bdf8e7b51c95882d1e3c5bf20a)] - moved src/commands/reaction.js to folder - ([Dan](Dan))
+
+- [[5b7eb54](https://github.com/dan-online/Discord-Bot/commit/5b7eb54bd7805b6f827b805eb046d2d86fec5b5a)] - moved src/commands/ram.js to folder - ([Dan](Dan))
+
+- [[06fd2dc](https://github.com/dan-online/Discord-Bot/commit/06fd2dc08c5fc130605398b01d49c9fbea914a4f)] - moved src/commands/ping.js to folder - ([Dan](Dan))
+
+- [[730ecde](https://github.com/dan-online/Discord-Bot/commit/730ecde7af39a7334fe29e40ec87cd2102f9ad7c)] - moved src/commands/help.js to folder - ([Dan](Dan))
+
+- [[3958713](https://github.com/dan-online/Discord-Bot/commit/3958713b6db2a37b1d5ffe9f3100e71533eea2a5)] - moved src/commands/eval.js to folder - ([Dan](Dan))
+
+- [[8ab6084](https://github.com/dan-online/Discord-Bot/commit/8ab60840ed83384f7a321422c99fc05f9b7de120)] - moved src/commands/balance.js to folder - ([Dan](Dan))
+
+- [[6408052](https://github.com/dan-online/Discord-Bot/commit/640805248b6580673a08efd2a7cf297b51ecd066)] - moved src/commands/autorole.js to folder - ([Dan](Dan))
+
 - [[dafbb85](https://github.com/dan-online/Discord-Bot/commit/dafbb85cf2460cc9e1c987c47bf31efebff89ea6)] - points - ([Dan](Dan))
 
 - [[2a82bb6](https://github.com/dan-online/Discord-Bot/commit/2a82bb60ba1ca6d052c0cd1411de6374e2106b7a)] - transfer economy and start of points system - ([Dan](Dan))
 
-# 2020-05-20
+
 - [[4aa9fc8](https://github.com/dan-online/Discord-Bot/commit/4aa9fc87eac2289569e718d26539593d0de1d35e)] - economy balance command - ([Dan](Dan))
 
 - [[e858c3e](https://github.com/dan-online/Discord-Bot/commit/e858c3e81970d0deaec313f61ae52495fff64e27)] - economy start - ([Dan](Dan))
@@ -31,7 +73,7 @@
 
 - [[542f4a4](https://github.com/dan-online/Discord-Bot/commit/542f4a47c600779e6ff5422ec219d64df3e14d52)] - spam prevention - ([Dan](Dan))
 
-# 2020-05-19
+
 - [[1788db7](https://github.com/dan-online/Discord-Bot/commit/1788db709191f7871b0dc546cb8e8eae8613a039)] - try an catch - ([Dan](Dan))
 
 - [[248eb0d](https://github.com/dan-online/Discord-Bot/commit/248eb0d76448c5d357762ec26c76277bf56adfa7)] - renaming - ([Dan](Dan))
@@ -94,7 +136,7 @@
 
 - [[a7f2f60](https://github.com/dan-online/Discord-Bot/commit/a7f2f60166798cb61acf61aa09ae6739be95faaf)] - extending enmap for fun - ([Dan](Dan))
 
-# 2020-05-18
+
 - [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
 
 - [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
@@ -137,19 +179,19 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-# 2020-05-17
+
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
 
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-# 2020-05-13
+
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-# 2020-05-12
+
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
