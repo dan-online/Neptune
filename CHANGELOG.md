@@ -1,4 +1,9 @@
 
+# 2020-05-22
+- [[dafbb85](https://github.com/dan-online/Discord-Bot/commit/dafbb85cf2460cc9e1c987c47bf31efebff89ea6)] - points - ([Dan](Dan))
+
+- [[2a82bb6](https://github.com/dan-online/Discord-Bot/commit/2a82bb60ba1ca6d052c0cd1411de6374e2106b7a)] - transfer economy and start of points system - ([Dan](Dan))
+
 # 2020-05-20
 - [[4aa9fc8](https://github.com/dan-online/Discord-Bot/commit/4aa9fc87eac2289569e718d26539593d0de1d35e)] - economy balance command - ([Dan](Dan))
 
