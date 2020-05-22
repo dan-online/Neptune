@@ -1,5 +1,7 @@
 
 
+- [[ad46298](https://github.com/dan-online/Discord-Bot/commit/ad462984e5cca4534d21c625093cf857590fbd38)] - help sort - ([Dan](Dan))
+
 - [[70a9bea](https://github.com/dan-online/Discord-Bot/commit/70a9bea3e88c106eb9011c049d1b97d878473405)] - parsing user - ([Dan](Dan))
 
 - [[1fbeadb](https://github.com/dan-online/Discord-Bot/commit/1fbeadb815ce5818603e6182270635b437fa78fa)] - moved src/utils/parse.js to folder - ([Dan](Dan))
