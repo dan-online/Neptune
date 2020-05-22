@@ -8,18 +8,13 @@ module.exports.run = async (client, message, args, { commands }) => {
   commands = Array.from(commands)
     .filter((x) => x[0] == x[1].use.split(" ")[0].split(process.conf.prefix)[1])
     .map((x) => ({ ...x[1], name: x[0] }));
-
-  let tab = Array(
-    commands.sort((y, x) => x.use.length - y.use.length)[0].use.length + 2
-  )
-    .fill(" ")
-    .join("");
+  commands.sort(() => 0.5 - Math.random());
 
   const final = `\`\`\`asciidoc
 = Commands of ${client.user.tag} =
 
 usage: ${process.conf.prefix}[command] [...args]
-exmpl: ${commands[0].use}
+example: ${commands[0].use}
 
 ${commands
   .map(
