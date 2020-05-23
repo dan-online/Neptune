@@ -12,7 +12,7 @@ module.exports.run = async (client, message, args) => {
     .setColor(process.conf.color)
     .setThumbnail(target.user.avatarURL())
     .setTitle("Balance of " + target.user.tag)
-    .addField("Account", user.balance + process.conf.economy.currency, true)
-    .addField("Position", user.formatPlace, true);
+    .addField("Account", user.balance() + process.conf.economy.currency, true)
+    .addField("Position", user.position(true), true);
   return message.channel.send(embed);
 };

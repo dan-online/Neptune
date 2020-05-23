@@ -22,5 +22,16 @@ module.exports.run = async (client, message, args) => {
         max +
         process.conf.economy.currency
     );
-  me.transfer(amount, them);
+  me.transfer(parseInt(amount), them);
+  message.channel.send(
+    "Successfully transferred **" +
+      amount +
+      process.conf.economy.currency +
+      "** to " +
+      target.user.tag +
+      ", you now have **" +
+      me.balance() +
+      process.conf.economy.currency +
+      "**"
+  );
 };
