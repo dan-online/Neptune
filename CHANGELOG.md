@@ -1,5 +1,9 @@
 
 
+- [[6d0cf6d](https://github.com/dan-online/Discord-Bot/commit/6d0cf6d3711a494a1b73338859d492201839cc60)] - Kick  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
+
+- [[8bb8da8](https://github.com/dan-online/Discord-Bot/commit/8bb8da8caeab03e6a8ad6b8680aee4a3d6e48b86)] - leaderboard start - ([Dan](Dan))
+
 - [[782fe4c](https://github.com/dan-online/Discord-Bot/commit/782fe4cb6a2d8459be46e489f3a1ad607615079f)] - return - ([Dan](Dan))
 
 - [[bde4a14](https://github.com/dan-online/Discord-Bot/commit/bde4a1498d9496c6893edf8b1464e5a1235679f7)] - actual transfer - ([Dan](Dan))
