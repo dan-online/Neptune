@@ -1,5 +1,7 @@
 
 
+- [[13e7d46](https://github.com/dan-online/Discord-Bot/commit/13e7d461e5e9f6b8fb059edcf3601de89312ce86)] - Coauthored by LightenedLimited - ([Dan](Dan))
+
 - [[6d0cf6d](https://github.com/dan-online/Discord-Bot/commit/6d0cf6d3711a494a1b73338859d492201839cc60)] - Kick  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
 
 - [[8bb8da8](https://github.com/dan-online/Discord-Bot/commit/8bb8da8caeab03e6a8ad6b8680aee4a3d6e48b86)] - leaderboard start - ([Dan](Dan))
