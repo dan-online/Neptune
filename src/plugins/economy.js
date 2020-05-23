@@ -26,6 +26,7 @@ class UserEconomy {
     this.db = db;
     this.fetchBalances();
     this.checkUser();
+    return this;
   }
   fetchBalances() {
     this.balances = this.db.get(this.guild.id) || [];
@@ -85,6 +86,7 @@ class UserEconomy {
     return formatted ? addSuffix(place) : place;
   }
 }
+
 // class Economy extends Enmap {
 //   constructor(config) {
 //     if (!process.conf.economy.currency) {
