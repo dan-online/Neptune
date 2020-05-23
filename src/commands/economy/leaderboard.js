@@ -7,6 +7,7 @@ module.exports = {
 const { parse } = require("../../utils/utils");
 module.exports.run = async (client, message, args) => {
   const target = parse.member(client, message, args) || message.member;
+  const targetE = Plugins.economy.init(target, message.member);
   var members = [];
   message.guild.members.cache.forEach((x) => {
     if (x.user.bot) return;
@@ -21,11 +22,14 @@ module.exports.run = async (client, message, args) => {
 ${members
   .map(
     (x) =>
-      `${x.position(true)}. ${x.member.displayName} - ${x.balance()}${
+      `${x.position(true)}. ${x.member.displayName}\n   ${x.balance()}${
         process.conf.economy.currency
       }`
   )
   .join("\n")}
-  \`\`\`
+
+= ${targetE.position(true)}. ${target.displayName} - ${
+    targetE.balance() + process.conf.economy.currency
+  } =\`\`\`
   `);
 };

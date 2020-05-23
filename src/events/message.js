@@ -1,15 +1,18 @@
 const { commands, events, database } = require("../bot");
 const { testBlock, parseCommand } = require("../utils/utils");
 var loaded = false;
-function loadCommands(client) {
+function loadCommands() {
   const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));
   cmds.forEach(function command(c) {
     let place = path.resolve(__dirname, "..", "commands", c);
     if (fs.statSync(place).isDirectory()) {
       return fs.readdirSync(place).forEach((newC) => command(c + "/" + newC));
     }
-    const cMod = require(place);
-    if (cMod.disabled) return;
+    var cMod;
+    try {
+      cMod = require(place);
+    } catch {}
+    if (!cMod || cMod.disabled) return;
     cMod.aliases.forEach((x) => {
       if (commands.get(x)) {
         log.warn("overwriting existing alias: " + x);

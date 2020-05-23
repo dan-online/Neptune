@@ -16,6 +16,9 @@ module.exports = {
   economy: {
     enabled: true,
   },
+  mods: {
+    enabled: true,
+  },
   // settings: {
   //   enabled: false,
   //   autoRole: false,

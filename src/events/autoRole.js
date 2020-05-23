@@ -1,5 +1,3 @@
-const Plugins = require("../modules/Plugins");
-
 module.exports = {
   name: "guildMemberAdd",
   event(client, member) {
