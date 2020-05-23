@@ -6,13 +6,13 @@ module.exports = {
 };
 const { parse } = require("../../utils/utils");
 module.exports.run = async (client, message, args) => {
-  const target = parse.user(client, message, args) || message.author;
+  const target = parse.member(client, message, args) || message.member;
   const user = Plugins.economy.init(target, message.guild);
   const embed = new Discord.MessageEmbed()
     .setColor(process.conf.color)
-    .setThumbnail(target.avatarURL())
-    .setTitle("Balance of " + target.tag)
-    .addField("Account", user.balance() + process.conf.economy.currency, true)
-    .addField("Position", user.position(true), true);
+    .setThumbnail(target.user.avatarURL())
+    .setTitle("Balance of " + target.user.tag)
+    .addField("Account", user.balance + process.conf.economy.currency, true)
+    .addField("Position", user.formatPlace, true);
   return message.channel.send(embed);
 };

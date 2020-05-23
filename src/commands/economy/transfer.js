@@ -9,14 +9,18 @@ module.exports = {
     " to another person",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
 };
-
+const { parse } = require("../../utils/utils");
 module.exports.run = async (client, message, args) => {
-  const user = Plugins.economy.init(message.author, message.guild);
-  const embed = new Discord.MessageEmbed()
-    .setColor(process.conf.color)
-    .setThumbnail(message.author.avatarURL())
-    .setTitle("Balance of " + message.author.tag)
-    .addField("Account", user.balance() + process.conf.economy.currency, true)
-    .addField("Position", user.position(true), true);
-  return message.channel.send(embed);
+  const target = parse.member(client, message, args);
+  const max = process.conf.economy.maxTransfer || 1000;
+  const me = Plugins.economy.init(message.member, message.guild);
+  const them = Plugins.economy.init(target, message.guild);
+  const amount = args.find((x) => !isNaN(x) && 0 < x < max);
+  if (!amount)
+    throw new Error(
+      "Please ensure the balance to transfer is a number and less than " +
+        max +
+        process.conf.economy.currency
+    );
+  me.transfer(amount, them);
 };
