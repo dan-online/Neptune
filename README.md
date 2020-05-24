@@ -19,6 +19,7 @@ To use stable releases go to [releases](../../releases)
 - API plugin
 - Updater plugin/system
 - Points system
+- Translate
 
 ## Installation
 
