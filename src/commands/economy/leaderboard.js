@@ -1,7 +1,7 @@
 module.exports = {
   aliases: ["leaderboard", "lb"],
-  use: process.conf.prefix + "balance",
-  desc: "View your own balance or the balance of someone else",
+  use: process.conf.prefix + "leaderboard",
+  desc: "View the leaderboard of your guild and your position",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
 };
 const { parse } = require("../../utils/utils");

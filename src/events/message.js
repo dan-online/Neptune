@@ -13,6 +13,9 @@ function loadCommands() {
       cMod = require(place);
     } catch {}
     if (!cMod || cMod.disabled) return;
+    const category =
+      c.split("/")[0][0].toUpperCase() + c.split("/")[0].slice(1);
+    cMod.category = category;
     cMod.aliases.forEach((x) => {
       if (commands.get(x)) {
         log.warn("overwriting existing alias: " + x);
