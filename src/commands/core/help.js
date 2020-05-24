@@ -51,7 +51,8 @@ ${commands
       "\n[Aliases]     :: " +
       x.aliases.join(", ") +
       "\n[Description] :: " +
-      x.desc
+      x.desc +
+      (x.permissions ? "\n[Permissions] :: " + x.permissions.join(", ") : "")
   )
   .join("\n\n")}
   
