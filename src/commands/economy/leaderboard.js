@@ -16,20 +16,20 @@ module.exports.run = async (client, message, args) => {
   });
   members = members.sort((a, b) => a.position() - b.position());
   members.slice(0, 10);
-  message.channel.send(`\`\`\`asciidoc
-= Leaderboard of ${message.guild.name} =
-  
+  message.channel.send(`\`\`\`py
+@ Leaderboard of ${message.guild.name}
+
 ${members
   .map(
     (x) =>
-      `${x.position(true)}. ${x.member.displayName}\n   ${x.balance()}${
+      `${x.position()}. ${x.member.displayName}\n   ${x.balance()}${
         process.conf.economy.currency
       }`
   )
   .join("\n")}
 
-= ${targetE.position(true)}. ${target.displayName} - ${
+@ ${targetE.position()}. ${target.displayName} - ${
     targetE.balance() + process.conf.economy.currency
-  } =\`\`\`
+  } \`\`\`
   `);
 };
