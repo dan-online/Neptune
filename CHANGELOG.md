@@ -1,5 +1,7 @@
 
-# 2020-05-26
+
+- [[9562c63](https://github.com/dan-online/Discord-Bot/commit/9562c6345306ecff205a3a2b2a35301df88c748a)] - Fixing message reaction add firing twice - ([LightenedLimited](LightenedLimited))
+
 - [[bd7bdfd](https://github.com/dan-online/Discord-Bot/commit/bd7bdfd205db18d139b17694428ffbbc06a83361)] - capital - ([Dan](Dan))
 
 - [[ba2fd40](https://github.com/dan-online/Discord-Bot/commit/ba2fd4032b38495300b285860d8ee94267636e06)] - env - ([DanCodes](DanCodes))
@@ -14,12 +16,12 @@
 
 - [[2c3f641](https://github.com/dan-online/Discord-Bot/commit/2c3f6410408f13ae1fcff3a574196fed0730a461)] - build testing - ([DanCodes](DanCodes))
 
-# 2020-05-24
+
 - [[5d0cf19](https://github.com/dan-online/Discord-Bot/commit/5d0cf19d99a136b68b651808d46fa885b1df4615)] - Merge branch 'master' of https://github.com/dan-online/Discord-Bot - ([Dan](Dan))
 
 - [[e1c3913](https://github.com/dan-online/Discord-Bot/commit/e1c3913e473cc06279dd44ee4d943c77a2e5a4cf)] - ban and kick commands - ([Dan](Dan))
 
-# 2020-05-23
+
 - [[13e7d46](https://github.com/dan-online/Discord-Bot/commit/13e7d461e5e9f6b8fb059edcf3601de89312ce86)] - Coauthored by LightenedLimited - ([Dan](Dan))
 
 - [[6d0cf6d](https://github.com/dan-online/Discord-Bot/commit/6d0cf6d3711a494a1b73338859d492201839cc60)] - Kick  Co-authored-by: LightenedLimited <macnguyenanh@gmail.com> - ([Dan](Dan))
@@ -32,7 +34,7 @@
 
 - [[fbfb29b](https://github.com/dan-online/Discord-Bot/commit/fbfb29bb82477520339984e7e6bd9bd664c97828)] - so discordjs uses userID when stringified - ([Dan](Dan))
 
-# 2020-05-22
+
 - [[ad46298](https://github.com/dan-online/Discord-Bot/commit/ad462984e5cca4534d21c625093cf857590fbd38)] - help sort - ([Dan](Dan))
 
 - [[70a9bea](https://github.com/dan-online/Discord-Bot/commit/70a9bea3e88c106eb9011c049d1b97d878473405)] - parsing user - ([Dan](Dan))
@@ -89,7 +91,7 @@
 
 - [[2a82bb6](https://github.com/dan-online/Discord-Bot/commit/2a82bb60ba1ca6d052c0cd1411de6374e2106b7a)] - transfer economy and start of points system - ([Dan](Dan))
 
-# 2020-05-20
+
 - [[4aa9fc8](https://github.com/dan-online/Discord-Bot/commit/4aa9fc87eac2289569e718d26539593d0de1d35e)] - economy balance command - ([Dan](Dan))
 
 - [[e858c3e](https://github.com/dan-online/Discord-Bot/commit/e858c3e81970d0deaec313f61ae52495fff64e27)] - economy start - ([Dan](Dan))
@@ -116,7 +118,7 @@
 
 - [[542f4a4](https://github.com/dan-online/Discord-Bot/commit/542f4a47c600779e6ff5422ec219d64df3e14d52)] - spam prevention - ([Dan](Dan))
 
-# 2020-05-19
+
 - [[1788db7](https://github.com/dan-online/Discord-Bot/commit/1788db709191f7871b0dc546cb8e8eae8613a039)] - try an catch - ([Dan](Dan))
 
 - [[248eb0d](https://github.com/dan-online/Discord-Bot/commit/248eb0d76448c5d357762ec26c76277bf56adfa7)] - renaming - ([Dan](Dan))
@@ -179,7 +181,7 @@
 
 - [[a7f2f60](https://github.com/dan-online/Discord-Bot/commit/a7f2f60166798cb61acf61aa09ae6739be95faaf)] - extending enmap for fun - ([Dan](Dan))
 
-# 2020-05-18
+
 - [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
 
 - [[1a6bae4](https://github.com/dan-online/Discord-Bot/commit/1a6bae4602a179fdd04bac66b4eb7ebbb38fbd52)] - refactoring and auto role in src/plugins/settings.js - ([Dan](Dan))
@@ -222,19 +224,19 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-# 2020-05-17
+
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
 
 - [[79c8b0e](https://github.com/dan-online/Discord-Bot/commit/79c8b0ed27e9c7360dca97dd8301e77432e65903)] - reaction roles extended plus ratelimit msg - ([Dan](Dan))
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-# 2020-05-13
+
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-# 2020-05-12
+
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
