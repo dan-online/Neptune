@@ -1,17 +1,17 @@
 const emojiMap = require("emoji-unicode-to-name");
-const googleTranslate = require("google-translate-api");
+const yandexTranslate = require("yandex-translate")(process.env.YANDEX_TOKEN);
 class TranslateWrapper {
     constructor(config) {
         return this;
     }
-    translate(message, emoji) {
-        console.log(emojiMap.get(emoji))
+    translate(message, emoji, cb) {
+        console.log(emojiMap.get(emoji));
 
-        googleTranslate(message, {
-            to: emojiMap.get(emoji)
-        }).then(res => {
-            console.log(res.text);
-        });
+        yandexTranslate.translate(message, {
+            "to": emojiMap.get(emoji)
+        }, (err, res) => {
+            cb(err, res)
+        })
     }
 }
 

@@ -4,6 +4,17 @@ module.exports = {
         const Translate = Plugins.translate;
         if (!Translate) return;
         if (user.id == client.user.id) return;
-        Translate.translate(reaction.message.content, reaction.emoji.name);
+        Translate.translate(reaction.message.content, reaction.emoji.name, (err, res) => {
+            if (err) {
+                throw new Error(err);
+            }
+            const embed = new Discord.MessageEmbed()
+                .setColor(process.conf.color)
+                .setThumbnail(user.avatarURL())
+                .setTitle("Translation requested by :" + user.tag)
+                .addField("Original", reaction.message.content, true)
+                .addField("Translation", res.text);
+            reaction.message.reply(embed);
+        });
     },
 };
