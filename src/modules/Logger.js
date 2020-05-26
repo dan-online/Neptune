@@ -1,5 +1,5 @@
 const Debug = require("debug");
-require("./env");
+require("./Env");
 const Info = Debug(process.conf.name + ":info");
 const Warn = Debug(process.conf.name + ":warn");
 const Logger = (name, force) => {
