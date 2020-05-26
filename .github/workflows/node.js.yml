@@ -29,6 +29,6 @@ jobs:
       with:
         path: "cache"
         key: "idk"
-          
+    - run: echo env > .env
     - run: yarn
     - run: yarn test
