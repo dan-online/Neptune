@@ -7,16 +7,10 @@ module.exports = {
 };
 const { parse, ask } = require("../../utils");
 module.exports.run = async (client, message, args) => {
-  console.log(args);
-  // ahh yea just do args.filter(x => x.content != wait no idk how, good luck
-  // we gotta add a reason to kick
   const target = parse.member(client, message, args);
-  console.log(target.toString());
-
   if (!target) {
     throw new Error("You need to mention a member to kick!");
   }
-  console.log(target.permissions.toArray());
 
   if (target.hasPermission("KICK_MEMBERS")) {
     throw new Error("You can not kick user who can kick other members!");
