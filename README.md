@@ -5,6 +5,7 @@
 [![Discordjs Version][discordjs-image]][discordjs-url]
 ![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
 ![Discord-bot version](https://img.shields.io/github/package-json/v/dan-online/discord-bot)
+![Node.js CI](https://github.com/dan-online/Discord-Bot/workflows/Node.js%20CI/badge.svg)
 
 ## Downloads
 
