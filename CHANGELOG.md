@@ -1,5 +1,5 @@
 
-# 2020-05-26
+
 - [[2c3f641](https://github.com/dan-online/Discord-Bot/commit/2c3f6410408f13ae1fcff3a574196fed0730a461)] - build testing - ([DanCodes](DanCodes))
 
 
