@@ -23,6 +23,7 @@ function loadCommands() {
       commands.set(x, cMod);
     });
   });
+  log.info(commands.size + " commands fully loaded");
 }
 module.exports = {
   name: "message",
