@@ -1,5 +1,7 @@
 
 
+- [[bd7bdfd](https://github.com/dan-online/Discord-Bot/commit/bd7bdfd205db18d139b17694428ffbbc06a83361)] - capital - ([Dan](Dan))
+
 - [[ba2fd40](https://github.com/dan-online/Discord-Bot/commit/ba2fd4032b38495300b285860d8ee94267636e06)] - env - ([DanCodes](DanCodes))
 
 - [[89fe301](https://github.com/dan-online/Discord-Bot/commit/89fe301bb30b7feb8bcdb8413bd8f8e6179eb4ba)] - discord.js node >= 12 - ([DanCodes](DanCodes))
