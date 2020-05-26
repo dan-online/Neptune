@@ -1,5 +1,9 @@
 
 
+- [[ba2fd40](https://github.com/dan-online/Discord-Bot/commit/ba2fd4032b38495300b285860d8ee94267636e06)] - env - ([DanCodes](DanCodes))
+
+- [[89fe301](https://github.com/dan-online/Discord-Bot/commit/89fe301bb30b7feb8bcdb8413bd8f8e6179eb4ba)] - discord.js node >= 12 - ([DanCodes](DanCodes))
+
 - [[42985ea](https://github.com/dan-online/Discord-Bot/commit/42985eac52849bec4fcbf056e11cb36dea40f07f)] - Update node.js.yml - ([DanCodes](DanCodes))
 
 - [[85345d7](https://github.com/dan-online/Discord-Bot/commit/85345d76537c5bd4b3b99ffa95f19d726505721f)] - testing cache action - ([DanCodes](DanCodes))
