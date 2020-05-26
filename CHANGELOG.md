@@ -1,5 +1,7 @@
 
 
+- [[1f613e2](https://github.com/dan-online/Discord-Bot/commit/1f613e2fffdf30595779077a42bf5e477ee30a69)] - cache - ([DanCodes](DanCodes))
+
 - [[2c3f641](https://github.com/dan-online/Discord-Bot/commit/2c3f6410408f13ae1fcff3a574196fed0730a461)] - build testing - ([DanCodes](DanCodes))
 
 
