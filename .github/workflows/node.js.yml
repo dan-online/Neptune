@@ -18,7 +18,7 @@ jobs:
       matrix:
         node-version: [12.x, 13.x, 14.x]
 
-    steps:
+    steps: 
     - uses: actions/checkout@v2
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v1
@@ -29,6 +29,10 @@ jobs:
       with:
         path: "cache"
         key: "idk"
+
     - run: echo env > .env
     - run: yarn
-    - run: yarn test
+    - name: "Run tests"
+      env:
+        TOKEN: ${{ secrets.TOKEN }}
+      run: yarn test
