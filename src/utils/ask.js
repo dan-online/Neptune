@@ -12,8 +12,12 @@ module.exports = function (message, question, choices, cb) {
       return false;
     }
   }
-  message.channel
-    .send(question + (choices ? " [" + choices.join(",") + "]" : ""))
+  return message.channel
+    .send(
+      typeof question == "string"
+        ? question + (choices ? " [" + choices.join(",") + "]" : "")
+        : question
+    )
     .then((q) => {
       message.channel
         .awaitMessages(
@@ -26,12 +30,18 @@ module.exports = function (message, question, choices, cb) {
         )
         .then((collected) => {
           let collect = collected.first();
-          q.edit(question + " **" + collect.content + "**");
-          cb(null, collect);
+          if (typeof question == "string")
+            q.edit(question + " **" + collect.content + "**");
+          cb(null, collect, q);
         })
         .catch((err) => {
           console.error(err);
-          q.edit("This question timed out: " + err.message);
+          if (typeof question == "string")
+            q.edit("This question timed out: " + (err.message || ""));
+          else
+            q.delete().then(() =>
+              message.channel.send("This question timed out")
+            );
           cb(err);
         });
     });

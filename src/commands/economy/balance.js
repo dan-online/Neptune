@@ -4,7 +4,7 @@ module.exports = {
   desc: "View your own balance or the balance of someone else",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
 };
-const { parse } = require("../../utils/utils");
+const { parse } = require("../../utils");
 module.exports.run = async (client, message, args) => {
   const target = parse.member(client, message, args) || message.member;
   const user = Plugins.economy.init(target, message.guild);

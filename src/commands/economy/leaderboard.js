@@ -4,7 +4,7 @@ module.exports = {
   desc: "View the leaderboard of your guild and your position",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
 };
-const { parse } = require("../../utils/utils");
+const { parse } = require("../../utils");
 module.exports.run = async (client, message, args) => {
   const target = parse.member(client, message, args) || message.member;
   var members = [];

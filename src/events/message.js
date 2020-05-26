@@ -1,5 +1,5 @@
 const { commands, events, database } = require("../bot");
-const { testBlock, parseCommand } = require("../utils/utils");
+const { testBlock, parseCommand } = require("../utils");
 var loaded = false;
 function loadCommands() {
   const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));

@@ -1,3 +1,5 @@
+const { Guild } = require("discord.js");
+
 // wow this gonna be a big file
 function addSuffix(n) {
   var s = ["th", "st", "nd", "rd"],
@@ -14,10 +16,26 @@ class Economy extends Enmap {
     this.config = config || {};
     return this;
   }
+  initGuild(guild) {
+    return new GuildEconomy(guild, this);
+  }
   init(member, guild) {
     return new UserEconomy(member, guild, this);
   }
 }
+
+class GuildEconomy {
+  constructor(guild, db) {
+    this.guild = guild;
+    this.db = db;
+    this.doc = this.db.get(guild.id + "_custom") || { items: [] };
+    return this;
+  }
+  items() {
+    return this.doc.items || [];
+  }
+}
+
 class UserEconomy {
   constructor(member, guild, db) {
     if (member.user.bot) throw new Error("User can not be a bot!");

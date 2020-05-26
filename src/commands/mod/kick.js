@@ -5,7 +5,7 @@ module.exports = {
   disabled: !(process.conf.mods && process.conf.mods.enabled),
   permissions: ["KICK_MEMBERS"],
 };
-const { parse, ask } = require("../../utils/utils");
+const { parse, ask } = require("../../utils");
 module.exports.run = async (client, message, args) => {
   console.log(args);
   // ahh yea just do args.filter(x => x.content != wait no idk how, good luck
