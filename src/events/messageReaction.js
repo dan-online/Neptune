@@ -4,6 +4,6 @@ module.exports = {
         const Translate = Plugins.translate;
         if (!Translate) return;
         if (user.id == client.user.id) return;
-        console.log(reaction.emoji.name)
-    }
-}
+        Translate.translate(reaction.message.content, reaction.emoji.name);
+    },
+};
