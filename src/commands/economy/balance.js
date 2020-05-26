@@ -1,5 +1,5 @@
 module.exports = {
-  aliases: ["balance", "b"],
+  aliases: ["balance", "b", "bal"],
   use: process.conf.prefix + "balance",
   desc: "View your own balance or the balance of someone else",
   disabled: !(process.conf.economy && process.conf.economy.enabled),

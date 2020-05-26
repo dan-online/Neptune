@@ -15,7 +15,7 @@ module.exports.run = async (client, message, args) => {
   });
   members = members.sort((a, b) => a.position() - b.position());
   const targetE = members.find((x) => x.member.id == message.author.id);
-  members = members.slice(0, 10);
+  members = members.slice(0, 9);
   message.channel.send(`\`\`\`py
 @ Leaderboard of ${message.guild.name}
 
