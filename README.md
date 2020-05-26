@@ -24,6 +24,8 @@ To use stable releases go to [releases](../../releases)
 
 ## Installation
 
+Make sure to have FFmpeg/avconv installed for the youtube plugin
+
 #### .env
 
 ```env

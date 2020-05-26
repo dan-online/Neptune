@@ -19,6 +19,9 @@ module.exports = {
   mods: {
     enabled: true,
   },
+  music: {
+    enabled: true
+  }
   // settings: {
   //   enabled: false,
   //   autoRole: false,
