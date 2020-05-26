@@ -5,8 +5,6 @@ class TranslateWrapper {
         return this;
     }
     translate(message, emoji, cb) {
-        console.log(emojiMap.get(emoji));
-
         yandexTranslate.translate(message, {
             "to": emojiMap.get(emoji)
         }, (err, res) => {
