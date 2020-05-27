@@ -11,6 +11,9 @@ module.exports = {
         if (err) {
           throw new Error(err);
         }
+        if (!res) {
+          throw new Error("Request did not go through!");
+        }
         const embed = new Discord.MessageEmbed()
           .setColor(process.conf.color)
           .setThumbnail(user.avatarURL())
