@@ -19,6 +19,10 @@ module.exports = {
   mods: {
     enabled: true,
   },
+  welcome: {
+    enabled: true,
+    channel: "welcome"
+  }
   // settings: {
   //   enabled: false,
   //   autoRole: false,
