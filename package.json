@@ -16,11 +16,13 @@
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.4",
-    "ffmpeg-static": "^4.2.2",
     "file-system": "^2.2.2",
     "node-fetch": "^2.6.0",
+    "uuid": "^8.0.0"
+  },
+  "optionalDependencies": {
     "node-opus": "^0.3.3",
-    "uuid": "^8.0.0",
-    "ytdl-core": "^2.1.5"
+    "ytdl-core": "^2.1.5",
+    "ffmpeg-static": "^4.2.2"
   }
 }
