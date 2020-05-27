@@ -1,8 +1,8 @@
 
-
+# 2020-05-27
 - [[65ec51d](https://github.com/dan-online/Discord-Bot/commit/65ec51ddcda143e9755193c8d0c7c09656cad8ba)] - Merge pull request #2 from dan-online/changemd  Merge updated Changelog - ([DanCodes](DanCodes))
 
-
+# 2020-05-26
 - [[588017f](https://github.com/dan-online/Discord-Bot/commit/588017fd5e76e17800c75c36c0db22d91674859a)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[f1f2074](https://github.com/dan-online/Discord-Bot/commit/f1f20749b51c1e0a175273cbb0b579d0fbc38648)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
@@ -61,7 +61,7 @@
 
 - [[fd9fa6b](https://github.com/dan-online/Discord-Bot/commit/fd9fa6b3065fcdd9641e9e949ba1583ad0cb1c6a)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
-
+# 2020-05-24
 - [[a94ff5c](https://github.com/dan-online/Discord-Bot/commit/a94ff5ce213ba1b93f94191efe9ab2d0f04cfa5d)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[7ba840a](https://github.com/dan-online/Discord-Bot/commit/7ba840a0269f5dd14bd1e90c52b5b8f7b20c4798)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
@@ -78,7 +78,7 @@
 
 - [[e1c3913](https://github.com/dan-online/Discord-Bot/commit/e1c3913e473cc06279dd44ee4d943c77a2e5a4cf)] - ban and kick commands - ([Dan](Dan))
 
-
+# 2020-05-23
 - [[1d9baf6](https://github.com/dan-online/Discord-Bot/commit/1d9baf64466d7229ed3abc38125394a037c0d60b)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[13e7d46](https://github.com/dan-online/Discord-Bot/commit/13e7d461e5e9f6b8fb059edcf3601de89312ce86)] - Coauthored by LightenedLimited - ([Dan](Dan))
@@ -101,7 +101,7 @@
 
 - [[fbfb29b](https://github.com/dan-online/Discord-Bot/commit/fbfb29bb82477520339984e7e6bd9bd664c97828)] - so discordjs uses userID when stringified - ([Dan](Dan))
 
-
+# 2020-05-22
 - [[ac9e935](https://github.com/dan-online/Discord-Bot/commit/ac9e9350ed7e9fdd136f5b9883177a850b4fd30a)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[ad46298](https://github.com/dan-online/Discord-Bot/commit/ad462984e5cca4534d21c625093cf857590fbd38)] - help sort - ([Dan](Dan))
@@ -166,7 +166,7 @@
 
 - [[2a82bb6](https://github.com/dan-online/Discord-Bot/commit/2a82bb60ba1ca6d052c0cd1411de6374e2106b7a)] - transfer economy and start of points system - ([Dan](Dan))
 
-
+# 2020-05-20
 - [[83cba42](https://github.com/dan-online/Discord-Bot/commit/83cba4260fbc7f43b53fc97c094f1e7df25be0a9)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[4aa9fc8](https://github.com/dan-online/Discord-Bot/commit/4aa9fc87eac2289569e718d26539593d0de1d35e)] - economy balance command - ([Dan](Dan))
@@ -219,7 +219,7 @@
 
 - [[542f4a4](https://github.com/dan-online/Discord-Bot/commit/542f4a47c600779e6ff5422ec219d64df3e14d52)] - spam prevention - ([Dan](Dan))
 
-
+# 2020-05-19
 - [[e39bd52](https://github.com/dan-online/Discord-Bot/commit/e39bd52ae6c189cc6733f30854a27df82518c569)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[1788db7](https://github.com/dan-online/Discord-Bot/commit/1788db709191f7871b0dc546cb8e8eae8613a039)] - try an catch - ([Dan](Dan))
@@ -302,7 +302,7 @@
 
 - [[a7f2f60](https://github.com/dan-online/Discord-Bot/commit/a7f2f60166798cb61acf61aa09ae6739be95faaf)] - extending enmap for fun - ([Dan](Dan))
 
-
+# 2020-05-18
 - [[a653abc](https://github.com/dan-online/Discord-Bot/commit/a653abc726015b134d729189aa166b14dc98a1e0)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[21ff890](https://github.com/dan-online/Discord-Bot/commit/21ff890564f87ba53ac8cf481ee18512565999ad)] - dissapearing comma - ([Dan](Dan))
@@ -359,7 +359,7 @@
 
 - [[2ee872d](https://github.com/dan-online/Discord-Bot/commit/2ee872d09792663c54c68ab81fc7ac9006932c5a)] - better ratelimit message - ([Dan](Dan))
 
-
+# 2020-05-17
 - [[f668f92](https://github.com/dan-online/Discord-Bot/commit/f668f9232b0bbaba4d8f11ccf1ce0eb097b14831)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[2afd6e3](https://github.com/dan-online/Discord-Bot/commit/2afd6e379203eb17468f1ff83a2fb85287caab4d)] - reaction roles continuesd - ([Dan](Dan))
@@ -372,14 +372,14 @@
 
 - [[4e66717](https://github.com/dan-online/Discord-Bot/commit/4e66717e8ac4a7bf45150944783887d6032601d2)] - start of plugins + reactionrole plugin - ([Dan](Dan))
 
-
+# 2020-05-13
 - [[4f29d43](https://github.com/dan-online/Discord-Bot/commit/4f29d439cbb9d41f1a7fdb37bb50f7debcf60476)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[a801910](https://github.com/dan-online/Discord-Bot/commit/a801910625c151dd691edeeaa045c69b967ffa83)] - fixes and moving parsing to util files - ([Dan](Dan))
 
 - [[7f6c0df](https://github.com/dan-online/Discord-Bot/commit/7f6c0df608131635d294b25abe418535505b84ca)] - Update README.md - ([DanCodes](DanCodes))
 
-
+# 2020-05-12
 - [[03095a6](https://github.com/dan-online/Discord-Bot/commit/03095a61702061af54c1629c4189c3401c73a1eb)] - fix fork link - ([Dan](Dan))
 
 - [[0dca1c5](https://github.com/dan-online/Discord-Bot/commit/0dca1c5a047e3b2c9421724b1ad16dc47a00c33d)] - fix badges - ([Dan](Dan))
