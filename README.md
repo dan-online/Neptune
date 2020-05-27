@@ -21,6 +21,7 @@ To use stable releases go to [releases](../../releases)
 - Updater plugin/system
 - Points system
 - Translate
+- Welcome/Leave messages (image jimp)
 
 ## Installation
 
