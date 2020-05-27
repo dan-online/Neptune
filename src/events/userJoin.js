@@ -6,10 +6,11 @@ module.exports = {
         if (!member) {
             throw new Error("Member not found!");
         }
-        try {
-            welcome.welcome(client, member);
-        } catch (error) {
-            throw new Error(error);
-        }
+        welcome.welcome(client, member);
+        // try {
+        //     welcome.welcome(client, member);
+        // } catch (error) {
+        //     throw new Error(error);
+        // }
     }
 }

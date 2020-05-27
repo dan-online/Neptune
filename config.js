@@ -1,7 +1,8 @@
 module.exports = {
   prefix: "t!",
-  owner: ["312551747027468290"], // your discord id
+  owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
+  fontPath: "../../fonts/OpenSans-Regular.ttf",
   emojis: {
     err: {
       id: "🔴",
@@ -21,7 +22,8 @@ module.exports = {
   },
   welcome: {
     enabled: true,
-    channel: "welcome"
+    channel: "welcome",
+    accentColor: "#7289DA",
   }
   // settings: {
   //   enabled: false,
