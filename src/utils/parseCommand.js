@@ -35,6 +35,5 @@ module.exports = function (message, commands) {
       );
     args.parsed = parsed; // to-do further
   } catch {} // i don't trust it enough to not throw
-  console.log(args);
   return { args, command, file: cmd };
 };

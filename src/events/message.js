@@ -12,7 +12,7 @@ function loadCommands() {
     try {
       cMod = require(place);
     } catch {}
-    if (!cMod || cMod.disabled) return;
+    if (!cMod || (cMod.disabled && !process.conf.full)) return;
     const category =
       c.split("/")[0][0].toUpperCase() + c.split("/")[0].slice(1);
     cMod.category = category;
