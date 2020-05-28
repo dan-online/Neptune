@@ -1,7 +1,11 @@
 module.exports = {
   name: "guildMemberAdd",
   event(client, member) {
-    if (!Plugins.settings || !process.conf.settings.autoRole) return;
+    if (
+      !Plugins.settings ||
+      !(process.conf.settings && process.conf.settings.autoRole)
+    )
+      return;
     const guildSettings = settings.getGuild(member.guild);
     if (guildSettings.autoRole) {
       member.guild.roles
