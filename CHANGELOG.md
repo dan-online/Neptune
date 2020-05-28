@@ -1,5 +1,9 @@
 
 
+- [[92a7a89](https://github.com/dan-online/Discord-Bot/commit/92a7a89bc12f83641311631b1b4191bf3841dfa6)] - Merge branch 'master' of https://github.com/dan-online/Discord-Bot - ([Dan](Dan))
+
+- [[0eaa681](https://github.com/dan-online/Discord-Bot/commit/0eaa681f2df65dd98f3e443bf129c4b0a74b7233)] - shutdown - ([Dan](Dan))
+
 - [[0ff404f](https://github.com/dan-online/Discord-Bot/commit/0ff404fad7aba137cf62b67777e9de3a41059731)] - Merge pull request #4 from dan-online/translate  Created a translate plugin with a new event dedicated to this plugin - ([DanCodes](DanCodes))
 
 - [[a5ca0a7](https://github.com/dan-online/Discord-Bot/commit/a5ca0a74904a09dbac83d9b54d8ae4b98cf44a8a)] - add config - ([Dan](Dan))
