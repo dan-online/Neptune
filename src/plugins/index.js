@@ -3,8 +3,8 @@ utilFiles.forEach((x) => {
   const name = x.split(".js")[0];
   if (x == "index.js") return;
   if (
-    !process.conf[name] ||
-    (!process.conf[name].enabled && !process.conf.full)
+    (process.conf[name] ? !process.conf[name].enabled : false) &&
+    !process.conf.full
   )
     return;
   module.exports[name] = new (require(path.resolve(__dirname, x)))(

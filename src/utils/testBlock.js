@@ -1,5 +1,10 @@
 module.exports = function (client, message) {
-  if (message.author.bot || message.author.id == client.user.id) return false;
+  if (
+    message.author.bot ||
+    message.author.id == client.user.id ||
+    !message.guild
+  )
+    return false;
   if (
     message.mentions.members.first() &&
     message.mentions.members.first().id == client.user.id

@@ -14,9 +14,7 @@ module.exports = {
           );
         }
         if (!res || !res.text) {
-          return reaction.message.channel.send(
-            "Whoops! No translation was found!"
-          );
+          return;
         }
         const embed = new Discord.MessageEmbed()
           .setColor(process.conf.color)
