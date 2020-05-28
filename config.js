@@ -19,6 +19,15 @@ module.exports = {
   mods: {
     enabled: true,
   },
+  webhooks: {
+    enabled: true,
+    port: 8080,
+    routes: [{
+      route: "/",
+      handler: "../webhooks/home.js",
+      method: "GET"
+    }]
+  }
   // settings: {
   //   enabled: false,
   //   autoRole: false,
