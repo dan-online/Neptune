@@ -2,7 +2,13 @@ module.exports = {
   prefix: "t!",
   owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
-  fontPath: "../../fonts/OpenSans-Regular.ttf",
+  fontPath: path.resolve(
+    __dirname,
+    "src",
+    "assets",
+    "fonts",
+    "OpenSans-Regular.ttf"
+  ),
   emojis: {
     err: {
       id: "🔴",
@@ -24,7 +30,7 @@ module.exports = {
     enabled: true,
     channel: "welcome",
     accentColor: "#7289DA",
-  }
+  },
   // settings: {
   //   enabled: false,
   //   autoRole: false,
