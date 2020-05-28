@@ -20,39 +20,36 @@ class Welcome {
       : "See ya soon!";
     this.channelInits = {};
     this.color = config.accent;
+    return this;
   }
-  welcome(client, member, self) {
-    if (self) {
-      self._createCanvas(member);
-      return;
-    }
+  welcome(member) {
     if (this.channelInits[member.guild.id]) {
       this._createCanvas(member);
       return;
     }
-    this._checkWelcomeChannel(client, member, this.welcome);
+    this._checkWelcomeChannel(member);
   }
-  _createWelcomeChannel(client, member) {
+  _createWelcomeChannel(member) {
     return member.guild.channels.create(this.channel);
   }
-  _checkWelcomeChannel(client, member, cb) {
+  _checkWelcomeChannel(member) {
     this.channelInits[member.guild.id] = member.guild.channels.cache.find(
       (channel) => channel.name == this.channel
     );
     if (!this.channelInits[member.guild.id]) {
-      this._createWelcomeChannel(client, member).then(() => {
-        cb(client, member, this);
+      this._createWelcomeChannel(member).then(() => {
+        this.welcome(member);
       });
     } else {
-      cb(client, member, this);
+      this.welcome(member);
     }
   }
-  leave(client, member, self) {
+  leave(member) {
     if (this.channelInits[member.guild.id]) {
       //actually welcome user
       return;
     }
-    this._checkWelcomeChannel(client, member, this.leave);
+    this._checkWelcomeChannel(member, this.leave);
   }
   trim(text, size = 100) {
     if (text.length > size) {
