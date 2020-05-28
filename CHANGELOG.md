@@ -1,5 +1,18 @@
 
+# 2020-05-28
+- [[0ff404f](https://github.com/dan-online/Discord-Bot/commit/0ff404fad7aba137cf62b67777e9de3a41059731)] - Merge pull request #4 from dan-online/translate  Created a translate plugin with a new event dedicated to this plugin - ([DanCodes](DanCodes))
+
+- [[a5ca0a7](https://github.com/dan-online/Discord-Bot/commit/a5ca0a74904a09dbac83d9b54d8ae4b98cf44a8a)] - add config - ([Dan](Dan))
+
+- [[34e945f](https://github.com/dan-online/Discord-Bot/commit/34e945fdb5d107c9037e6d468e330a140ea03536)] - take out error throwing in event - ([Dan](Dan))
+
 # 2020-05-27
+- [[489d142](https://github.com/dan-online/Discord-Bot/commit/489d142e9e0f989036211010a2b97d2fa8ec62d6)] - Adding error for undefined res - ([LightenedLimited](LightenedLimited))
+
+- [[d624ee1](https://github.com/dan-online/Discord-Bot/commit/d624ee170cc90627b1cdb430dfb5946da4ea0a0a)] - Merge branch 'translate' of https://github.com/dan-online/Discord-Bot into translate - ([LightenedLimited](LightenedLimited))
+
+- [[001bee4](https://github.com/dan-online/Discord-Bot/commit/001bee42276f812b687588373386ab83af7068c3)] - Making translate plugins optional dependencies - ([LightenedLimited](LightenedLimited))
+
 - [[65ec51d](https://github.com/dan-online/Discord-Bot/commit/65ec51ddcda143e9755193c8d0c7c09656cad8ba)] - Merge pull request #2 from dan-online/changemd  Merge updated Changelog - ([DanCodes](DanCodes))
 
 # 2020-05-26
@@ -7,15 +20,23 @@
 
 - [[f1f2074](https://github.com/dan-online/Discord-Bot/commit/f1f20749b51c1e0a175273cbb0b579d0fbc38648)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
+- [[e733d29](https://github.com/dan-online/Discord-Bot/commit/e733d29d8c7c6cdbca722567c62cd15eff5e3680)] - rename and cleanup - ([Dan](Dan))
+
 - [[2e567c2](https://github.com/dan-online/Discord-Bot/commit/2e567c2e5510d3f6b0d87dd8b10fe47b035e422d)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
+- [[1748c15](https://github.com/dan-online/Discord-Bot/commit/1748c1526c7e9c0f7dcec2eae4fa5276d14375b1)] - Finished translation, finalized with embeded reply - ([LightenedLimited](LightenedLimited))
+
 - [[9ca50f0](https://github.com/dan-online/Discord-Bot/commit/9ca50f019112b3c024b4c4671f873ffabeae7382)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
+
+- [[1cf820f](https://github.com/dan-online/Discord-Bot/commit/1cf820fd07f8f8e5f47fe888fb1d774fd1a2b906)] - Successful Translation, maybe different API - ([LightenedLimited](LightenedLimited))
 
 - [[c616320](https://github.com/dan-online/Discord-Bot/commit/c616320fc0acc00b134e172b8db22c2994e7c1ef)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
 - [[9562c63](https://github.com/dan-online/Discord-Bot/commit/9562c6345306ecff205a3a2b2a35301df88c748a)] - Fixing message reaction add firing twice - ([LightenedLimited](LightenedLimited))
 
 - [[a1e303f](https://github.com/dan-online/Discord-Bot/commit/a1e303fb91e4facf5af87995b1c09d06b13da116)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
+
+- [[2c08886](https://github.com/dan-online/Discord-Bot/commit/2c0888634df8091e042226e29b1c2e7bd4ab3873)] - Temporary Push to Branch, preTranslate class - ([LightenedLimited](LightenedLimited))
 
 - [[30b0840](https://github.com/dan-online/Discord-Bot/commit/30b0840404224d220d5564a482d0805a72f73cd3)] - add CHANGELOG.md - ([changemd[bot]](changemd[bot]))
 
