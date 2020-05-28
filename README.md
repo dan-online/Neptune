@@ -27,6 +27,7 @@ To use stable releases go to [releases](../../releases)
 
 ```env
 TOKEN=DISCORD_BOT_TOKEN
+YANDEX_TOKEN=YANDEX_TOKEN (only if translation API is enabled)
 ```
 
 #### Config

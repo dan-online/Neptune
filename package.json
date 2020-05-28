@@ -18,5 +18,9 @@
     "file-system": "^2.2.2",
     "node-fetch": "^2.6.0",
     "uuid": "^8.0.0"
+  },
+  "optionalDependencies": {
+    "yandex-translate": "^2.1.3",
+    "emoji-unicode-to-name": "^1.0.0"
   }
 }
