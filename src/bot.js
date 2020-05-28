@@ -10,7 +10,10 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
     const file = require(path.resolve(__dirname, "events", e));
     let ind = events.findIndex((x) => x.name == file.name);
     if (ind < 0) {
-      events.push({ name: file.name, callers: [file] });
+      events.push({
+        name: file.name,
+        callers: [file],
+      });
     } else {
       events[ind].callers.push(file);
     }
