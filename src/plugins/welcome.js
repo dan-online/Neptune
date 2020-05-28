@@ -1,3 +1,11 @@
+const { Canvas } = require("canvas-constructor");
+Canvas.registerFont(
+  conf.welcome.fontPath
+    ? path.resolve(conf.welcome.fontPath)
+    : path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
+  "default"
+);
+
 class Welcome {
   constructor(config) {
     this.channel = config.channel;

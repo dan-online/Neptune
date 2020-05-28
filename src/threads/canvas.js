@@ -5,13 +5,6 @@ const { Canvas } = require("canvas-constructor");
 const path = require("path");
 const { loadImage } = require("canvas");
 
-Canvas.registerFont(
-  conf.welcome.fontPath
-    ? path.resolve(conf.welcome.fontPath)
-    : path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
-  "default"
-);
-
 loadImage(avatarUrl).then((image) => {
   const canvas = new Canvas(400, 180)
     // https://github.com/kyranet/canvasConstructor/blob/master/guides/Profile%20Card/ProfileCard.md im lazy ok
