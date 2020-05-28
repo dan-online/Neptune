@@ -9,17 +9,21 @@ module.exports = {
       reaction.emoji.name,
       (err, res) => {
         if (err) {
-          throw new Error(err);
+          return reaction.message.channel.send(
+            "Whoops! Something went wrong: " + err.message
+          );
         }
-        if (!res) {
-          throw new Error("Request did not go through!");
+        if (!res || !res.text) {
+          return reaction.message.channel.send(
+            "Whoops! No translation was found!"
+          );
         }
         const embed = new Discord.MessageEmbed()
           .setColor(process.conf.color)
           .setThumbnail(user.avatarURL())
-          .setTitle("Translation requested by :" + user.tag)
+          .setTitle("Translation requested by: " + user.tag)
           .addField("Original", reaction.message.content, true)
-          .addField("Translation", res.text);
+          .addField("Translation", res.text, true);
         reaction.message.channel.send(embed);
       }
     );

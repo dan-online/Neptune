@@ -12,7 +12,7 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
     if (ind < 0) {
       events.push({
         name: file.name,
-        callers: [file]
+        callers: [file],
       });
     } else {
       events[ind].callers.push(file);
@@ -37,13 +37,13 @@ process.on("unhandledRejection", function (err) {
       if (channel) {
         return channel.send(
           process.conf.emojis.err.full +
-          " We had an error due to this channel, here's all we know:\n```js\nName: " +
-          err.name +
-          "\nMessage: " +
-          err.message +
-          "\nCode: " +
-          err.code +
-          "```"
+            " We had an error due to this channel, here's all we know:\n```js\nName: " +
+            err.name +
+            "\nMessage: " +
+            err.message +
+            "\nCode: " +
+            err.code +
+            "```"
         );
       }
     }
