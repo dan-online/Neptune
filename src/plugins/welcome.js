@@ -3,10 +3,10 @@ class Welcome {
     this.channel = config.channel;
     this.welcomeMessage = config.welcomeMessage
       ? config.welcomeMessage
-      : "Welcome!";
+      : "enjoy your stay!";
     this.leaveMessage = config.leaveMessage
       ? config.leaveMessage
-      : "See ya soon!";
+      : "see ya soon!";
     this.channelInits = {};
     this.color = config.accent;
     return this;
@@ -53,6 +53,12 @@ class Welcome {
       size: 128,
       format: "png",
     });
+    const guildUrl =
+      member.guild.iconURL({
+        size: 128,
+        format: "png",
+      }) ||
+      "https://www.gamasutra.com/db_area/images/news/2019/Jul/346027/246x0w.jpg";
     const Worker = require("worker_threads").Worker;
     const worker = new Worker(
       path.resolve(__dirname, "..", "threads", "canvas.js"),
@@ -61,8 +67,11 @@ class Welcome {
           member: JSON.stringify(member),
           guild: JSON.stringify(member.guild),
           avatarUrl,
+          guildUrl,
+          tag: member.user.tag,
           conf: process.conf,
           name: this.trim(member.displayName, 15),
+          message: this.welcomeMessage,
         },
       }
     );
