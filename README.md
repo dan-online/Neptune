@@ -22,6 +22,7 @@ To use stable releases go to [releases](../../releases)
 - Points system
 - Translate
 - Welcome/Leave messages (image jimp)
+- Verification system (email/oauth)
 
 ## Installation
 
