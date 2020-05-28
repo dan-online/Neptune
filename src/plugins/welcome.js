@@ -23,11 +23,11 @@ class Welcome {
   }
   welcome(client, member, self) {
     if (self) {
-      self._createCanvas(self, self.welcomeMessage, member);
+      self._createCanvas(member);
       return;
     }
     if (this.channelInits[member.guild.id]) {
-      this._createCanvas(this, this.welcomeMessage, member);
+      this._createCanvas(member);
       return;
     }
     this._checkWelcomeChannel(client, member, this.welcome);
@@ -62,7 +62,7 @@ class Welcome {
     }
   }
 
-  _createCanvas(self, message, member) {
+  _createCanvas(member) {
     const avatarUrl = member.user.avatarURL({
       size: 128,
       format: "png",
@@ -89,12 +89,12 @@ class Welcome {
         .setTextFont("10pt default")
         .setColor("#FFFFFF")
         .setTextAlign("center")
-        .addText(self.trim(member.displayName, 15), 85, 158, 105);
+        .addText(this.trim(member.displayName, 15), 85, 158, 105);
       const attachment = new Discord.MessageAttachment(
         canvas.toBuffer(),
         "welcome-image.png"
       );
-      self.channelInits[member.guild.id].send("", attachment);
+      this.channelInits[member.guild.id].send("", attachment);
     });
   }
 }
