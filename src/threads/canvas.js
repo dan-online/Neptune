@@ -1,6 +1,8 @@
 const { parentPort, workerData } = require("worker_threads");
-var { member, avatarUrl, conf, name } = workerData;
+var { member, avatarUrl, conf, name, guild } = workerData;
 member = JSON.parse(member);
+guild = JSON.parse(guild);
+const { addSuffix } = require("../utils/utils");
 const { Canvas } = require("canvas-constructor");
 const path = require("path");
 try {
@@ -20,8 +22,7 @@ loadImage(avatarUrl).then((image) => {
     .addRect(84, 0, 316, 180)
     .setColor("#2C2F33")
     .addRect(0, 0, 84, 180)
-    .addRect(169, 26, 231, 46)
-    .addRect(224, 108, 176, 46)
+    .addRect(169, 26, 231, 120)
     .setShadowColor("rgba(22, 22, 22, 1)")
     .setShadowOffsetY(5)
     .setShadowBlur(10)
@@ -32,8 +33,12 @@ loadImage(avatarUrl).then((image) => {
     .setColor("#23272A")
     .fill()
     .restore()
-    .setTextFont("10pt default")
+    .setTextFont("15pt default")
     .setColor("#FFFFFF")
+    .addText("WELCOME", 180, 55)
+    .setTextFont("10pt default")
+    .addText("to " + guild.name, 180, 80)
+    .addText("you are the " + addSuffix(guild.memberCount) + " user", 180, 105)
     .setTextAlign("center")
     .addText(name, 85, 158, 105);
   const buffer = canvas.toBuffer();

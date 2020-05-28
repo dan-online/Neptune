@@ -21,7 +21,7 @@ module.exports = {
   },
   welcome: {
     enabled: true,
-    channel: "welcome",
+    channel: "bot-testing-zone",
     accentColor: "#7289DA",
     fontPath: path.resolve(
       __dirname,

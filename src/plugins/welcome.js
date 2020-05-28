@@ -59,6 +59,7 @@ class Welcome {
       {
         workerData: {
           member: JSON.stringify(member),
+          guild: JSON.stringify(member.guild),
           avatarUrl,
           conf: process.conf,
           name: this.trim(member.displayName, 15),
