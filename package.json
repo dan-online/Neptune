@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "DEBUG=`node -e \"console.log(require('./package.json').name + '*')\"` node index.js",
-    "test": "node src/test/index.js"
+    "test": "node src/test/index.js",
+    "nodemon": "nodemon --exec 'yarn start'"
   },
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
@@ -22,5 +23,8 @@
   "optionalDependencies": {
     "canvas": "^2.6.1",
     "canvas-constructor": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
   }
 }
