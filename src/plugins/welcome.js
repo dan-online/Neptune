@@ -1,11 +1,3 @@
-const { Canvas } = require("canvas-constructor");
-Canvas.registerFont(
-  conf.welcome.fontPath
-    ? path.resolve(conf.welcome.fontPath)
-    : path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
-  "default"
-);
-
 class Welcome {
   constructor(config) {
     this.channel = config.channel;
@@ -73,13 +65,12 @@ class Welcome {
         },
       }
     );
-    const d = new Date();
+
     worker.on("message", (buffer) => {
       const attachment = new Discord.MessageAttachment(
         Buffer.from(buffer),
         "welcome-image.png"
       );
-      console.log(new Date() - d);
       this.channelInits[member.guild.id].send("", attachment);
     });
     worker.on("exit", (code) => {

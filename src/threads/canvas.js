@@ -3,6 +3,14 @@ var { member, avatarUrl, conf, name } = workerData;
 member = JSON.parse(member);
 const { Canvas } = require("canvas-constructor");
 const path = require("path");
+try {
+  Canvas.registerFont(
+    conf.welcome.fontPath
+      ? path.resolve(conf.welcome.fontPath)
+      : path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
+    "default"
+  );
+} catch {}
 const { loadImage } = require("canvas");
 
 loadImage(avatarUrl).then((image) => {
