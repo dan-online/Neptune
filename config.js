@@ -1,6 +1,6 @@
 module.exports = {
   prefix: "t!",
-  owner: ["312551747027468290"], // your discord id
+  owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
   emojis: {
     err: {
@@ -23,10 +23,16 @@ module.exports = {
     enabled: true,
     port: 8080,
     routes: [{
-      route: "/",
-      handler: "../webhooks/home.js",
-      method: "GET"
-    }]
+        route: "/",
+        handler: "../webhooks/home.js",
+        method: "GET"
+      },
+      {
+        route: "/announce",
+        handler: "../webhooks/announce.js",
+        method: "POST"
+      }
+    ]
   }
   // settings: {
   //   enabled: false,

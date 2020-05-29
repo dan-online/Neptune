@@ -1,5 +1,6 @@
 function handle(req, res, client) {
-    console.log(res);
+    res.sendStatus(200);
+    return
 }
 
 module.exports = handle;

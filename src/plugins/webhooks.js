@@ -9,9 +9,10 @@ class Webhooks {
         this.routes = config.routes;
         this.client = require(resolve(join(__dirname, "../bot.js"))).client;
         this.app = express();
-        console.log(this.app)
+        this.app.use(express.json())
+        this.app.use(express.urlencoded());
         this.routes.forEach((route) => {
-            this.app[route.method](route.route, (req, res) => {
+            this.app[route.method.toLowerCase()](route.route, (req, res) => {
                 require(resolve(join(__dirname, route.handler)))(req, res, this.client);
             })
         });
