@@ -21,6 +21,7 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
   events.forEach((event) => {
     cache.events.set(event.name, event.callers);
     client.on(event.name, (...extra) => {
+      log("evnt")("incoming: " + event.name);
       return cache.events
         .get(event.name)
         .forEach((e) => e.event(client, ...extra));
@@ -29,6 +30,7 @@ fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
 });
 
 process.on("unhandledRejection", function (err) {
+  Sentry.captureException(err);
   if (err.name == "DiscordAPIError") {
     if (err.path && err.path.split("/channels/").length > 1) {
       let channel = client.channels.cache.get(
