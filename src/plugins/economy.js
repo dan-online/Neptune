@@ -1,6 +1,4 @@
-const {
-  Guild
-} = require("discord.js");
+const { Guild } = require("discord.js");
 
 // wow this gonna be a big file
 function addSuffix(n) {
@@ -14,9 +12,13 @@ class Economy extends Enmap {
     if (!process.conf.economy.currency) {
       process.conf.economy.currency = " coins";
     }
-    super(process.conf.persistent ? {
-      name: "economy"
-    } : null);
+    super(
+      process.conf.persistent
+        ? {
+            name: "economy",
+          }
+        : null
+    );
     this.config = config || {};
     return this;
   }
@@ -33,7 +35,7 @@ class GuildEconomy {
     this.guild = guild;
     this.db = db;
     this.doc = this.db.get(guild.id + "_custom") || {
-      items: []
+      items: [],
     };
     return this;
   }
@@ -74,7 +76,7 @@ class UserEconomy {
       this.doc = {
         member: {
           id: this.member.id,
-          displayName: this.member.displayName
+          displayName: this.member.displayName,
         },
         balance: 0,
         items: [],
@@ -105,9 +107,10 @@ class UserEconomy {
       throw new Error("Not instances of economy!");
     this.remove(amount);
     target.add(amount);
+    this.saveUser();
     return {
       user: this,
-      target
+      target,
     };
   }
   position(formatted) {
