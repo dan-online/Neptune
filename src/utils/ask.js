@@ -35,7 +35,6 @@ module.exports = function (message, question, choices, cb) {
           cb(null, collect, q);
         })
         .catch((err) => {
-          console.error(err);
           if (typeof question == "string")
             q.edit("This question timed out: " + (err.message || ""));
           else
