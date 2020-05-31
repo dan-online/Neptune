@@ -1,6 +1,6 @@
 # Neptune
 
-> A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
+> A template for a discord bot written with discordjs with reloadable events and commands along with a multitude of plugins
 
 [![Discordjs Version][discordjs-image]][discordjs-url]
 ![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
