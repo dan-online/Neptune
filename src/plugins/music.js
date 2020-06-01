@@ -2,6 +2,7 @@ const ytdl = require("ytdl-core");
 
 class MusicManager {
   constructor(config) {
+    this.config = config;
     this.joined = {};
     this.connections = {};
     this.queues = {};
@@ -22,13 +23,13 @@ class MusicManager {
     }
     voiceMessage
       .join()
-      .then(connection => {
+      .then((connection) => {
         this.joined[message.guild.id] = true;
         this.connections[message.guild.id] = connection;
         this.queues[message.guild.id] = [];
         cb(null);
       })
-      .catch(err => {
+      .catch((err) => {
         cb(err);
       });
   }
@@ -55,26 +56,30 @@ class MusicManager {
     }
     if (this.queues[message.guild.id].length == 0) {
       this.queues[message.guild.id].push(song);
+      let started = false;
       try {
-        this.connections[message.guild.id].play(ytdl(song, {
-          filter: 'audioonly'
-        })).on("finish", () => {
+        let test = () => {
           this.queues[message.guild.id].shift();
-          console.log(this.queues[message.guild.id].length);
-          if (this.queues[message.guild.id].length == 0) {
+
+          if (this.queues[message.guild.id].length <= 0) {
             this.leave(client, message);
             return;
           }
-          this.connections[message.guild.id].play(ytdl(song, {
-            filter: 'audioonly'
-          }))
-        });
+          console.log(this.queues);
+          return this.play(message, this.queues[message.guild.id][0], test);
+        };
+        this.play(message, song, test);
         return;
       } catch (err) {
         throw new Error(err);
       }
     }
     this.queues[message.guild.id].push(song);
+  }
+  play(message, url, cb) {
+    console.log(url);
+    const stream = ytdl(url);
+    this.connections[message.guild.id].play(stream).on("finish", cb);
   }
   skip(client, message) {
     if (!this.joined[message.guild.id]) {
@@ -104,12 +109,13 @@ class MusicManager {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    const reply = new Discord.MessageEmbed().setColor(process.conf.color)
-      .setThumbnail(client.user.avatarURL())
+    const reply = new Discord.MessageEmbed()
+      .setColor(process.conf.color)
+      .setThumbnail(client.user.avatarURL());
     var counter = 0;
     this.queues[message.guild.id].forEach((val, index) => {
       reply.addField(index, val);
-    })
+    });
     message.channel.send(reply);
   }
 }
