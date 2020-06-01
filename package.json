@@ -1,6 +1,6 @@
 {
-  "name": "discord-template",
-  "version": "1.0.0",
+  "name": "neptune",
+  "version": "0.7.1",
   "description": "a discord bot template",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,6 @@
   "author": "DanCodes <dan@dancodes.online>",
   "license": "MIT",
   "dependencies": {
-    "@discordjs/opus": "^0.3.2",
     "better-sqlite-pool": "^0.3.0",
     "debug": "^4.1.1",
     "discord.js": "^12.2.0",
@@ -21,8 +20,9 @@
     "uuid": "^8.0.0"
   },
   "optionalDependencies": {
-    "node-opus": "^0.3.3",
-    "ytdl-core": "^2.1.5",
-    "ffmpeg-static": "^4.2.2"
+    "@discordjs/opus": "^0.3.2",
+    "ffmpeg-static": "^4.2.2",
+    "ytdl-core": "^3.0.0",
+    "ytdl-core-discord": "^1.2.0"
   }
 }
