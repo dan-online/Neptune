@@ -1,4 +1,4 @@
-# DanBot
+# Neptune
 
 > A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
 
@@ -20,7 +20,7 @@ To use stable releases go to [releases](../../releases)
 - API plugin
 - Updater plugin/system
 - Points system
-- Translate
+- ~Translate~
 - Welcome/Leave messages (image jimp)
 - Verification system (email/oauth)
 
