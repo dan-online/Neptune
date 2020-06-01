@@ -5,18 +5,12 @@ module.exports = {
   disabled: !(process.conf.mods && process.conf.mods.enabled),
   permissions: ["KICK_MEMBERS"],
 };
-const { parse, ask } = require("../../utils/utils");
+const { parse, ask } = require("../../utils");
 module.exports.run = async (client, message, args) => {
-  console.log(args);
-  // ahh yea just do args.filter(x => x.content != wait no idk how, good luck
-  // we gotta add a reason to kick
   const target = parse.member(client, message, args);
-  console.log(target.toString());
-
   if (!target) {
     throw new Error("You need to mention a member to kick!");
   }
-  console.log(target.permissions.toArray());
 
   if (target.hasPermission("KICK_MEMBERS")) {
     throw new Error("You can not kick user who can kick other members!");
@@ -65,7 +59,8 @@ module.exports.run = async (client, message, args) => {
             .setColor(process.conf.color)
             .setThumbnail(target.user.avatarURL())
             .setTitle("Kicked " + target.displayName)
-            .addField("Reason", res.content);
+            .addField("Reason", res.content, true)
+            .addField("Moderator", message.author.tag, true);
           message.channel.send(embed);
         })
         .catch((err) => {
