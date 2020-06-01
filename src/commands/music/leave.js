@@ -1,14 +1,13 @@
 module.exports = {
-    aliases: ["leave"],
-    use: process.conf.prefix + "leave",
-    desc: "Leave voice chat",
-    // disabled: !(process.conf.music && process.conf.economy.music),
+  aliases: ["leave"],
+  use: process.conf.prefix + "leave",
+  desc: "Leave voice chat",
+  disabled: !(process.conf.music && process.conf.music.enabled),
 };
 
 module.exports.run = async (client, message, args) => {
-    const musicManager = Plugins.music;
-    if (!musicManager) return;
+  const musicManager = Plugins.music;
+  if (!musicManager) return;
 
-    musicManager.leave(client, message);
-
-}
+  musicManager.leave(client, message);
+};
