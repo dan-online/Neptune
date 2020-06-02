@@ -43,6 +43,7 @@ class MusicManager {
       // this.connections[message.guild.id].dispatcher.destroy();
       this.queues[message.guild.id] = [];
       delete this.connections[message.guild.id];
+      message.channel.send("Leaving voice channel...");
     } catch {
       throw new Error("Unable to leave voice channel");
     }
@@ -56,7 +57,6 @@ class MusicManager {
     }
     if (this.queues[message.guild.id].length == 0) {
       this.queues[message.guild.id].push(song);
-      let started = false;
       try {
         let test = () => {
           this.queues[message.guild.id].shift();
@@ -65,7 +65,6 @@ class MusicManager {
             this.leave(client, message);
             return;
           }
-          console.log(this.queues);
           return this.play(message, this.queues[message.guild.id][0], test);
         };
         this.play(message, song, test);
@@ -75,11 +74,34 @@ class MusicManager {
       }
     }
     this.queues[message.guild.id].push(song);
+    message.channel.send(
+      message.author.tag + " pushed a new song to the queue!"
+    );
   }
   play(message, url, cb) {
-    console.log(url);
-    const stream = ytdl(url);
-    this.connections[message.guild.id].play(stream).on("finish", cb);
+    ytdl.getInfo(url).then((info) => {
+      const stream = ytdl(url, { format: "audioonly" });
+      this.connections[message.guild.id].play(stream).on("finish", cb);
+      const embed = new Discord.MessageEmbed()
+        .setTitle("Playing...")
+        .setColor(process.conf.color)
+        .addField("Title", info.videoDetails.title, true)
+        .addField(
+          "Description",
+          info.videoDetails.shortDescription.slice(0, 100) + "...",
+          true
+        )
+        .setFooter(
+          info.videoDetails.ownerChannelName,
+          info.videoDetails.ownerProfileUrl
+        )
+        .setThumbnail(
+          info.videoDetails.thumbnail.thumbnails[
+            info.videoDetails.thumbnail.thumbnails.length - 1
+          ].url
+        );
+      return message.channel.send(embed);
+    });
   }
   skip(client, message) {
     if (!this.joined[message.guild.id]) {
@@ -92,31 +114,46 @@ class MusicManager {
       return;
     }
     this.connections[message.guild.id].dispatcher.pause();
+    message.channel.send("Stream paused by " + message.author.tag);
   }
   resume(client, message) {
     if (!this.joined[message.guild.id]) {
       return;
     }
     this.connections[message.guild.id].dispatcher.resume();
+    message.channel.send("Stream resumed by " + message.author.tag);
   }
   clear(client, message) {
     if (!this.joined[message.guild.id]) {
       return;
     }
     this.queues[message.guild.id] = [];
+    message.channel.send("Stream queue cleared by " + message.author.tag);
   }
   queue(client, message) {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    const reply = new Discord.MessageEmbed()
-      .setColor(process.conf.color)
-      .setThumbnail(client.user.avatarURL());
-    var counter = 0;
-    this.queues[message.guild.id].forEach((val, index) => {
-      reply.addField(index, val);
+    const split = [];
+    this.queues[message.guild.id].forEach((x) => {
+      if (!split[0] || split[split.length - 1].length > 4) {
+        split.push([x]);
+      } else {
+        split[split.length - 1].push(x);
+      }
     });
-    message.channel.send(reply);
+    split.forEach((s) => {
+      const reply = new Discord.MessageEmbed().setColor(process.conf.color);
+      console.log(s);
+      s.forEach((val, index) => {
+        ytdl.getBasicInfo(val).then((info) => {
+          reply.addField(info.videoDetails.title, val);
+          if (index == s.length - 1) {
+            message.channel.send(reply);
+          }
+        });
+      });
+    });
   }
 }
 
