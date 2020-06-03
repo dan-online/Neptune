@@ -19,21 +19,38 @@ module.exports = {
   mods: {
     enabled: true,
   },
-  webhooks: {
+  website: {
     enabled: true,
     port: 8080,
-    routes: [{
+    routes: [
+      {
         route: "/",
         handler: "../webhooks/home.js",
-        method: "GET"
+        method: "GET",
       },
       {
         route: "/announce",
         handler: "../webhooks/announce.js",
-        method: "POST"
-      }
-    ]
-  }
+        method: "POST",
+      },
+    ],
+  },
+  webhooks: {
+    enabled: true,
+    paths: [
+      {
+        icon: "https://dancodes.online/assets/images/me.png",
+        name: "Test",
+        path: "test",
+        map: `New test from {{name}}`,
+        secret: {
+          key: "123",
+        },
+        channel: "596047625736814614",
+        // Post request to /webhooks/test with body: { name: "DanCodes" }
+      },
+    ],
+  },
   // settings: {
   //   enabled: false,
   //   autoRole: false,
