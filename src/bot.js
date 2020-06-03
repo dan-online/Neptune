@@ -31,6 +31,7 @@ class Neptune extends Discord.Client {
 const client = new Neptune();
 
 process.on("unhandledRejection", function (err) {
+  Sentry.captureException(err);
   if (err.name == "DiscordAPIError") {
     if (err.path && err.path.split("/channels/").length > 1) {
       let channel = client.channels.cache.get(

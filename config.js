@@ -2,6 +2,7 @@ module.exports = {
   prefix: "t!",
   owner: ["312551747027468290"], // your discord id
   color: "#00ffe1",
+  full: true,
   emojis: {
     err: {
       id: "🔴",
@@ -20,6 +21,9 @@ module.exports = {
     enabled: true,
   },
   translate: {
+    enabled: true,
+  },
+  music: {
     enabled: true
   }
   // settings: {
