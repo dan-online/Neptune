@@ -43,11 +43,12 @@ module.exports = {
         name: "Test",
         path: "test",
         map: `New test from {{name}}`,
+        debug: true,
         secret: {
           key: "123",
         },
         channel: "596047625736814614",
-        // Post request to /webhooks/test with body: { name: "DanCodes" }
+        // Post/Get request to /webhooks/test with body/query: { name: "DanCodes" }
       },
     ],
   },

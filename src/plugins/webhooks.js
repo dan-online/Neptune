@@ -17,11 +17,17 @@ class Webhooks {
     });
   }
   addRoute(route) {
-    this.app.get("/webhooks/" + route.path, (req, res) => {
-      this.handlePath(req.query, res, route);
-    });
-    this.app.post("/webhooks/" + route.path, (req, res) => {
-      this.handlePath(req.body, res, route);
+    this.app.all("/webhooks/" + route.path, (req, res) => {
+      const data = req.method == "post" ? req.body : req.query;
+      if (route.secret) {
+        let checkSecret = Object.entries(route.secret).find((x) => {
+          return !(data[x[0]] == x[1]);
+        });
+        if (checkSecret) {
+          return res.status(403).json({ error: "forbidden" });
+        }
+      }
+      this.handlePath(data, res, route);
     });
   }
   createWebhook(info, cb) {
@@ -35,6 +41,7 @@ class Webhooks {
       .catch(cb);
   }
   handlePath(body, res, route) {
+    if (route.debug) log("body")(body);
     this.createWebhook(route, function (err, webhook) {
       if (err || !webhook) {
         res.status(500).json({ error: err.message || "Webhook failed" });
