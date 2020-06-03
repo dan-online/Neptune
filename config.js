@@ -45,10 +45,10 @@ module.exports = {
         map: `New test from {{name}}`,
         debug: true,
         secret: {
-          key: "123",
+          key: "123", // should be replaced with a .env for production
         },
         channel: "596047625736814614",
-        // Post/Get request to /webhooks/test with body/query: { name: "DanCodes" }
+        // Post/Get request to /webhooks/test with body/query: { name: "DanCodes", key: "123" }
       },
     ],
   },
