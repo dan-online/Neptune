@@ -1,6 +1,6 @@
 {
-  "name": "discord-template",
-  "version": "1.0.0",
+  "name": "neptune",
+  "version": "0.7.1",
   "description": "a discord bot template",
   "main": "index.js",
   "scripts": {
@@ -25,5 +25,9 @@
   "optionalDependencies": {
     "emoji-unicode-to-name": "^1.0.0",
     "yandex-translate": "^2.1.3"
+    "@discordjs/opus": "^0.3.2",
+    "ffmpeg-static": "^4.2.2",
+    "ytdl-core": "^3.0.0",
+    "ytdl-core-discord": "^1.2.0"
   }
 }

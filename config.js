@@ -23,6 +23,9 @@ module.exports = {
   translate: {
     enabled: true,
   },
+  music: {
+    enabled: true
+  }
   // settings: {
   //   enabled: false,
   //   autoRole: false,
