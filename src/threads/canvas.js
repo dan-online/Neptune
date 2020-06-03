@@ -1,4 +1,7 @@
-const { parentPort, workerData } = require("worker_threads");
+const {
+  parentPort,
+  workerData
+} = require("worker_threads");
 var {
   member,
   avatarUrl,
@@ -11,18 +14,24 @@ var {
 } = workerData;
 member = JSON.parse(member);
 guild = JSON.parse(guild);
-const { addSuffix } = require("../utils/utils");
-const { Canvas } = require("canvas-constructor");
+const {
+  addSuffix
+} = require("../utils/utils");
+const {
+  Canvas
+} = require("canvas-constructor");
 const path = require("path");
 try {
   Canvas.registerFont(
-    conf.welcome.fontPath
-      ? path.resolve(conf.welcome.fontPath)
-      : path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
+    conf.welcome.fontPath ?
+    path.resolve(conf.welcome.fontPath) :
+    path.resolve("src", "assets", "fonts", "OpenSans-Regular.ttf"),
     "default"
   );
 } catch {}
-const { loadImage } = require("canvas");
+const {
+  loadImage
+} = require("canvas");
 var Jimp = require("jimp");
 
 loadImage(avatarUrl).then(image => {
@@ -51,7 +60,10 @@ loadImage(avatarUrl).then(image => {
         .setTextFont("10pt default")
         .setColor("#FFFFFF")
         .setTextAlign("center")
-        .addText(name, 85, 158, 105);
+        .addText(name, 85, 158, 105)
+        .setTextAlign("center")
+        .setTextFont("14pt default")
+        .addText(message, 250, 55, 176);
       const buffer = canvas.toBuffer();
       parentPort.postMessage(buffer);
     });
