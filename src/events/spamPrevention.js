@@ -34,7 +34,7 @@ module.exports = {
       userSpam.spam.push(message);
       userSpam.messages = [];
       message.reply(
-        "Warning! For spamming you have been warned. You have " +
+        "[Warning] [spam] You have " +
           userSpam.spam.length +
           "/3 warnings before kick"
       );

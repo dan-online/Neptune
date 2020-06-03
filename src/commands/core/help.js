@@ -28,10 +28,7 @@ module.exports.run = async (client, message, args, { commands }) => {
     categories.forEach((category) => {
       embed.addField(
         category.name,
-        module.exports.use.split("<category>").join(category.name) +
-          "\n" +
-          category.commands.length +
-          " commands",
+        module.exports.use.split("<category>").join(category.name),
         true
       );
     });

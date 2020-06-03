@@ -35,7 +35,11 @@ module.exports = class ReactionRoles extends Enmap {
         guild.members
           .fetch(user.id)
           .then((m) => {
-            m.roles.add(role);
+            m.roles.add(role).catch((err) => {
+              m.send(
+                "Sorry I couldn't give you the role due to: " + err.message
+              );
+            });
           })
           .catch(() => {});
       })

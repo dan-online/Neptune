@@ -12,7 +12,7 @@ function loadCommands() {
     try {
       cMod = require(place);
     } catch {}
-    if (!cMod || cMod.disabled) return;
+    if (!cMod || (cMod.disabled && !process.conf.full)) return;
     const category =
       c.split("/")[0][0].toUpperCase() + c.split("/")[0].slice(1);
     cMod.category = category;
@@ -68,7 +68,7 @@ module.exports = {
     function catchErr(err) {
       if (err.name == "Error") {
         return message.channel.send(
-          "Uh oh! You did something incorrectly!\nProblem: *" +
+          "Whoops: *" +
             err.message +
             "*\n" +
             "Try running like this: ``" +
