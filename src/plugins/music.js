@@ -1,5 +1,7 @@
 const ytdl = require("ytdl-core");
-const { catchExit } = require("../utils");
+const {
+  catchExit
+} = require("../utils");
 class MusicManager {
   constructor(config) {
     this.config = config;
@@ -76,6 +78,16 @@ class MusicManager {
       throw new Error("Unable to leave voice channel");
     }
   }
+  test(message, client) {
+
+    this.queues[message.guild.id].shift();
+    if (this.queues[message.guild.id].length <= 0) {
+      this.leave(client, message);
+      return;
+    }
+    return this.play(message, this.queues[message.guild.id][0], this.test);
+
+  }
   addSong(client, message, song) {
     if (!this.joined[message.guild.id]) {
       return;
@@ -89,25 +101,24 @@ class MusicManager {
         if (!info || !info.videoDetails || !info.videoDetails.title)
           throw new Error("No video found!");
         if (this.queues[message.guild.id].length == 0) {
-          this.queues[message.guild.id].push({ url: song, info });
+          this.queues[message.guild.id].push({
+            url: song,
+            info
+          });
           try {
-            let test = () => {
-              this.queues[message.guild.id].shift();
-
-              if (this.queues[message.guild.id].length <= 0) {
-                this.leave(client, message);
-                return;
-              }
-              return this.play(message, this.queues[message.guild.id][0], test);
-            };
-            this.play(message, this.queues[message.guild.id][0], test);
+            this.play(message, this.queues[message.guild.id][0], () => {
+              this.test(message, client)
+            })
           } catch (err) {
             throw new Error(err);
           }
 
           return;
         }
-        this.queues[message.guild.id].push({ song, info });
+        this.queues[message.guild.id].push({
+          url: song,
+          info
+        });
         message.channel.send(
           message.author.tag + " pushed a new song to the queue!"
         );
@@ -117,8 +128,13 @@ class MusicManager {
       });
   }
   play(message, q, cb) {
-    const { url, info } = q;
-    const stream = ytdl(url, { format: "audioonly" });
+    const {
+      url,
+      info
+    } = q;
+    const stream = ytdl(url, {
+      format: "audioonly"
+    });
     this.connections[message.guild.id].connection.play(stream).on("finish", cb);
     const embed = new Discord.MessageEmbed()
       .setTitle("Playing...")
@@ -131,7 +147,7 @@ class MusicManager {
       )
       .setFooter(
         info.videoDetails.ownerChannelName,
-        info.videoDetails.ownerProfileUrl
+        info.videoDetails.author.avatar
       )
       .setThumbnail(
         info.videoDetails.thumbnail.thumbnails[
@@ -144,7 +160,7 @@ class MusicManager {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    this.connections[message.guild.id].connection.dispatcher.end();
+    this.test(message, client)
   }
   pause(client, message) {
     if (!this.joined[message.guild.id]) {
@@ -164,7 +180,7 @@ class MusicManager {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    this.queues[message.guild.id] = [];
+    this.queues[message.guild.id] = [this.queues[message.guild.id][0]];
 
     message.channel.send("Stream queue cleared by " + message.author.tag);
   }
