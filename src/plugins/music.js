@@ -144,7 +144,7 @@ class MusicManager {
       )
       .setFooter(
         info.videoDetails.ownerChannelName,
-        info.videoDetails.ownerProfileUrl
+        info.videoDetails.author.avatar
       )
       .setThumbnail(
         info.videoDetails.thumbnail.thumbnails[
