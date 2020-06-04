@@ -10,7 +10,7 @@ module.exports = {
 
 module.exports.run = async (client, message, args) => {
   const { reactionRoles } = Plugins;
-  const doc = { id: uuid.v4(), roles: [], user: message.author.id };
+  const doc = { roles: [], user: message.author.id };
   const questions = [
     {
       q: "✍️ What title would you like?",
