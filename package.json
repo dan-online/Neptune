@@ -27,7 +27,7 @@
     "ffmpeg-static": "^4.2.2",
     "ytdl-core": "^3.0.0",
     "ytdl-core-discord": "^1.2.0",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
     "node-fetch": "^2.6.0"
   }
 }
