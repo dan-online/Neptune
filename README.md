@@ -24,6 +24,7 @@ To use stable releases go to [releases](../../releases)
 - Welcome/Leave messages (image jimp)
 - Verification system (email/oauth)
 - Monitoring app
+- CLI init
 
 ## Installation
 
