@@ -1,5 +1,5 @@
 const { commands, events, database } = require("../bot");
-const { testBlock, parseCommand } = require("../utils/utils");
+const { testBlock, parseCommand } = require("../utils");
 var loaded = false;
 function loadCommands() {
   const cmds = fs.readdirSync(path.resolve(__dirname, "..", "commands"));
@@ -12,7 +12,10 @@ function loadCommands() {
     try {
       cMod = require(place);
     } catch {}
-    if (!cMod || cMod.disabled) return;
+    if (!cMod || (cMod.disabled && !process.conf.full)) return;
+    const category =
+      c.split("/")[0][0].toUpperCase() + c.split("/")[0].slice(1);
+    cMod.category = category;
     cMod.aliases.forEach((x) => {
       if (commands.get(x)) {
         log.warn("overwriting existing alias: " + x);
@@ -20,6 +23,7 @@ function loadCommands() {
       commands.set(x, cMod);
     });
   });
+  log.info(commands.size + " commands fully loaded");
 }
 module.exports = {
   name: "message",
@@ -64,7 +68,7 @@ module.exports = {
     function catchErr(err) {
       if (err.name == "Error") {
         return message.channel.send(
-          "Uh oh! You did something incorrectly!\nProblem: *" +
+          "Whoops: *" +
             err.message +
             "*\n" +
             "Try running like this: ``" +

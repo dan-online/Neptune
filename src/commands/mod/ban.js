@@ -5,7 +5,7 @@ module.exports = {
   disabled: !(process.conf.mods && process.conf.mods.enabled),
   permissions: ["BAN_MEMBERS"],
 };
-const { parse, ask } = require("../../utils/utils");
+const { parse, ask } = require("../../utils");
 module.exports.run = async (client, message, args) => {
   const target = parse.member(client, message, args);
   if (!target) {
@@ -28,7 +28,8 @@ module.exports.run = async (client, message, args) => {
             .setColor(process.conf.color)
             .setThumbnail(target.user.avatarURL())
             .setTitle("Banned " + target.displayName)
-            .addField("Reason", res.content);
+            .addField("Reason", res.content, true)
+            .addField("Moderator", message.author.tag, true);
           message.channel.send(embed);
         })
         .catch((err) => {

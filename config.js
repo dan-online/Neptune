@@ -2,6 +2,7 @@ module.exports = {
   prefix: "t!",
   owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
+  full: true,
   emojis: {
     err: {
       id: "🔴",
@@ -50,6 +51,12 @@ module.exports = {
       },
     ],
   },
+  translate: {
+    enabled: true,
+  },
+  music: {
+    enabled: true
+  }
   // settings: {
   //   enabled: false,
   //   autoRole: false,

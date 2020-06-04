@@ -25,5 +25,15 @@ module.exports = function (message, commands) {
     );
   }
   const args = message.content.split(" ").slice(1);
+  const parsed = {};
+  try {
+    cmd.use
+      .split(" ")
+      .filter((x) => /(<([^>]+)>)/gi.test(x))
+      .forEach(
+        (x, i) => (parsed[x.split("<").join("").split(">").join("")] = args[i])
+      );
+    args.parsed = parsed; // to-do further
+  } catch {} // i don't trust it enough to not throw
   return { args, command, file: cmd };
 };

@@ -1,4 +1,4 @@
-const { ask } = require("../../utils/utils");
+const { ask } = require("../../utils");
 
 module.exports = {
   permissions: ["ADMINISTRATOR"],

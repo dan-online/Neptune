@@ -1,10 +1,11 @@
-# DanBot
+# Neptune
 
 > A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
 
 [![Discordjs Version][discordjs-image]][discordjs-url]
 ![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
 ![Discord-bot version](https://img.shields.io/github/package-json/v/dan-online/discord-bot)
+![Neptune CI](https://github.com/dan-online/Neptune/workflows/Neptune%20CI/badge.svg)
 
 ## Downloads
 
@@ -14,19 +15,25 @@ To use stable releases go to [releases](../../releases)
 
 ## To-do
 
-- Economy / points system plugin
+- Economy / points system plugin (WIP)
 - Webhook plugin
 - API plugin
 - Updater plugin/system
 - Points system
-- Translate
+- ~Translate~
+- Welcome/Leave messages (image jimp)
+- Verification system (email/oauth)
+- Monitoring app
 
 ## Installation
+
+Make sure to have FFmpeg/avconv installed for the youtube plugin
 
 #### .env
 
 ```env
 TOKEN=DISCORD_BOT_TOKEN
+YANDEX_TOKEN=YANDEX_TOKEN (only if translation API is enabled)
 ```
 
 #### Config
