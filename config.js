@@ -26,12 +26,10 @@ module.exports = {
       {
         route: "/",
         handler: "../webhooks/home.js",
-        method: "GET",
       },
       {
         route: "/announce",
         handler: "../webhooks/announce.js",
-        method: "POST",
       },
     ],
   },

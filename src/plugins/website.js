@@ -9,9 +9,7 @@ class Website {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.routes.forEach((route) => {
-      this.app[route.method.toLowerCase()](route.route, (req, res) => {
-        require(resolve(__dirname, route.handler))(req, res, this.client);
-      });
+      this.app.use(route.route, require(resolve(process.cwd(), route.handler)));
     });
     this.app.listen(config.port, () => {
       log("webs")("app is listening on port " + config.port);
