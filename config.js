@@ -14,18 +14,18 @@ module.exports = {
     },
   },
   persistent: true,
-  economy: {
-    enabled: true,
-  },
-  mods: {
-    enabled: true,
-  },
-  translate: {
-    enabled: true,
-  },
-  music: {
-    enabled: true
-  }
+  // economy: {
+  //   enabled: true,
+  // },
+  // mods: {
+  //   enabled: true,
+  // },
+  // translate: {
+  //   enabled: true,
+  // },
+  // music: {
+  //   enabled: true
+  // }
   // settings: {
   //   enabled: false,
   //   autoRole: false,
