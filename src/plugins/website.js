@@ -3,7 +3,7 @@ const { resolve } = require("path");
 
 class Website {
   constructor(config) {
-    this.routes = config.routes;
+    this.routes = config.routes || [];
     this.client = require(resolve(__dirname, "../bot.js")).client;
     this.app = express();
     this.app.use(express.json());

@@ -12,7 +12,7 @@ class Webhooks {
     this.route();
   }
   route() {
-    this.config.paths.forEach((x) => {
+    (this.config.paths || []).forEach((x) => {
       this.addRoute(x);
     });
   }
