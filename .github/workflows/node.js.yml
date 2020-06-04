@@ -31,6 +31,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
       - run: echo env > .env
+      - run: yarn cache clean
       - run: yarn
       - name: "Run tests"
         env:
