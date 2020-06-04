@@ -26,11 +26,11 @@ module.exports = {
     routes: [
       {
         route: "/",
-        handler: "../webhooks/home.js",
+        handler: "./src/webhooks/home.js",
       },
       {
         route: "/announce",
-        handler: "../webhooks/announce.js",
+        handler: "./src/webhooks/announce.js",
       },
     ],
   },
@@ -55,8 +55,8 @@ module.exports = {
     enabled: true,
   },
   music: {
-    enabled: true
-  }
+    enabled: true,
+  },
   // settings: {
   //   enabled: false,
   //   autoRole: false,
