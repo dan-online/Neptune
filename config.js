@@ -28,17 +28,7 @@ module.exports = {
       "src",
       "assets",
       "fonts",
-      "OpenSans-Regular.ttf"
+      "Poppins-Regular.ttf"
     ),
-  },
-  // settings: {
-  //   enabled: false,
-  //   autoRole: false,
-  // },
-  // tickets: {
-  //   enabled: true,
-  // },
-  // reactionRoles: {
-  //   enabled: true,
-  // },
+  }
 };

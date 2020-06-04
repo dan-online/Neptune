@@ -3,10 +3,10 @@ class Welcome {
     this.channel = config.channel;
     this.welcomeMessage = config.welcomeMessage ?
       config.welcomeMessage :
-      "enjoy your stay!";
+      "Enjoy your stay!";
     this.leaveMessage = config.leaveMessage ?
       config.leaveMessage :
-      "see ya soon!";
+      "See ya soon!";
     this.channelInits = {};
     this.color = config.accent;
     return this;
@@ -47,7 +47,6 @@ class Welcome {
       return text;
     }
   }
-
   _createCanvas(member) {
     const avatarUrl = member.user.avatarURL({
       size: 128,
