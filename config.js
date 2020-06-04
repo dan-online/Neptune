@@ -14,6 +14,9 @@ module.exports = {
     },
   },
   persistent: true,
+  update: {
+    enabled: true,
+  },
   // economy: {
   //   enabled: true,
   // },
