@@ -107,7 +107,7 @@ class MusicManager {
 
           return;
         }
-        this.queues[message.guild.id].push({ song, info });
+        this.queues[message.guild.id].push({ url: song, info });
         message.channel.send(
           message.author.tag + " pushed a new song to the queue!"
         );
