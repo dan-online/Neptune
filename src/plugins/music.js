@@ -1,5 +1,7 @@
 const ytdl = require("ytdl-core");
-const { catchExit } = require("../utils");
+const {
+  catchExit
+} = require("../utils");
 class MusicManager {
   constructor(config) {
     this.config = config;
@@ -89,7 +91,10 @@ class MusicManager {
         if (!info || !info.videoDetails || !info.videoDetails.title)
           throw new Error("No video found!");
         if (this.queues[message.guild.id].length == 0) {
-          this.queues[message.guild.id].push({ url: song, info });
+          this.queues[message.guild.id].push({
+            url: song,
+            info
+          });
           try {
             let test = () => {
               this.queues[message.guild.id].shift();
@@ -107,7 +112,10 @@ class MusicManager {
 
           return;
         }
-        this.queues[message.guild.id].push({ url: song, info });
+        this.queues[message.guild.id].push({
+          url: song,
+          info
+        });
         message.channel.send(
           message.author.tag + " pushed a new song to the queue!"
         );
@@ -117,8 +125,13 @@ class MusicManager {
       });
   }
   play(message, q, cb) {
-    const { url, info } = q;
-    const stream = ytdl(url, { format: "audioonly" });
+    const {
+      url,
+      info
+    } = q;
+    const stream = ytdl(url, {
+      format: "audioonly"
+    });
     this.connections[message.guild.id].connection.play(stream).on("finish", cb);
     const embed = new Discord.MessageEmbed()
       .setTitle("Playing...")
@@ -164,7 +177,7 @@ class MusicManager {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    this.queues[message.guild.id] = [];
+    this.queues[message.guild.id] = [this.queues[message.guild.id][0]];
 
     message.channel.send("Stream queue cleared by " + message.author.tag);
   }
