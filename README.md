@@ -23,6 +23,7 @@ To use stable releases go to [releases](../../releases)
 - ~Translate~
 - Welcome/Leave messages (image jimp)
 - Verification system (email/oauth)
+- Status page
 
 ## Installation
 
