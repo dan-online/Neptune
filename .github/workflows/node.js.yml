@@ -29,7 +29,6 @@ jobs:
             !~/cache/exclude
             **/node_modules
           key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
-
       - run: echo env > .env
       - run: yarn
       - name: "Run tests"
