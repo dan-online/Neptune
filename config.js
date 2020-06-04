@@ -1,6 +1,6 @@
 module.exports = {
   prefix: "t!",
-  owner: ["312551747027468290"], // your discord id
+  owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
   emojis: {
     err: {
@@ -19,10 +19,13 @@ module.exports = {
   mods: {
     enabled: true,
   },
-  // settings: {
-  //   enabled: false,
-  //   autoRole: false,
-  // },
+  email: {
+    enabled: true
+  },
+  settings: {
+    enabled: true,
+    autoRole: false,
+  },
   // tickets: {
   //   enabled: true,
   // },
