@@ -16,7 +16,7 @@ To use stable releases go to [releases](../../releases)
 ## To-do
 
 - Economy / points system plugin (WIP)
-- Webhook plugin
+- ~Webhook plugin~
 - API plugin
 - Updater plugin/system
 - Points system
