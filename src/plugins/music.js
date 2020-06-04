@@ -78,6 +78,16 @@ class MusicManager {
       throw new Error("Unable to leave voice channel");
     }
   }
+  test(message, client) {
+
+    this.queues[message.guild.id].shift();
+    if (this.queues[message.guild.id].length <= 0) {
+      this.leave(client, message);
+      return;
+    }
+    return this.play(message, this.queues[message.guild.id][0], this.test);
+
+  }
   addSong(client, message, song) {
     if (!this.joined[message.guild.id]) {
       return;
@@ -96,16 +106,9 @@ class MusicManager {
             info
           });
           try {
-            let test = () => {
-              this.queues[message.guild.id].shift();
-
-              if (this.queues[message.guild.id].length <= 0) {
-                this.leave(client, message);
-                return;
-              }
-              return this.play(message, this.queues[message.guild.id][0], test);
-            };
-            this.play(message, this.queues[message.guild.id][0], test);
+            this.play(message, this.queues[message.guild.id][0], () => {
+              this.test(message, client)
+            })
           } catch (err) {
             throw new Error(err);
           }
@@ -157,7 +160,7 @@ class MusicManager {
     if (!this.joined[message.guild.id]) {
       return;
     }
-    this.connections[message.guild.id].connection.dispatcher.end();
+    this.test(message, client)
   }
   pause(client, message) {
     if (!this.joined[message.guild.id]) {
