@@ -20,7 +20,12 @@ module.exports = {
     enabled: true,
   },
   email: {
-    enabled: true
+    enabled: true,
+    username: process.env["EMAIL_USERNAME"],
+    password: process.env["EMAIL_PASSWORD"],
+    service: "gmail",
+    subject: "Discord verfication",
+    text: "Your token is <code>",
   },
   settings: {
     enabled: true,

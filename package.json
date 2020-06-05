@@ -17,6 +17,7 @@
     "enmap": "^5.2.4",
     "file-system": "^2.2.2",
     "node-fetch": "^2.6.0",
+    "nodemailer": "^6.4.8",
     "uuid": "^8.0.0"
   }
 }
