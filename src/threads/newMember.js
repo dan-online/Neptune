@@ -1,41 +1,23 @@
-const {
-  parentPort,
-  workerData
-} = require("worker_threads");
-var {
-  member,
-  avatarUrl,
-  conf,
-  name,
-  guild,
-  message,
-  guildUrl,
-  tag,
-} = workerData;
+const { parentPort, workerData } = require("worker_threads");
+var { member, avatarUrl, conf, name, guild, message, guildUrl } = workerData;
 member = JSON.parse(member);
 guild = JSON.parse(guild);
-const {
-  addSuffix
-} = require("../utils/utils");
-const {
-  Canvas
-} = require("canvas-constructor");
+const { addSuffix } = require("../utils/utils");
+const { Canvas } = require("canvas-constructor");
 const path = require("path");
 try {
   Canvas.registerFont(
-    conf.welcome.fontPath ?
-    conf.welcome.fontPath :
-    path.resolve("src", "assets", "fonts", "Poppins-Regular.ttf"),
+    conf.welcome.fontPath
+      ? conf.welcome.fontPath
+      : path.resolve("src", "assets", "fonts", "Poppins-Regular.ttf"),
     "default"
   );
 } catch {}
-const {
-  loadImage
-} = require("canvas");
+const { loadImage } = require("canvas");
 var Jimp = require("jimp");
 
-loadImage(avatarUrl).then(image => {
-  Jimp.read(guildUrl).then(imageGuildRaw => {
+loadImage(avatarUrl).then((image) => {
+  Jimp.read(guildUrl).then((imageGuildRaw) => {
     const imageGuildPre = imageGuildRaw.cover(400, 180).blur(10);
     imageGuildPre.getBuffer(Jimp.AUTO, (err, imageGuild) => {
       const canvas = new Canvas(400, 180)
@@ -61,10 +43,15 @@ loadImage(avatarUrl).then(image => {
         .addText(name, 85, 158, 105)
         .setTextAlign("center")
         .setTextFont("11.5pt default")
-        .addText(message, 244, 53.5, 176)
+        .addText(message, 240, 53.5, 176)
         .setTextAlign("left")
         .setTextFont("9pt default")
-        .addText("You are the " + addSuffix(guild.members.length) + " member!", 220, 135, 176);
+        .addText(
+          "You are the " + addSuffix(guild.members.length) + " member!",
+          230,
+          135,
+          176
+        );
       const buffer = canvas.toBuffer();
       parentPort.postMessage(buffer);
     });
