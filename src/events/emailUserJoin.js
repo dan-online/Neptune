@@ -4,8 +4,10 @@ module.exports = {
         const {
             settings
         } = Plugins;
-        if (!Plugins.email || !process.conf.email.enabled || !settings.getGuild(member.guild).email.value) return;
-        const Email = Plugins.email.init(member);
-        Email.slideIntoDms();
+        if (!Plugins.email || !process.conf.email.enabled) return;
+        if (!settings.getGuild(member.guild).email) return;
+        if (!settings.getGuild(member.guild).email.value) return;
+        const Email = Plugins.email.init(member, client);
+        Email.slideIntoDms(member.guild.id);
     },
 };

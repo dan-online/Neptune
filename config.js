@@ -21,11 +21,15 @@ module.exports = {
   },
   email: {
     enabled: true,
-    username: process.env["EMAIL_USERNAME"],
-    password: process.env["EMAIL_PASSWORD"],
+    username: process.env.EMAIL_USERNAME,
+    password: process.env.EMAIL_PASSWORD,
     service: "gmail",
-    subject: "Discord verfication",
-    text: "Your token is <code>",
+    role: {
+      data: {
+        name: "Verified"
+
+      }
+    }
   },
   settings: {
     enabled: true,

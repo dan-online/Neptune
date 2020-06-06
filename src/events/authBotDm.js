@@ -10,7 +10,11 @@ module.exports = {
         if (message.author.bot) {
             return;
         }
-        const Email = Plugins.email.init(message.author)
-        Email.verification(message);
+        const Email = Plugins.email.init(message.author, client)
+        try {
+            Email.verification(message);
+        } catch (err) {
+            message.author.send("An error has occured: " + err)
+        }
     },
 };
