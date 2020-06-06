@@ -20,20 +20,21 @@ module.exports = {
   // mods: {
   //   enabled: true,
   // },
-  // website: {
-  //   enabled: true,
-  //   port: 8080,
-  //   routes: [
-  //     {
-  //       route: "/",
-  //       handler: "./src/webhooks/home.js",
-  //     },
-  //     {
-  //       route: "/announce",
-  //       handler: "./src/webhooks/announce.js",
-  //     },
-  //   ],
-  // },
+  website: {
+    enabled: true,
+    port: 8080,
+    status: true,
+    routes: [
+      {
+        route: "/",
+        handler: "./src/webhooks/home.js",
+      },
+      {
+        route: "/announce",
+        handler: "./src/webhooks/announce.js",
+      },
+    ],
+  },
   // webhooks: {
   //   enabled: true,
   //   paths: [
