@@ -91,9 +91,6 @@ class EmailUser {
     if (!user) {
       return this.member.send("Sorry you have to join a guild to be verified!")
     }
-    if (user.verification === true) {
-      return;
-    }
     if (user.pending === "in process") {
       return;
     }
@@ -161,6 +158,7 @@ class EmailUser {
                           response.first().content;
                         } catch (err) {
                           this.member.send("An error has occured: " + err);
+                          return;
                         }
                         if (response.first().content == code) {
                           const repUser = {
@@ -174,6 +172,7 @@ class EmailUser {
 
                           return;
                         }
+                        console.log(response.first().content)
                         this.member.send(
                           "Verification failed! Please type \"try again\" the server!"
                         );
