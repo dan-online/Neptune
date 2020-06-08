@@ -1,6 +1,7 @@
 module.exports = {
   aliases: ["ticket", "t"],
-  use: process.conf.prefix + "ticket <command> <reason/option>",
+  use:
+    process.conf.prefix + "ticket <command (open/close/list)> <reason/option>",
   desc: "Open a ticket for support",
   disabled: !(process.conf.tickets && process.conf.tickets.enabled),
 };
