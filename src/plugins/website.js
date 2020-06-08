@@ -6,6 +6,7 @@ class Website {
     this.routes = config.routes || [];
     config.port = config.port || "8080";
     this.client = require(resolve(__dirname, "../bot.js"));
+    if (process.env.SHARDS && parseInt(process.env.SHARDS) != 0) return;
     this.app = express();
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));

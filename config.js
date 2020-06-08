@@ -13,6 +13,9 @@ module.exports = {
       full: ":white_check_mark:",
     },
   },
+  shard: {
+    enabled: true,
+  },
   persistent: true,
   economy: {
     enabled: true,

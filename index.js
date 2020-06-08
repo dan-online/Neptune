@@ -11,7 +11,12 @@ files.forEach((file) => {
   if (!req) return;
   global[req.name] = req.module;
 });
-log.info(`Starting ${process.conf.name}@${process.conf.version}`);
 
-const Neptune = require("./src/bot");
+log.info(
+  `Starting ${process.conf.name}@${process.conf.version} ${
+    process.argv.find((x) => x == "--shard=") || ""
+  }`
+);
+var Neptune = require("./src/bot");
+
 module.exports = Neptune;

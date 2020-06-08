@@ -1,4 +1,4 @@
-if (process.env.Sentry) {
+if (process.env.SENTRY) {
   var Sentry = require("@sentry/node");
   Sentry.init({ dsn: process.env.SENTRY });
 }

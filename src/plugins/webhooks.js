@@ -7,6 +7,7 @@ class Webhooks {
     if (!plugins.website) {
       throw new Error("Website plugin is not enabled!");
     }
+    if (!plugins.website.app) return;
     this.app = plugins.website.app;
     this.client = plugins.website.client;
     this.route();

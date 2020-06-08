@@ -22,6 +22,7 @@
   },
   "optionalDependencies": {
     "@discordjs/opus": "^0.3.2",
+    "ascii-table": "^0.0.9",
     "emoji-unicode-to-name": "^1.0.0",
     "express": "^4.17.1",
     "express-status-monitor": "^1.3.3",
