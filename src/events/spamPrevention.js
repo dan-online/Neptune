@@ -4,6 +4,11 @@ let had = [];
 module.exports = {
   name: "message",
   event(client, message) {
+    if (!process.conf.spamPrevention || !process.conf.spamPrevention.enabled)
+      return;
+    if (message.member.hasPermission("ADMINISTRATOR")) {
+      return;
+    }
     if (had.find((x) => x.id == message.id)) {
       return;
     }
@@ -23,6 +28,14 @@ module.exports = {
             m.delete().catch(() => {});
           }, 3000);
         });
+      return message.delete();
+    }
+    if (message.embeds.length > 0 || message.content.split("http").length > 0) {
+      message.reply("Please do not send  links in this guild").then((m) => {
+        setTimeout(() => {
+          m.delete().catch(() => {});
+        }, 3000);
+      });
       return message.delete();
     }
     let userSpam = spam.get(message.author.id) || { messages: [], spam: [] };

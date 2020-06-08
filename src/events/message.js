@@ -77,6 +77,7 @@ module.exports = {
         );
       }
       log("errr")(err);
+      Sentry.captureException(err);
       message.channel.send(
         process.conf.emojis.err.full +
           " There was an error on our side: " +
