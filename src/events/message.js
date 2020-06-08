@@ -66,7 +66,7 @@ module.exports = {
       }
     }
     function catchErr(err) {
-      Sentry.captureError(err);
+      Sentry.captureException(err);
       if (err.name == "Error") {
         return message.channel.send(
           "Whoops: *" +
