@@ -2,7 +2,7 @@ module.exports = {
   prefix: "t!",
   owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
-  full: true,
+  // full: true,
   emojis: {
     err: {
       id: "🔴",
@@ -24,29 +24,28 @@ module.exports = {
     enabled: true,
     port: 8080,
     status: true,
-    routes: [
-      {
-        route: "/",
-        handler: "./src/webhooks/home.js",
-      },
-      {
-        route: "/announce",
-        handler: "./src/webhooks/announce.js",
-      },
-    ],
+    // routes: [
+    //   {
+    //     route: "/",
+    //     handler: "./src/webhooks/home.js",
+    //   },
+    //   {
+    //     route: "/announce",
+    //     handler: "./src/webhooks/announce.js",
+    //   },
+    // ],
   },
-  email: {
-    enabled: true,
-    username: process.env.EMAIL_USERNAME,
-    password: process.env.EMAIL_PASSWORD,
-    service: "gmail",
-    role: {
-      data: {
-        name: "Verified"
-
-      }
-    }
-  },
+  // email: {
+  //   enabled: false,
+  //   username: process.env.EMAIL_USERNAME,
+  //   password: process.env.EMAIL_PASSWORD,
+  //   service: "gmail",
+  //   role: {
+  //     data: {
+  //       name: "Verified",
+  //     },
+  //   },
+  // },
   // webhooks: {
   //   enabled: true,
   //   paths: [
