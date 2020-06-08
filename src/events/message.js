@@ -66,7 +66,6 @@ module.exports = {
       }
     }
     function catchErr(err) {
-      Sentry.captureException(err);
       if (err.name == "Error") {
         return message.channel.send(
           "Whoops: *" +
@@ -78,6 +77,7 @@ module.exports = {
         );
       }
       log("errr")(err);
+      Sentry.captureException(err);
       message.channel.send(
         process.conf.emojis.err.full +
           " There was an error on our side: " +
