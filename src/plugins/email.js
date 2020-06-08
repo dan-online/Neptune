@@ -50,7 +50,6 @@ class EmailUser {
     return this;
   }
   addRole(guildId) {
-    console.log(guildId)
     const guild = this.client.guilds.cache.get(guildId);
     const member = guild.member(this.member);
     let role = guild.roles.cache.find(x => x.name == this.role.name);
