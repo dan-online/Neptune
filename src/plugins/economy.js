@@ -1,3 +1,7 @@
+const {
+  Guild
+} = require("discord.js");
+
 // wow this gonna be a big file
 function addSuffix(n) {
   var s = ["th", "st", "nd", "rd"],
@@ -10,16 +14,37 @@ class Economy extends Enmap {
     if (!process.conf.economy.currency) {
       process.conf.economy.currency = " coins";
     }
-    super(process.conf.persistent ? { name: "economy" } : null);
+    super(process.conf.persistent ? {
+      name: "economy"
+    } : null);
     this.config = config || {};
     return this;
+  }
+  initGuild(guild) {
+    return new GuildEconomy(guild, this);
   }
   init(member, guild) {
     return new UserEconomy(member, guild, this);
   }
 }
+
+class GuildEconomy {
+  constructor(guild, db) {
+    this.guild = guild;
+    this.db = db;
+    this.doc = this.db.get(guild.id + "_custom") || {
+      items: []
+    };
+    return this;
+  }
+  items() {
+    return this.doc.items || [];
+  }
+}
+
 class UserEconomy {
   constructor(member, guild, db) {
+    if (!member) throw new Error("You must specifiy a user!");
     if (member.user.bot) throw new Error("User can not be a bot!");
     this.member = member;
     this.guild = guild;
@@ -47,7 +72,10 @@ class UserEconomy {
     this.doc = this.balances.find((b) => b.member.id == this.member.id);
     if (!this.doc) {
       this.doc = {
-        member: { id: this.member.id, displayName: this.member.displayName },
+        member: {
+          id: this.member.id,
+          displayName: this.member.displayName
+        },
         balance: 0,
         items: [],
       };
@@ -77,7 +105,10 @@ class UserEconomy {
       throw new Error("Not instances of economy!");
     this.remove(amount);
     target.add(amount);
-    return { user: this, target };
+    return {
+      user: this,
+      target
+    };
   }
   position(formatted) {
     let sorted = this.balances.sort((b, a) => a.balance - b.balance);
