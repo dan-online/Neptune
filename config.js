@@ -35,6 +35,18 @@ module.exports = {
       },
     ],
   },
+  email: {
+    enabled: true,
+    username: process.env.EMAIL_USERNAME,
+    password: process.env.EMAIL_PASSWORD,
+    service: "gmail",
+    role: {
+      data: {
+        name: "Verified"
+
+      }
+    }
+  },
   // webhooks: {
   //   enabled: true,
   //   paths: [
