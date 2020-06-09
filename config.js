@@ -20,10 +20,10 @@ module.exports = {
   mods: {
     enabled: true,
   },
-  website: {
-    enabled: true,
-    status: true,
-  },
+  // website: {
+  //   enabled: true,
+  //   status: true,
+  // },
   //   port: 8080,
   //   status: true,
   // routes: [
@@ -50,20 +50,18 @@ module.exports = {
   // },
   webhooks: {
     enabled: true,
-    paths: [
-      {
-        icon: "https://dancodes.online/assets/images/me.png",
-        name: "Test",
-        path: "test",
-        map: `New test from {{name}}`,
-        debug: true,
-        secret: {
-          key: "123", // should be replaced with a .env for production
-        },
-        channel: "596047625736814614",
-        // Post/Get request to /webhooks/test with body/query: { name: "DanCodes", key: "123" }
+    paths: [{
+      icon: "https://dancodes.online/assets/images/me.png",
+      name: "Test",
+      path: "test",
+      map: `New test from {{name}}`,
+      debug: true,
+      secret: {
+        key: "123", // should be replaced with a .env for production
       },
-    ],
+      channel: "596047625736814614",
+      // Post/Get request to /webhooks/test with body/query: { name: "DanCodes", key: "123" }
+    }, ],
   },
   // translate: {
   //   enabled: true,
@@ -93,5 +91,9 @@ module.exports = {
       "fonts",
       "Poppins-Regular.ttf"
     ),
+  },
+  app: {
+    enabled: true,
+    port: 8080
   }
 };
