@@ -7,6 +7,7 @@
     "start": "DEBUG=`node -e \"console.log(require('./package.json').name + ':info,warn')\"` yarn main",
     "main": "node index.js",
     "verbose": "DEBUG=* yarn main",
+    "docs": "rm -rf docs/; jsdoc ./src/**/* -d ./docs",
     "test": "node src/test/index.js",
     "nodemon": "nodemon --exec 'yarn start'"
   },
