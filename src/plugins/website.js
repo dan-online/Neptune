@@ -5,7 +5,6 @@ class Website {
   constructor(config) {
     this.routes = config.routes || [];
     config.port = config.port || "8080";
-    this.client = require(resolve(__dirname, "../bot.js"));
     this.app = express();
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
@@ -22,21 +21,8 @@ class Website {
             rps: false,
             statusCodes: false,
           },
-          healthChecks: [
-            {
-              protocol: "http",
-              host: "localhost",
-              path: "/status/ping",
-              port: config.port,
-            },
-          ],
         })
       );
-      this.app.get("/status/ping", (req, res) => {
-        return res
-          .status(this.client.ws.status == 0 ? 200 : 500)
-          .json({ code: this.client.ws.status, ping: this.client.ws.ping });
-      });
     }
     this.routes.forEach((route) => {
       this.app.use(route.route, require(resolve(process.cwd(), route.handler)));

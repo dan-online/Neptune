@@ -3,7 +3,7 @@ class Neptune extends Discord.Client {
   events = new Enmap();
   commands = new Enmap();
   constructor() {
-    super();
+    super(process.conf.clientOptions);
     fs.readdir(path.resolve(__dirname, "events"), (err, evnts) => {
       let events = [];
       evnts.forEach((e) => {
