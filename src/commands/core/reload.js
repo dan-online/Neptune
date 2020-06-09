@@ -9,9 +9,7 @@ module.exports.run = async (client, message, args, { commands, events }) => {
   const cmdToReload = args[0] ? args[0].toLowerCase() : false;
   if (!cmdToReload) throw Error("No command/event given!");
   if (commands.get(cmdToReload)) {
-    const cmdFile = path.resolve(__dirname, cmdToReload);
     commands.delete(cmdToReload);
-    delete require.cache[require.resolve(cmdFile)];
     require("../../events/message").loadCommands();
   } else if (events.get(cmdToReload)) {
     const eventFile = path.resolve(__dirname, "..", "events", cmdToReload);

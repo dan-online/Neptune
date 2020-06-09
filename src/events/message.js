@@ -10,6 +10,7 @@ function loadCommands() {
     }
     var cMod;
     try {
+      delete require.cache[require.resolve(place)];
       cMod = require(place);
     } catch {}
     if (!cMod || (cMod.disabled && !process.conf.full)) return;
