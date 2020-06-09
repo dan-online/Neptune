@@ -3,3 +3,4 @@ yarn-*.lock
 .env
 data
 .DS_Store
+yarn.lock
