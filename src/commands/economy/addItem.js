@@ -1,24 +1,42 @@
 module.exports = {
-  aliases: ["additem", "add-item", "addi"],
+  aliases: ["additem", "add-item", "addi", "additems"],
   use: process.conf.prefix + "additem <name>",
   desc: "Add an item to the guilds items store",
   disabled: !(process.conf.economy && process.conf.economy.enabled),
   permissions: ["MANAGE_SERVER"],
 };
-const { ask } = require("../../utils");
-const questions = [
-  {
-    question: "📃 What description would you like **{{name}}** to have?",
-    val(msg) {
-      return msg.content;
-    },
-  },
-];
+const {
+  ask
+} = require("../../utils");
+
 module.exports.run = async (client, message, args) => {
+  const questions = [{
+      question: "📃 What description would you like **{{name}}** to have?",
+      val(msg) {
+        return msg.content;
+      },
+      key: "desc"
+    },
+    {
+      question: "What price would you like **{{name}}** to have?",
+      val(msg) {
+        return msg.content;
+      },
+      test(msg) {
+        if (isNan(message.content)) {
+          throw new Error("Response is not a number!")
+        }
+      },
+      key: "price"
+    }
+  ];
+
   const name = args.join(" ");
   if (!name) throw new Error("Provide a name!");
   const guildCustom = Plugins.economy.initGuild(message.guild);
-  const doc = { name };
+  const doc = {
+    name
+  };
   (function askQ(ind) {
     const q = questions[ind];
     if (!q) return finish();
@@ -43,8 +61,8 @@ module.exports.run = async (client, message, args) => {
         } catch (err) {
           message.channel.send(
             process.conf.emojis.err.full +
-              "  " +
-              (err.message || "Setup timed out!")
+            "  " +
+            (err.message || "Setup timed out!")
           );
           if (err.message) {
             return askQ(ind);
@@ -55,5 +73,9 @@ module.exports.run = async (client, message, args) => {
       }
     );
   })(0);
-  function finish() {}
+
+  function finish() {
+    guildCustom.addItem(doc);
+    message.channel.send("Item was added successfully!");
+  }
 };
