@@ -14,16 +14,16 @@ module.exports = {
     },
   },
   persistent: true,
-  economy: {
-    enabled: true,
-  },
+  // economy: {
+  //   enabled: true,
+  // },
   mods: {
     enabled: true,
   },
-  // website: {
-  //   enabled: true,
-  //   status: true,
-  // },
+  website: {
+    enabled: true,
+    status: true,
+  },
   //   port: 8080,
   //   status: true,
   // routes: [
@@ -94,6 +94,6 @@ module.exports = {
   },
   app: {
     enabled: true,
-    port: 8080
+    port: 3000
   }
 };

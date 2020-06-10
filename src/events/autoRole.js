@@ -6,7 +6,7 @@ module.exports = {
       !(process.conf.settings && process.conf.settings.autoRole)
     )
       return;
-    const guildSettings = settings.getGuild(member.guild);
+    const guildSettings = Plugins.settings.getGuild(member.guild);
     if (guildSettings.autoRole) {
       member.guild.roles
         .fetch(guildSettings.autoRole.value)
