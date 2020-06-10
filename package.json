@@ -22,8 +22,7 @@
     "enmap": "^5.2.4",
     "file-system": "^2.2.2",
     "socket.io": "^2.3.0",
-    "socket.io-encrypt": "^0.1.1",
-    "socket.io-stream": "^0.9.1"
+    "socket.io-encrypt": "^0.1.1"
   },
   "optionalDependencies": {
     "@discordjs/opus": "^0.3.2",
