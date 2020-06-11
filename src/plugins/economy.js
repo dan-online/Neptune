@@ -3,7 +3,9 @@ const {
 } = require("discord.js");
 
 // wow this gonna be a big file
-const { addSuffix } = require("../utils/utils");
+const {
+  addSuffix
+} = require("../utils");
 
 class Economy extends Enmap {
   constructor(config) {
