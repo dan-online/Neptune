@@ -11,7 +11,7 @@ var cachedChangelog = {};
  * @param {Discord.Message} message - The message sent by the user
  * @alias Changelog
  */
-async function helpCommand(client, message) {
+async function changelogCommand(client, message) {
   const embed = new Discord.MessageEmbed()
     .setColor(process.conf.color)
     .setTitle("Changelog");
@@ -44,4 +44,4 @@ async function helpCommand(client, message) {
   }
 }
 
-module.exports.run = helpCommand;
+module.exports.run = changelogCommand;
