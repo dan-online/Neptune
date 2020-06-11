@@ -2,6 +2,11 @@ module.exports = {
   prefix: "t!",
   owner: ["312551747027468290", "209300151485988864"], // your discord id
   color: "#00ffe1",
+  clientOptions: {
+    http: {
+      api: "https://discord.com/api"
+    }
+  },
   // full: true,
   emojis: {
     err: {
