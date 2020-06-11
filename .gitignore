@@ -4,3 +4,4 @@ yarn-*.lock
 data
 .DS_Store
 yarn.lock
+config-back.js

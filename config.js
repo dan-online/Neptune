@@ -9,7 +9,7 @@ module.exports = {
         },
         "success": {
             "id": "✅",
-            "full": ":white_check_mark:"
+            "full": "g:white_check_mark:"
         }
     },
     "persistent": true,
