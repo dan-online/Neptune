@@ -1,42 +1,64 @@
 const {
   commands
 } = require("../bot");
+const {
+  Socket
+} = require("dgram");
+/** A plugin that enables the front-end application */
 class App {
+  /**
+   *Creates an instance of App.
+   * @param {Object} config The config as provided by the enviorment
+   * @memberof App
+   */
   constructor(config) {
     this.port = config.port || 8081;
-    console.log("inited");
+    /** @private */
     this.commands = {
       restart: this.restart,
       saveConfig: this.saveConfig,
       handleErrors: this.handleErrors,
       streamConsole: this.streamConsole,
-      test: this.test
+      test: this.test,
+      error: this.handleErrors
     };
     return this;
   }
-  streamConsole(socket, data) {
+
+  /**
+   * Streams all console input into socket with various event names. This is done by attaching event listeners and emitting events with the data. 
+   * @param {Socket} socket The incoming socket conneciton
+   * @memberof App
+   */
+  streamConsole(socket) {
     process.stdout._write_old = process.stdout.write;
-    process.stdout.write = (d) => {
+    process.stdout.write = d => {
       process.stdout._write_old(d);
       socket.emit("console", d);
-    }
+    };
     log._info = log.info;
-    log.info = (d) => {
+    log.info = d => {
       socket.emit("console-debug", process.conf.name + ":info " + d);
       log._info(d);
-    }
+    };
     log._warn = log.warn;
-    log.warn = (d) => {
+    log.warn = d => {
       socket.emit("console-warn", process.conf.name + ":warn " + d);
       log._warn(d);
-    }
+    };
     log._force = log;
     log = (name, force) => {
       log._force(name, force);
       if (force) return;
-      socket.emit("console-force", process.conf.name + ":" + name + " " + d)
-    }
+      socket.emit("console-force", process.conf.name + ":" + name + " " + d);
+    };
   }
+
+  /**
+   * @private
+   * @param {Socket} socket The incoming socket connection
+   * @memberof App
+   */
   newConnection(socket) {
     socket.emit("config", require("../../config"));
     Object.keys(this.commands).forEach(command => {
@@ -45,10 +67,11 @@ class App {
       });
     });
   }
-  test(socket, data) {
-    console.log(data);
-  }
-  restart(socket, data) {
+  /**
+   * This is a method used to restarrt the application
+   * @memberof App
+   */
+  restart() {
     setTimeout(function () {
       process.once("exit", function () {
         const child = require("child_process").spawn(
@@ -64,8 +87,14 @@ class App {
       process.exit();
     }, 1000);
   }
+
+  /**
+   * This method is used to save the incoming config into config.js, and backing up the old config into config-back.js
+   * @param {Socket} socket The incoming socket connection
+   * @param {Object} config The incoming config from the socket
+   * @memberof App
+   */
   saveConfig(socket, config) {
-    console.log("we were in config");
     const app = this;
     fs.writeFile(
       path.resolve(__dirname, "..", "..", "config-back.js"),
@@ -83,20 +112,39 @@ class App {
       }
     );
   }
-  handleErrors(socket, err) {}
+
+  /**
+   * This method handles errors (by logging client side and server side)
+   * @param {Socket} socket The incoming socket connection
+   * @param {Error} err The generated error
+   * @memberof App
+   */
+  handleErrors(socket, err) {
+    console.log(err);
+  }
+
+  /**
+   * This is a method called to properly initalize the plugin
+   * @private
+   * @param {*} plugins
+   * @memberof App
+   */
   initEarly(plugins) {
     this.app = plugins.website.app ? plugins.website.app : require("express")();
     this.server = require("http").createServer(this.app);
     this.io = require("socket.io")(this.server, {
       origins: "*:*",
     });
-    this.io.use(require("socket.io-encrypt")(String(process.env.SOCKET_KEY)));
-
+    this.io.use(require("socket.io-encrypt")("123"));
+    console.log(process.env.SOCKET_KEY);
     this.io.on("connection", socket => this.newConnection(socket));
     if (!plugins.website.app) {
       this.server.listen(this.port);
     }
     this.server.listen(this.port);
+  }
+  error(socket, err) {
+    console.log(err);
   }
 }
 
