@@ -3,8 +3,14 @@ module.exports = {
   use: process.conf.prefix + "ping",
   desc: "Check the speed of the bot",
 };
-
-module.exports.run = async (client, message) => {
+/**
+ * This command provides the speed of the connection to discord's servers
+ * @function
+ * @param {Discord.Client} client - The client connection
+ * @param {Discord.Message} message - The message sent by the user
+ * @alias Ping
+*/
+async function pingCommand(client, message)  {
   message.channel.send("PONG").then((m) => {
     m.edit(
       "Pong!\nMessage: **" +
@@ -17,3 +23,5 @@ module.exports.run = async (client, message) => {
     );
   });
 };
+
+module.exports.run = pingCommand
