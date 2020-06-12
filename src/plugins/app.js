@@ -1,9 +1,5 @@
-const {
-  commands
-} = require("../bot");
-const {
-  Socket
-} = require("dgram");
+const { commands } = require("../bot");
+const { Socket } = require("dgram");
 /** A plugin that enables the front-end application */
 class App {
   /**
@@ -20,13 +16,14 @@ class App {
       handleErrors: this.handleErrors,
       streamConsole: this.streamConsole,
       test: this.test,
-      error: this.handleErrors
+      error: this.handleErrors,
+      shutdown: this.shutdown,
     };
     return this;
   }
 
   /**
-   * Streams all console input into socket with various event names. This is done by attaching event listeners and emitting events with the data. 
+   * Streams all console input into socket with various event names. This is done by attaching event listeners and emitting events with the data.
    * @param {Socket} socket The incoming socket conneciton
    * @memberof App
    */
@@ -76,7 +73,8 @@ class App {
       process.once("exit", function () {
         const child = require("child_process").spawn(
           process.argv.shift(),
-          process.argv, {
+          process.argv,
+          {
             cwd: process.cwd(),
             detached: true,
             stdio: "ignore",
@@ -87,7 +85,6 @@ class App {
       process.exit();
     }, 1000);
   }
-
   /**
    * This method is used to save the incoming config into config.js, and backing up the old config into config-back.js
    * @param {Socket} socket The incoming socket connection
@@ -145,6 +142,10 @@ class App {
   }
   error(socket, err) {
     console.log(err);
+  }
+  shutdown() {
+    console.log("Shutting down!");
+    process.exit(1);
   }
 }
 

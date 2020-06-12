@@ -1,19 +1,36 @@
-const { parentPort, workerData } = require("worker_threads");
-var { member, avatarUrl, conf, name, guild, message, guildUrl } = workerData;
+const {
+  parentPort,
+  workerData
+} = require("worker_threads");
+var {
+  member,
+  avatarUrl,
+  conf,
+  name,
+  guild,
+  message,
+  guildUrl
+} = workerData;
 member = JSON.parse(member);
 guild = JSON.parse(guild);
-const { addSuffix } = require("../utils/utils");
-const { Canvas } = require("canvas-constructor");
+const {
+  addSuffix
+} = require("../utils/utils");
+const {
+  Canvas
+} = require("canvas-constructor");
 const path = require("path");
 try {
   Canvas.registerFont(
-    conf.welcome.fontPath
-      ? conf.welcome.fontPath
-      : path.resolve("src", "assets", "fonts", "Poppins-Regular.ttf"),
+    conf.welcome.fontPath ?
+    path.resolve(__dirname, conf.welcome.fontPath) :
+    path.resolve("src", "assets", "fonts", "Poppins-Regular.ttf"),
     "default"
   );
 } catch {}
-const { loadImage } = require("canvas");
+const {
+  loadImage
+} = require("canvas");
 var Jimp = require("jimp");
 
 loadImage(avatarUrl).then((image) => {
