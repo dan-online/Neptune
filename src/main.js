@@ -29,7 +29,7 @@ Vue.use(BlackDashboard);
 Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
 
-const socket = io("http:localhost:3000");
+const socket = io("http://localhost:3000");
 encrypt("123")(socket);
 Vue.use(VueSocketIOExt, socket);
 
