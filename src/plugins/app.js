@@ -1,9 +1,4 @@
-const {
-  commands
-} = require("../bot");
-const {
-  Socket
-} = require("dgram");
+const { commands } = require("../bot");
 /** A plugin that enables the front-end application */
 class App {
   /**
@@ -33,17 +28,17 @@ class App {
    */
   streamConsole(socket) {
     process.stdout._write_old = process.stdout.write;
-    process.stdout.write = d => {
+    process.stdout.write = (d) => {
       process.stdout._write_old(d);
       socket.emit("console", d);
     };
     log._info = log.info;
-    log.info = d => {
+    log.info = (d) => {
       socket.emit("console-debug", process.conf.name + ":info " + d);
       log._info(d);
     };
     log._warn = log.warn;
-    log.warn = d => {
+    log.warn = (d) => {
       socket.emit("console-warn", process.conf.name + ":warn " + d);
       log._warn(d);
     };
@@ -62,8 +57,8 @@ class App {
    */
   newConnection(socket) {
     socket.emit("config", require("../../config"));
-    Object.keys(this.commands).forEach(command => {
-      socket.on(command, data => {
+    Object.keys(this.commands).forEach((command) => {
+      socket.on(command, (data) => {
         this.commands[command](socket, data);
       });
     });
@@ -77,7 +72,8 @@ class App {
       process.once("exit", function () {
         const child = require("child_process").spawn(
           process.argv.shift(),
-          process.argv, {
+          process.argv,
+          {
             cwd: process.cwd(),
             detached: true,
             stdio: "ignore",
@@ -99,7 +95,7 @@ class App {
     fs.writeFile(
       path.resolve(__dirname, "..", "..", "config-back.js"),
       "module.exports = " + JSON.stringify(require("../../config")),
-      err => {
+      (err) => {
         app.handleErrors(err);
         fs.writeFile(
           path.resolve(__dirname, "..", "..", "config.js"),
@@ -137,12 +133,12 @@ class App {
     });
     this.io.use(require("socket.io-encrypt")("123"));
     console.log(process.env.SOCKET_KEY);
-    this.io.on("connection", socket => this.newConnection(socket));
+    this.io.on("connection", (socket) => this.newConnection(socket));
     if (!plugins.website.app) {
       this.server.listen(this.port);
     }
     this.server.listen(this.port);
-    log.info("App is listening on port ", this.port)
+    log.info("App is listening on port ", this.port);
   }
   error(socket, err) {
     console.log(err);
