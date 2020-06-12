@@ -1,5 +1,9 @@
-const { commands } = require("../bot");
-const { Socket } = require("dgram");
+const {
+  commands
+} = require("../bot");
+const {
+  Socket
+} = require("dgram");
 /** A plugin that enables the front-end application */
 class App {
   /**
@@ -73,8 +77,7 @@ class App {
       process.once("exit", function () {
         const child = require("child_process").spawn(
           process.argv.shift(),
-          process.argv,
-          {
+          process.argv, {
             cwd: process.cwd(),
             detached: true,
             stdio: "ignore",
@@ -139,6 +142,7 @@ class App {
       this.server.listen(this.port);
     }
     this.server.listen(this.port);
+    log.info("App is listening on port ", this.port)
   }
   error(socket, err) {
     console.log(err);
