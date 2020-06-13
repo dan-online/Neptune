@@ -4,8 +4,8 @@ module.exports = {
   color: "#00ffe1",
   clientOptions: {
     http: {
-      api: "https://discord.com/api"
-    }
+      api: "https://discord.com/api",
+    },
   },
   // full: true,
   emojis: {
@@ -25,10 +25,10 @@ module.exports = {
   mods: {
     enabled: true,
   },
-  website: {
-    enabled: true,
-    status: true,
-  },
+  // website: {
+  //   enabled: true,
+  //   status: true,
+  // },
   //   port: 8080,
   //   status: true,
   // routes: [
@@ -53,23 +53,23 @@ module.exports = {
   //     },
   //   },
   // },
-  webhooks: {
-    enabled: true,
-    paths: [
-      {
-        icon: "https://dancodes.online/assets/images/me.png",
-        name: "Test",
-        path: "test",
-        map: `New test from {{name}}`,
-        debug: true,
-        secret: {
-          key: "123", // should be replaced with a .env for production
-        },
-        channel: "596047625736814614",
-        // Post/Get request to /webhooks/test with body/query: { name: "DanCodes", key: "123" }
-      },
-    ],
-  },
+  // webhooks: {
+  //   enabled: true,
+  //   paths: [
+  //     {
+  //       icon: "https://dancodes.online/assets/images/me.png",
+  //       name: "Test",
+  //       path: "test",
+  //       map: `New test from {{name}}`,
+  //       debug: true,
+  //       secret: {
+  //         key: "123", // should be replaced with a .env for production
+  //       },
+  //       channel: "596047625736814614",
+  //       // Post/Get request to /webhooks/test with body/query: { name: "DanCodes", key: "123" }
+  //     },
+  //   ],
+  // },
   // translate: {
   //   enabled: true,
   // },
@@ -87,16 +87,16 @@ module.exports = {
     enabled: true,
   },
 
-  welcome: {
-    enabled: true,
-    channel: "bot-testing-zone",
-    accentColor: "#7289DA",
-    fontPath: path.resolve(
-      __dirname,
-      "src",
-      "assets",
-      "fonts",
-      "Poppins-Regular.ttf"
-    ),
-  }
+  // welcome: {
+  //   enabled: true,
+  //   channel: "bot-testing-zone",
+  //   accentColor: "#7289DA",
+  //   fontPath: path.resolve(
+  //     __dirname,
+  //     "src",
+  //     "assets",
+  //     "fonts",
+  //     "Poppins-Regular.ttf"
+  //   ),
+  // }
 };
