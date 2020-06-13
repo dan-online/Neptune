@@ -42,7 +42,8 @@ module.exports.run = async (client, message, args) => {
           );
         } else {
           tickets.close(message.author, message.guild, args[1]);
-          message.channel.send("Ticket has been closed successfully!");
+          if (ticketToClose.channel != message.channel.id)
+            message.channel.send("Ticket has been closed successfully!");
         }
       } else {
         if (!openTicket)
@@ -97,6 +98,28 @@ module.exports.run = async (client, message, args) => {
             });
           });
         });
+      break;
+    case "view":
+      const id = args.find((x) => !isNaN(x));
+      const ticket = guildTickets.find((x) => x.number == id);
+      if (!ticket) throw new Error("Ticket " + id + " was not found!");
+      const embed = new Discord.MessageEmbed()
+        .setColor(process.conf.color)
+        .setTitle("Ticket " + ticket.number)
+        .setDescription(
+          `Ticket: ${ticket.number}\nReason: ${ticket.reason}\nUser: ${
+            client.users.cache.get(ticket.user).tag
+          }\nDate: ${new Date(ticket.date).toISOString()}`
+        )
+        .attachFiles({
+          name: `transcript-${ticket.number}-${ticket.user}.txt`,
+          attachment: Buffer.from(
+            ticket.transcript
+              .map((x) => `${x.author}: ${x.content}`)
+              .join("\n\n")
+          ),
+        });
+      message.channel.send(embed);
       break;
     default:
       throw new Error(args[0] ? "Invalid command" : "No command provided");

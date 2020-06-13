@@ -1,5 +1,5 @@
+var Sentry = require("@sentry/node");
 if (process.env.Sentry) {
-  var Sentry = require("@sentry/node");
   Sentry.init({ dsn: process.env.SENTRY });
 }
 module.exports = {
