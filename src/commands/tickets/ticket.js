@@ -32,7 +32,7 @@ module.exports.run = async (client, message, args) => {
       }
     case "close":
       if (args[1] && !isNaN(args[1])) {
-        if (message.member.hasPermission("ADMINISTRATOR"))
+        if (!message.member.hasPermission("ADMINISTRATOR"))
           throw new Error("Only an admin can close other tickets!");
         let ticketToClose = guildTickets.find((x) => x.number == args[1]);
         if (!ticketToClose) throw new Error("No ticket with that ID found!");

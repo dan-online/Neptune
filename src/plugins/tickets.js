@@ -29,6 +29,7 @@ module.exports = class Tickets extends Enmap {
           date: new Date(),
           channel: channel.id,
           user: user.id,
+          transcript: [],
           status: { open: true, mod: user.id }, // 0 open 1 closed
         });
         this.set(guild.id, this.tickets);
