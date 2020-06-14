@@ -61,6 +61,8 @@ module.exports.run = async (client, message, args) => {
     case "list":
       if (args[1] == "open")
         guildTickets = guildTickets.filter((x) => x.status.open);
+      if (guildTickets.length < 1)
+        return message.channel.send(":tada: No open tickets!");
       guildTickets
         .reduce((prev, curr) => {
           if (!prev || !prev[0]) {
@@ -109,7 +111,9 @@ module.exports.run = async (client, message, args) => {
         .setDescription(
           `Ticket: ${ticket.number}\nReason: ${ticket.reason}\nUser: ${
             client.users.cache.get(ticket.user).tag
-          }\nDate: ${new Date(ticket.date).toISOString()}`
+          }\nDate: ${new Date(ticket.date).toLocaleString()}\n Status: ${
+            ticket.status.open ? "opened" : "closed"
+          } by <@${ticket.status.mod || ticket.user}>`
         )
         .attachFiles({
           name: `transcript-${ticket.number}-${ticket.user}.txt`,
