@@ -50,7 +50,18 @@ class GuildEconomy {
     return this.doc.items || [];
   }
   addItem(doc) {
+    if (this.items().filter(item => item.name == doc.name)) {
+      throw new Error("Item name is already used!");
+    }
+
     this.items().push(doc)
+    this.db.set(this.guild.id + "_custom", this.doc);
+  }
+  removeItem(name) {
+    if (!this.items().filter(item => item.name == name)) {
+      throw new Error("Item is not found!");
+    }
+    this.doc.items = this.items().filter(item => item.name != name);
     this.db.set(this.guild.id + "_custom", this.doc);
   }
 }
@@ -130,50 +141,22 @@ class UserEconomy {
       sorted.findIndex((user) => user.member.id == this.member.id) + 1;
     return formatted ? addSuffix(place) : place;
   }
+  buyItem(name, guild) {
+    const items = guild.items().filter(item => item.name == name);
+    if (items.length == 0) {
+      throw new Error("Item name is incorrect!");
+    }
+    const item = items[0]
+    if (this.doc.balance < item.price) {
+      throw new Error("Insufficient balance!");
+    }
+    this.doc.balance = item.price;
+    this.doc.items.push(item);
+    this.saveUser();
+  }
+  items() {
+    return this.doc.items || []
+  }
 }
-
-// class Economy extends Enmap {
-//   constructor(config) {
-//     if (!process.conf.economy.currency) {
-//       process.conf.economy.currency = " coins";
-//     } else if (!process.conf.economy.currency.startsWith(" ")) {
-//       process.conf.economy.currency = " " + process.conf.economy.currency;
-//     }
-//     super(process.conf.persistent ? { name: "economy" } : null);
-//     this.config = config || {};
-//     return this;
-//   }
-//   init(member, guild) {
-//     return this.getFullDoc(member, guild);
-//   }
-//   getFullDoc(member, guild) {
-//     console.log(this);
-//     var guildBalances = this.db.get(guild.id);
-//     if (!guildBalances) {
-//       this.db.set(guild.id, []);
-//       guildBalances = [];
-//     }
-//     console.log(guildBalances);
-//     var userBalance = guildBalances.find((x) => x.member.id == member.id);
-//     if (!userBalance) {
-//       userBalance = {
-//         member: {
-//           id: member.id,
-//           displayName: member.displayName,
-//         },
-//         balance: 0,
-//         items: [],
-//       };
-//       guildBalances.push(userBalance);
-//       this.db.set(guild.id, guildBalances);
-//     }
-//     console.log(userBalance);
-//     let sorted = guildBalances.sort((b, a) => a.balance - b.balance);
-//     let place = sorted.findIndex((user) => user.member.id == member.id) + 1;
-//     userBalance.formatPlace = addSuffix(place);
-//     userBalance.place = place;
-//     return userBalance;
-//   }
-// }
 
 module.exports = Economy;

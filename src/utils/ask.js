@@ -3,6 +3,7 @@ module.exports = function (message, question, choices, cb) {
     cb = choices;
     choices = null;
   }
+
   function checkChoices(m) {
     if (!choices) return true;
     let content = m.content.toLowerCase();
@@ -14,15 +15,14 @@ module.exports = function (message, question, choices, cb) {
   }
   return message.channel
     .send(
-      typeof question == "string"
-        ? question + (choices ? " [" + choices.join(",") + "]" : "")
-        : question
+      typeof question == "string" ?
+      question + (choices ? " [" + choices.join(",") + "]" : "") :
+      question
     )
     .then((q) => {
       message.channel
         .awaitMessages(
-          (m) => message.author.id == m.author.id && checkChoices(m),
-          {
+          (m) => message.author.id == m.author.id && checkChoices(m), {
             max: 1,
             time: 60000,
             errors: ["time"],

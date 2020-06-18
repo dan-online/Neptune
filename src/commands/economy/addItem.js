@@ -23,7 +23,7 @@ module.exports.run = async (client, message, args) => {
         return msg.content;
       },
       test(msg) {
-        if (isNan(message.content)) {
+        if (isNaN(msg.content)) {
           throw new Error("Response is not a number!")
         }
       },
@@ -64,6 +64,9 @@ module.exports.run = async (client, message, args) => {
             "  " +
             (err.message || "Setup timed out!")
           );
+          if (msg.content.toLowerCase == "cancel") {
+            return;
+          }
           if (err.message) {
             return askQ(ind);
           }
