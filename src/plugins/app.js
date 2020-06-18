@@ -1,10 +1,6 @@
-const {
-  commands
-} = require("../bot");
-const {
-  Socket
-} = require("dgram");
 /** A plugin that enables the front-end application */
+const client = require("../bot");
+
 class App {
   /**
    *Creates an instance of App.
@@ -23,6 +19,11 @@ class App {
       error: this.handleErrors,
       shutdown: this.shutdown,
     };
+    this.ready = false;
+    client.on("ready", () => {
+      console.log("client readied");
+      this.ready = true;
+    });
     return this;
   }
 
@@ -61,7 +62,18 @@ class App {
    * @memberof App
    */
   newConnection(socket) {
+    console.log(this.ready);
+    if (!this.ready) {
+      socket.disconnect();
+      return;
+    }
     socket.emit("config", require("../../config"));
+    var config = require("../../config");
+    config["avatar_url"] = client["user"].avatarURL({
+      size: 512,
+      format: "png",
+    });
+    socket.emit("config", config);
     Object.keys(this.commands).forEach(command => {
       socket.on(command, data => {
         this.commands[command](socket, data);
@@ -142,7 +154,7 @@ class App {
       this.server.listen(this.port);
     }
     this.server.listen(this.port);
-    log.info("App is listening on port ", this.port)
+    log.info("App is listening on port ", this.port);
   }
   error(socket, err) {
     console.log(err);
