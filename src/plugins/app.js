@@ -1,3 +1,10 @@
+<< << << < HEAD
+  ===
+  === =
+  const {
+    commands
+  } = require("../bot"); >>>
+>>> > e998a41e7d368ccd61f64c04a6570647081a671d
 /** A plugin that enables the front-end application */
 const client = require("../bot");
 
@@ -34,17 +41,17 @@ class App {
    */
   streamConsole(socket) {
     process.stdout._write_old = process.stdout.write;
-    process.stdout.write = d => {
+    process.stdout.write = (d) => {
       process.stdout._write_old(d);
       socket.emit("console", d);
     };
     log._info = log.info;
-    log.info = d => {
+    log.info = (d) => {
       socket.emit("console-debug", process.conf.name + ":info " + d);
       log._info(d);
     };
     log._warn = log.warn;
-    log.warn = d => {
+    log.warn = (d) => {
       socket.emit("console-warn", process.conf.name + ":warn " + d);
       log._warn(d);
     };
@@ -111,7 +118,7 @@ class App {
     fs.writeFile(
       path.resolve(__dirname, "..", "..", "config-back.js"),
       "module.exports = " + JSON.stringify(require("../../config")),
-      err => {
+      (err) => {
         app.handleErrors(err);
         fs.writeFile(
           path.resolve(__dirname, "..", "..", "config.js"),
@@ -149,7 +156,7 @@ class App {
     });
     this.io.use(require("socket.io-encrypt")("123"));
     console.log(process.env.SOCKET_KEY);
-    this.io.on("connection", socket => this.newConnection(socket));
+    this.io.on("connection", (socket) => this.newConnection(socket));
     if (!plugins.website.app) {
       this.server.listen(this.port);
     }
