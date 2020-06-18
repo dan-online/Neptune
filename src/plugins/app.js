@@ -1,10 +1,3 @@
-<< << << < HEAD
-  ===
-  === =
-  const {
-    commands
-  } = require("../bot"); >>>
->>> > e998a41e7d368ccd61f64c04a6570647081a671d
 /** A plugin that enables the front-end application */
 const client = require("../bot");
 
