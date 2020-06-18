@@ -18,6 +18,8 @@ import App from "./App";
 // TIP: change to import router from "./router/starterRouter"; to start with a clean layout
 import router from "./router/index";
 
+
+
 import VueSocketIOExt from "vue-socket.io-extended";
 import encrypt from "socket.io-encrypt"
 import io from "socket.io-client";
@@ -29,6 +31,8 @@ Vue.use(BlackDashboard);
 Vue.use(VueRouter);
 Vue.use(RouterPrefetch);
 
+import store from "./store/store";
+
 const socket = io("http://localhost:3000");
 encrypt("123")(socket);
 Vue.use(VueSocketIOExt, socket);
@@ -37,5 +41,6 @@ Vue.use(VueSocketIOExt, socket);
 new Vue({
   router,
   i18n,
+  store,
   render: h => h(App)
 }).$mount("#app");

@@ -40,6 +40,10 @@ export default {
     this.$watch("$route", this.disableRTL, { immediate: true });
     this.$watch("$sidebar.showSidebar", this.toggleNavOpen);
     this.$socket.client.on("connect", this.connect);
+    this.$socket.client.on("config", data => {
+      console.log(data);
+      this.$store.commit("config", data);
+    });
     setTimeout(() => {
       if (!this.connected) {
         this.timeout = true;
