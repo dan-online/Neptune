@@ -5,17 +5,16 @@ module.exports = {
   disabled: !(process.conf.economy && process.conf.economy.enabled),
   permissions: ["MANAGE_SERVER"],
 };
-const {
-  ask
-} = require("../../utils");
+const { ask } = require("../../utils");
 
 module.exports.run = async (client, message, args) => {
-  const questions = [{
+  const questions = [
+    {
       question: "📃 What description would you like **{{name}}** to have?",
       val(msg) {
         return msg.content;
       },
-      key: "desc"
+      key: "desc",
     },
     {
       question: "What price would you like **{{name}}** to have?",
@@ -24,18 +23,18 @@ module.exports.run = async (client, message, args) => {
       },
       test(msg) {
         if (isNaN(msg.content)) {
-          throw new Error("Response is not a number!")
+          throw new Error("Response is not a number!");
         }
       },
-      key: "price"
-    }
+      key: "price",
+    },
   ];
 
   const name = args.join(" ");
   if (!name) throw new Error("Provide a name!");
   const guildCustom = Plugins.economy.initGuild(message.guild);
   const doc = {
-    name
+    name,
   };
   (function askQ(ind) {
     const q = questions[ind];
@@ -45,10 +44,12 @@ module.exports.run = async (client, message, args) => {
       q.question.split("{{name}}").join(name),
       q.options || null,
       function (err, msg) {
+        if (err) {
+          return message.channel.send(
+            "Oops we ran into an error: " + err.message
+          );
+        }
         try {
-          if (err) {
-            throw err;
-          }
           if (!msg.content) {
             throw new Error("No answer provided!");
           }
@@ -61,8 +62,8 @@ module.exports.run = async (client, message, args) => {
         } catch (err) {
           message.channel.send(
             process.conf.emojis.err.full +
-            "  " +
-            (err.message || "Setup timed out!")
+              "  " +
+              (err.message || "Setup timed out!")
           );
           if (msg.content.toLowerCase == "cancel") {
             return;

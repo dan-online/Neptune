@@ -1,11 +1,7 @@
-const {
-  Guild
-} = require("discord.js");
+const { Guild } = require("discord.js");
 
 // wow this gonna be a big file
-const {
-  addSuffix
-} = require("../utils");
+const { addSuffix } = require("../utils");
 
 class Economy extends Enmap {
   constructor(config) {
@@ -13,10 +9,11 @@ class Economy extends Enmap {
       process.conf.economy.currency = " coins";
     }
     super(
-      process.conf.persistent ? {
-        name: "economy",
-      } :
-      null
+      process.conf.persistent
+        ? {
+            name: "economy",
+          }
+        : null
     );
     this.config = config || {};
     return this;
@@ -36,11 +33,11 @@ class GuildEconomy {
     this.doc = this.db.get(guild.id + "_custom");
     if (!this.doc) {
       this.db.set(guild.id + "_custom", {
-        items: []
+        items: [],
       });
       this.doc = {
-        items: []
-      }
+        items: [],
+      };
     }
     return this;
   }
@@ -48,18 +45,18 @@ class GuildEconomy {
     return this.doc.items || [];
   }
   addItem(doc) {
-    if (this.items().filter(item => item.name == doc.name)) {
+    if (this.items().find((item) => item.name == doc.name)) {
       throw new Error("Item name is already used!");
     }
 
-    this.items().push(doc)
+    this.items().push(doc);
     this.db.set(this.guild.id + "_custom", this.doc);
   }
   removeItem(name) {
-    if (!this.items().filter(item => item.name == name)) {
+    if (!this.items().find((item) => item.name == name)) {
       throw new Error("Item is not found!");
     }
-    this.doc.items = this.items().filter(item => item.name != name);
+    this.doc.items = this.items().find((item) => item.name != name);
     this.db.set(this.guild.id + "_custom", this.doc);
   }
 }
@@ -140,20 +137,22 @@ class UserEconomy {
     return formatted ? addSuffix(place) : place;
   }
   buyItem(name, guild) {
-    const items = guild.items().filter(item => item.name == name);
-    if (items.length == 0) {
-      throw new Error("Item name is incorrect!");
-    }
-    const item = items[0]
+    const items = guild.items().filter((item) => item.name == name);
+    // if (items.length == 0) {
+    //   throw new Error("Item name is incorrect!");
+    // }
+    const item = items[0];
     if (this.doc.balance < item.price) {
       throw new Error("Insufficient balance!");
     }
-    this.doc.balance = item.price;
+    if (this.doc.items.find((x) => x.name == item.name))
+      throw new Error("You already have this item!");
+    this.doc.balance -= item.price;
     this.doc.items.push(item);
     this.saveUser();
   }
   items() {
-    return this.doc.items || []
+    return this.doc.items || [];
   }
 }
 
