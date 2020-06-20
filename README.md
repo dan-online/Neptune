@@ -15,14 +15,15 @@ To use stable releases go to [releases](../../releases)
 
 ## To-do
 
-- Economy / points system plugin (WIP)
+- ~Economy / points system plugin~
 - ~Webhook plugin~
 - API plugin
 - Updater plugin/system
 - Points system
 - ~Translate~
 - Welcome/Leave messages (image jimp)
-- Verification system (email/oauth)
+- ~Verification system (email/oauth)~
+- ~Status page~
 - Monitoring app
 - CLI init
 

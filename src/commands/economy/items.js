@@ -2,9 +2,11 @@ module.exports = {
   aliases: ["items", "its"],
   use: process.conf.prefix + "items",
   desc: "View items in the shop",
-  disabled: !(process.conf.economy && process.conf.economy.enabled),
+  disabled: true,
 };
-const { ask } = require("../../utils");
+const {
+  ask
+} = require("../../utils");
 module.exports.run = async (client, message, args) => {
   const guildCustom = Plugins.economy.initGuild(message.guild);
   const items = guildCustom.items();
@@ -21,8 +23,8 @@ module.exports.run = async (client, message, args) => {
       message,
       embed,
       Array(pages)
-        .fill("")
-        .map((x, i) => String(i + 1)),
+      .fill("")
+      .map((x, i) => String(i + 1)),
       function (err, reply, myMessage) {
         if (err) throw err;
         reply.delete().then(() => {

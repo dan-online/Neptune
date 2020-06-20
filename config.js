@@ -76,27 +76,4 @@ module.exports = {
   // music: {
   //   enabled: true,
   // },
-  settings: {
-    enabled: true,
-    autoRole: true,
-  },
-  tickets: {
-    enabled: true,
-  },
-  reactionRoles: {
-    enabled: true,
-  },
-
-  // welcome: {
-  //   enabled: true,
-  //   channel: "bot-testing-zone",
-  //   accentColor: "#7289DA",
-  //   fontPath: path.resolve(
-  //     __dirname,
-  //     "src",
-  //     "assets",
-  //     "fonts",
-  //     "Poppins-Regular.ttf"
-  //   ),
-  // }
 };

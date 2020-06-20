@@ -1,3 +1,4 @@
+
 var Sentry = require("@sentry/node");
 if (process.env.Sentry) {
   Sentry.init({ dsn: process.env.SENTRY });
