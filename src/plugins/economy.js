@@ -137,11 +137,10 @@ class UserEconomy {
     return formatted ? addSuffix(place) : place;
   }
   buyItem(name, guild) {
-    const items = guild.items().filter((item) => item.name == name);
-    // if (items.length == 0) {
-    //   throw new Error("Item name is incorrect!");
-    // }
-    const item = items[0];
+    const item = guild.items().find((item) => item.name == name);
+    if (!item) {
+      throw new Error("Item was not found!");
+    }
     if (this.doc.balance < item.price) {
       throw new Error("Insufficient balance!");
     }
