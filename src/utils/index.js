@@ -1,3 +1,5 @@
+const fs = require("file-system"),
+  path = require("path");
 const utilFiles = fs.readdirSync(path.resolve(__dirname));
 utilFiles.forEach((x) => {
   const name = x.split(".js")[0];

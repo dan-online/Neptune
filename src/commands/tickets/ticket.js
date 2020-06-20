@@ -1,6 +1,7 @@
 module.exports = {
   aliases: ["ticket", "t"],
-  use: process.conf.prefix + "ticket <command> <reason/option>",
+  use:
+    process.conf.prefix + "ticket <command (open/close/list)> <reason/option>",
   desc: "Open a ticket for support",
   disabled: !(process.conf.tickets && process.conf.tickets.enabled),
 };
@@ -31,7 +32,7 @@ module.exports.run = async (client, message, args) => {
       }
     case "close":
       if (args[1] && !isNaN(args[1])) {
-        if (message.member.hasPermission("ADMINISTRATOR"))
+        if (!message.member.hasPermission("ADMINISTRATOR"))
           throw new Error("Only an admin can close other tickets!");
         let ticketToClose = guildTickets.find((x) => x.number == args[1]);
         if (!ticketToClose) throw new Error("No ticket with that ID found!");
@@ -41,7 +42,8 @@ module.exports.run = async (client, message, args) => {
           );
         } else {
           tickets.close(message.author, message.guild, args[1]);
-          message.channel.send("Ticket has been closed successfully!");
+          if (ticketToClose.channel != message.channel.id)
+            message.channel.send("Ticket has been closed successfully!");
         }
       } else {
         if (!openTicket)
@@ -59,6 +61,8 @@ module.exports.run = async (client, message, args) => {
     case "list":
       if (args[1] == "open")
         guildTickets = guildTickets.filter((x) => x.status.open);
+      if (guildTickets.length < 1)
+        return message.channel.send(":tada: No open tickets!");
       guildTickets
         .reduce((prev, curr) => {
           if (!prev || !prev[0]) {
@@ -96,6 +100,30 @@ module.exports.run = async (client, message, args) => {
             });
           });
         });
+      break;
+    case "view":
+      const id = args.find((x) => !isNaN(x));
+      const ticket = guildTickets.find((x) => x.number == id);
+      if (!ticket) throw new Error("Ticket " + id + " was not found!");
+      const embed = new Discord.MessageEmbed()
+        .setColor(process.conf.color)
+        .setTitle("Ticket " + ticket.number)
+        .setDescription(
+          `Ticket: ${ticket.number}\nReason: ${ticket.reason}\nUser: ${
+            client.users.cache.get(ticket.user).tag
+          }\nDate: ${new Date(ticket.date).toLocaleString()}\n Status: ${
+            ticket.status.open ? "opened" : "closed"
+          } by <@${ticket.status.mod || ticket.user}>`
+        )
+        .attachFiles({
+          name: `transcript-${ticket.number}-${ticket.user}.txt`,
+          attachment: Buffer.from(
+            ticket.transcript
+              .map((x) => `${x.author}: ${x.content}`)
+              .join("\n\n")
+          ),
+        });
+      message.channel.send(embed);
       break;
     default:
       throw new Error(args[0] ? "Invalid command" : "No command provided");

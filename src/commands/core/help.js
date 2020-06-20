@@ -3,8 +3,16 @@ module.exports = {
   use: process.conf.prefix + "help <category>",
   desc: "View this help block",
 };
-
-module.exports.run = async (client, message, args, { commands }) => {
+/**
+ * This command shows the help prompt and lists the commands
+ * @function
+ * @param {Discord.Client} client - The client connection
+ * @param {Discord.Message} message - The message sent by the user
+ * @param {Array} args - An array of arguments sent with the command
+ * @param {Enmap} commands - The Enmap of commands in memory
+ * @alias Help
+*/
+async function helpCommand (client, message, args, { commands })  {
   commands = Array.from(commands)
     .filter((x) => x[0] == x[1].use.split(" ")[0].split(process.conf.prefix)[1])
     .map((x) => ({ ...x[1], name: x[0] }));
@@ -53,14 +61,9 @@ ${commands
   )
   .join("\n\n")}
   
-= Created by ${
-    typeof process.conf.owner == "string"
-      ? client.users.cache.get(process.conf.owner).tag
-      : process.conf.owner
-          .map((o) => client.users.cache.get(o).tag)
-          .join(" and ")
-  } = 
 \`\`\`
 `;
   message.channel.send(final);
 };
+
+module.exports.run = helpCommand

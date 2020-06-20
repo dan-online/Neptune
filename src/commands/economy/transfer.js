@@ -1,5 +1,5 @@
 module.exports = {
-  aliases: ["transfer", "t"],
+  aliases: ["transfer", "tr"],
   use: process.conf.prefix + "transfer <balance> <target>",
   desc:
     "Transfer " +

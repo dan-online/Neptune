@@ -13,5 +13,5 @@ files.forEach((file) => {
 });
 log.info(`Starting ${process.conf.name}@${process.conf.version}`);
 
-const { client } = require("./src/bot");
-module.exports = client;
+const Neptune = require("./src/bot");
+module.exports = Neptune;

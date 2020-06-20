@@ -10,6 +10,7 @@ function loadCommands() {
     }
     var cMod;
     try {
+      delete require.cache[require.resolve(place)];
       cMod = require(place);
     } catch {}
     if (!cMod || (cMod.disabled && !process.conf.full)) return;
@@ -77,6 +78,7 @@ module.exports = {
         );
       }
       log("errr")(err);
+      Sentry.captureException(err);
       message.channel.send(
         process.conf.emojis.err.full +
           " There was an error on our side: " +

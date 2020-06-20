@@ -1,33 +1,34 @@
-const client = new Discord.Client();
-const cache = {
-  events: new Enmap(),
-  commands: new Enmap(),
-};
-
-fs.readdir(path.resolve(__dirname, "events"), function (err, evnts) {
-  let events = [];
-  evnts.forEach((e) => {
-    const file = require(path.resolve(__dirname, "events", e));
-    let ind = events.findIndex((x) => x.name == file.name);
-    if (ind < 0) {
-      events.push({
-        name: file.name,
-        callers: [file],
+// const client = new Discord.Client();
+class Neptune extends Discord.Client {
+  events = new Enmap();
+  commands = new Enmap();
+  constructor() {
+    super(process.conf.clientOptions);
+    fs.readdir(path.resolve(__dirname, "events"), (err, evnts) => {
+      let events = [];
+      evnts.forEach((e) => {
+        const file = require(path.resolve(__dirname, "events", e));
+        let ind = events.findIndex((x) => x.name == file.name);
+        if (ind < 0) {
+          events.push({ name: file.name, callers: [file] });
+        } else {
+          events[ind].callers.push(file);
+        }
       });
-    } else {
-      events[ind].callers.push(file);
-    }
-  });
-  events.forEach((event) => {
-    cache.events.set(event.name, event.callers);
-    client.on(event.name, (...extra) => {
-      log("evnt")("incoming: " + event.name);
-      return cache.events
-        .get(event.name)
-        .forEach((e) => e.event(client, ...extra));
+      events.forEach((event) => {
+        this.events.set(event.name, event.callers);
+        this.on(event.name, (...extra) => {
+          return this.events
+            .get(event.name)
+            .forEach((e) => e.event(this, ...extra));
+        });
+      });
     });
-  });
-});
+    this.login(process.env.TOKEN);
+  }
+}
+
+const client = new Neptune();
 
 process.on("unhandledRejection", function (err) {
   Sentry.captureException(err);
@@ -53,7 +54,4 @@ process.on("unhandledRejection", function (err) {
   console.error(err);
 });
 
-client.login(process.env.TOKEN);
-
-module.exports = cache;
-module.exports.client = client;
+module.exports = client;

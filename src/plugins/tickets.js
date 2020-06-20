@@ -29,6 +29,7 @@ module.exports = class Tickets extends Enmap {
           date: new Date(),
           channel: channel.id,
           user: user.id,
+          transcript: [],
           status: { open: true, mod: user.id }, // 0 open 1 closed
         });
         this.set(guild.id, this.tickets);
@@ -56,6 +57,20 @@ module.exports = class Tickets extends Enmap {
     try {
       guild.channels.cache.get(doc[index].channel).delete();
     } catch {}
+    let getUser = guild.members.cache.get(doc[index].user);
+    if (getUser) {
+      getUser.send(
+        "Your ticket was closed, the transcript has been attached",
+        new Discord.MessageAttachment(
+          Buffer.from(
+            doc[index].transcript
+              .map((x) => `${x.author}: ${x.content}`)
+              .join("\n\n")
+          ),
+          `transcript-${doc[index].number}-${doc[index].user}.txt`
+        )
+      );
+    }
     this.set(guild.id, doc);
   }
 };

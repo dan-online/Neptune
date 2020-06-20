@@ -1,10 +1,9 @@
 module.exports = function (client, message) {
-  if (
-    message.author.bot ||
-    message.author.id == client.user.id ||
-    !message.guild
-  )
-    return false;
+  if (!message.guild) {
+    return;
+  }
+
+  if (message.author.bot || message.author.id == client.user.id) return false;
   if (
     message.mentions.members.first() &&
     message.mentions.members.first().id == client.user.id
@@ -16,10 +15,10 @@ module.exports = function (client, message) {
   }
   if (
     !message.content
-      .toLowerCase()
-      .split(" ")
-      .join("")
-      .startsWith(process.conf.prefix)
+    .toLowerCase()
+    .split(" ")
+    .join("")
+    .startsWith(process.conf.prefix)
   ) {
     return false;
   }

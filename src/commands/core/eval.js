@@ -5,7 +5,17 @@ module.exports = {
   use: process.conf.prefix + "eval [code]",
   desc: "Evaluate javascript code",
 };
-module.exports.run = async (client, message, args, extras) => {
+
+/**
+ * This command evaluates javascript code
+ * @function
+ * @param {Discord.Client} client - The client connection
+ * @param {Discord.Message} message - The message sent by the user
+ * @param {Array} args - An array of arguments sent with the command
+ * @param {object} extras - Enmaps, databases and more
+ * @alias Eval
+*/
+async function evalCommand (client, message, args, extras) {
   const toEval = args.join(" ");
   try {
     let evaled = eval(toEval);
@@ -18,3 +28,5 @@ module.exports.run = async (client, message, args, extras) => {
     message.react(process.conf.emojis.err.id);
   }
 };
+
+module.exports.run = evalCommand

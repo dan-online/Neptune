@@ -1,11 +1,11 @@
 # Neptune
 
-> A template for a discord bot written with discordjs with reloadable events and commands. Easy to configure and a good starting point
+> A template for a discord bot written with discordjs with reloadable events and commands along with a multitude of plugins
 
 [![Discordjs Version][discordjs-image]][discordjs-url]
 ![Discord-Bot languages](https://img.shields.io/github/languages/count/dan-online/discord-bot)
 ![Discord-bot version](https://img.shields.io/github/package-json/v/dan-online/discord-bot)
-![Node.js CI](https://github.com/dan-online/Discord-Bot/workflows/Node.js%20CI/badge.svg)
+![Neptune CI](https://github.com/dan-online/Neptune/workflows/Neptune%20CI/badge.svg)
 
 ## Downloads
 
@@ -15,17 +15,21 @@ To use stable releases go to [releases](../../releases)
 
 ## To-do
 
-- Economy / points system plugin (WIP)
-- Webhook plugin
+- ~Economy / points system plugin~
+- ~Webhook plugin~
 - API plugin
 - Updater plugin/system
 - Points system
 - ~Translate~
 - Welcome/Leave messages (image jimp)
-- Verification system (email/oauth)
-- Status page
+- ~Verification system (email/oauth)~
+- ~Status page~
+- Monitoring app
+- CLI init
 
 ## Installation
+
+Make sure to have FFmpeg/avconv installed for the youtube plugin
 
 #### .env
 
