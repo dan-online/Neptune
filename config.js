@@ -1,7 +1,7 @@
 module.exports = {
-  prefix: "t!",
-  owner: ["312551747027468290", "209300151485988864"], // your discord id
-  color: "#00ffe1",
+  prefix: "test!",
+  owner: ["312551747027468290"], // your discord id
+  color: "#85bb65",
   clientOptions: {
     http: {
       api: "https://discord.com/api",
@@ -73,7 +73,8 @@ module.exports = {
   // translate: {
   //   enabled: true,
   // },
-  // music: {
-  //   enabled: true,
-  // },
+
+  music: {
+    enabled: true,
+  },
 };
